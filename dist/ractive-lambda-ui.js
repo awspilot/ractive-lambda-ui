@@ -113,19 +113,35 @@ var _functionlist = __webpack_require__(2);
 
 var _functionlist2 = _interopRequireDefault(_functionlist);
 
+var _functioncreate = __webpack_require__(3);
+
+var _functioncreate2 = _interopRequireDefault(_functioncreate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _ractive2.default.extend({
-	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-lambda-ui", g: 1 }], f: [{ t: 7, e: "left", m: [{ t: 13, n: "style", f: "border-right: 1px solid #b9b8b6;background-color: #fff;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;", g: 1 }], f: ["AWS Lambda"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;bottom: 0px;top: 60px;left: 0px;right: 0px;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Dashboard"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Applications"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #ec7211;font-weight: bold;", g: 1 }], f: ["Functions"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Layers"] }] }] }, " ", { t: 7, e: "content", m: [{ t: 13, n: "style", f: "background-color: transparent;border: 0px;overflow-x: auto;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Functions"] }] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;", g: 1 }], f: [{ t: 7, e: "div", m: [{ n: "style", f: ["position: absolute;top: 0px;left: 0px;width: ", { t: 4, f: ["260px; "], n: 50, x: { r: ["active_id"], s: "_0===\"stackdetails\"" } }, { t: 4, f: ["100%;"], n: 51, l: 1 }, "; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff"], t: 13 }], f: [{ t: 7, e: "functionlist" }] }] }] }] }], e: { "_0===\"stackdetails\"": function _0Stackdetails(_0) {
+	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-lambda-ui", g: 1 }], f: [{ t: 7, e: "left", m: [{ t: 13, n: "style", f: "border-right: 1px solid #b9b8b6;background-color: #fff;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;", g: 1 }], f: ["AWS Lambda"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;bottom: 0px;top: 60px;left: 0px;right: 0px;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Dashboard"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Applications"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #ec7211;font-weight: bold;", g: 1 }], f: ["Functions"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Layers"] }] }] }, " ", { t: 7, e: "content", m: [{ t: 13, n: "style", f: "background-color: transparent;border: 0px;overflow-x: auto;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Functions"] }] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;", g: 1 }], f: [{ t: 4, f: [{ t: 7, e: "div", m: [{ n: "style", f: ["position: absolute;top: 0px;left: 0px;width: ", { t: 4, f: ["260px; "], n: 50, x: { r: ["active_id"], s: "_0===\"stackdetails\"" } }, { t: 4, f: ["100%;"], n: 51, l: 1 }, "; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff"], t: 13 }], f: [{ t: 7, e: "functionlist" }] }], n: 50, x: { r: ["tab"], s: "_0===\"list\"" } }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ n: "style", f: ["position: absolute;top: 0px;left: 0px;width: ", { t: 4, f: ["260px; "], n: 50, x: { r: ["active_id"], s: "_0===\"stackdetails\"" } }, { t: 4, f: ["100%;"], n: 51, l: 1 }, "; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff"], t: 13 }], f: [{ t: 7, e: "functioncreate" }] }], n: 50, x: { r: ["tab"], s: "_0===\"create\"" } }] }] }] }], e: { "_0===\"stackdetails\"": function _0Stackdetails(_0) {
 				return _0 === "stackdetails";
+			}, "_0===\"list\"": function _0List(_0) {
+				return _0 === "list";
+			}, "_0===\"create\"": function _0Create(_0) {
+				return _0 === "create";
 			} } },
 	components: {
-		functionlist: _functionlist2.default
+		functionlist: _functionlist2.default,
+		functioncreate: _functioncreate2.default
 	},
 	css: ".hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .ractive-lambda-ui {font-family: sans-serif;} .ractive-lambda-ui * {box-sizing: border-box } ",
 	data: function data() {
-		return {};
+		return {
+			tab: 'list'
+		};
 	},
+
+	create_function: function create_function() {
+		this.set({ tab: 'create' });
+	},
+
 
 	on: {
 		init: function init() {
@@ -158,7 +174,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click=\'delete\'{{/if}}> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="create-function"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
+	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click=\'delete\'{{/if}}> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
 	load_functions: function load_functions() {
 		var ractive = this;
 		var params = {
@@ -199,8 +215,25 @@ exports.default = Ractive.extend({
 					ractive.load_functions();
 				});
 			}
+		},
+		createfunction: function createfunction() {
+			this.parent.create_function();
 		}
 	}
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	template: "\n\t\tcreate function form\n\n\t"
 });
 
 /***/ })

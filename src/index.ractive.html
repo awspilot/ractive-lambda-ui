@@ -30,9 +30,19 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 			</div>
 
 			<div style="position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;">
-				<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
-					<functionlist />
-				</div>
+				{{#if tab === 'list'}}
+					<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+						<functionlist />
+					</div>
+				{{/if}}
+
+				{{#if tab === 'create'}}
+					<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+						<functioncreate />
+					</div>
+				{{/if}}
+
+
 			</div>
 		</content>
 	</hsplit>
@@ -41,15 +51,23 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 
 	import Ractive from 'ractive';
 	import functionlist from './functionlist'
+	import functioncreate from './functioncreate'
 
 	export default Ractive.extend({
 		template: $TEMPLATE,
 		components: {
 			functionlist: functionlist,
+			functioncreate: functioncreate,
 		},
 		css: $CSS,
 		data: function() {
-			return {}
+			return {
+				tab: 'list',
+			}
+		},
+
+		create_function() {
+			this.set({tab: 'create'})
 		},
 
 		on: {

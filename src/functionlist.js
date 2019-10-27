@@ -7,7 +7,7 @@ export default Ractive.extend({
 			<div style="float: right;">
 				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
 				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click='delete'{{/if}}> Delete </a>
-				<a class="btn btn-sm btn-warning" on-click="create-function"> Create function </a>
+				<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>
 			</div>
 		</div>
 
@@ -85,6 +85,10 @@ export default Ractive.extend({
 				})
 			}
 
+		},
+
+		createfunction() {
+			this.parent.create_function()
 		}
 	}
 })
