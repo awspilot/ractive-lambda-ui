@@ -158,7 +158,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" on-click=\'delete\'> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="create-function"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
+	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click=\'delete\'{{/if}}> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="create-function"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
 	load_functions: function load_functions() {
 		var ractive = this;
 		var params = {
@@ -174,13 +174,31 @@ exports.default = Ractive.extend({
 		});
 	},
 
-
+	data: function data() {
+		return {
+			selection: ''
+		};
+	},
 	on: {
 		init: function init() {
 			this.load_functions();
 		},
 		refresh: function refresh() {
 			this.load_functions();
+		},
+		delete: function _delete() {
+			var ractive = this;
+			console.log('delete', this.get('selection'));
+			if (confirm('Are you sure you want to delete ' + this.get('selection'))) {
+				var params = {
+					FunctionName: this.get('selection')
+				};
+				lambda.deleteFunction(params, function (err, data) {
+					if (err) alert('Delete failed');
+
+					ractive.load_functions();
+				});
+			}
 		}
 	}
 });

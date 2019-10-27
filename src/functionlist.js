@@ -6,7 +6,7 @@ export default Ractive.extend({
 
 			<div style="float: right;">
 				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
-				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
+				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click='delete'{{/if}}> Delete </a>
 				<a class="btn btn-sm btn-warning" on-click="create-function"> Create function </a>
 			</div>
 		</div>
@@ -56,7 +56,11 @@ export default Ractive.extend({
 			console.log(data.Functions)
 		});
 	},
-
+	data: function() {
+		return {
+			selection: '',
+		}
+	},
 	on: {
 		init() {
 			this.load_functions()
@@ -64,6 +68,23 @@ export default Ractive.extend({
 
 		refresh() {
 			this.load_functions()
+		},
+
+		delete() {
+			var ractive=this;
+			console.log('delete', this.get('selection'))
+			if (confirm('Are you sure you want to delete ' + this.get('selection') )) {
+				var params = {
+					FunctionName: this.get('selection'),
+				};
+				lambda.deleteFunction(params, function(err, data) {
+					if (err)
+						alert('Delete failed')
+
+					ractive.load_functions()
+				})
+			}
+
 		}
 	}
 })
