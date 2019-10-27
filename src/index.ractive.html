@@ -37,9 +37,7 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 				{{/if}}
 
 				{{#if tab === 'create'}}
-					<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
 						<functioncreate />
-					</div>
 				{{/if}}
 
 
@@ -68,6 +66,9 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 
 		create_function() {
 			this.set({tab: 'create'})
+		},
+		gotolist() {
+			this.set({tab: 'list'})
 		},
 
 		on: {
