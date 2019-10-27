@@ -35,6 +35,10 @@
 
 	},
 	"dependencies": {
+
+		"stream": "0.0.2",
 		"jszip": "^3.2.2"
+
+
 	}
 }

@@ -1,4 +1,7 @@
 
+var JSZip = require("jszip");
+
+
 export default Ractive.extend({
 	template: `
 		<h2>Create function</h2>
@@ -97,23 +100,52 @@ export default Ractive.extend({
 			this.parent.gotolist()
 		},
 		createfunction() {
-			// var params = {
-			// 	Code: {
-			// 		ZipFile: Buffer.from('...'),
-			// 	},
-			// 	Description: "",
-			// 	FunctionName: this.get('function_name'),
-			// 	Handler: "index.handler",
-			// 	MemorySize: this.get('memory'),
-			// 	Publish: true,
-			// 	Role: this.get('role'),
-			// 	Runtime: this.get('runtime'),
-			// 	Timeout: this.get('timeout'),
-			// 	VpcConfig: {}
-			// };
-			// lambda.createFunction(params, function(err, data) {
-			// 	console.log(err,data)
-			// });
+			var ractive=this;
+
+			var zip = new JSZip();
+			zip.file("index.js",
+`
+exports.handler = async (event) => {
+    // TODO implement
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
+`
+);
+			zip.generateAsync({type:"blob"})
+			.then(function(content) {
+
+				content.arrayBuffer().then(function(buff) {
+					console.log('buff', buff ) // content is blob
+
+					var params = {
+						Code: {
+							ZipFile: buff,
+						},
+						Description: "",
+						FunctionName: ractive.get('function_name'),
+						Handler: "index.handler",
+						MemorySize: ractive.get('memory'),
+						Publish: true,
+						Role: ractive.get('role'),
+						Runtime: ractive.get('runtime'),
+						Timeout: ractive.get('timeout'),
+						VpcConfig: {}
+					};
+					lambda.createFunction(params, function(err, data) {
+						if (err)
+							return alert('create failed')
+
+						ractive.parent.gotolist()
+					});
+				})
+
+			});
+
+
 		}
 	}
 })
