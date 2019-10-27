@@ -1,19 +1,51 @@
 <style>
+.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;}
+left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;}
+content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
+content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;}
 
+.ractive-lambda-ui {font-family: sans-serif;}
+.ractive-lambda-ui * {box-sizing: border-box }
 
 </style>
 
-lambda
+	<hsplit style='' class='ractive-lambda-ui'>
+		<left style="border-right: 1px solid #b9b8b6;background-color: #fff;">
+			<div style="display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;">
+				AWS Lambda
+			</div>
+			<div style="position: absolute;bottom: 0px;top: 60px;left: 0px;right: 0px;">
+
+				<div style="display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;">Dashboard</div>
+				<div style="display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;">Applications</div>
+				<div style="display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #ec7211;font-weight: bold;">Functions</div>
+				<div style="display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;">Layers</div>
+			</div>
+		</left>
+		<content  style="background-color: transparent;border: 0px;overflow-x: auto;">
+
+			<div style="height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;">
+				<a style="cursor: pointer;text-decoration: none;">Lambda</a>
+				&gt; <a style="cursor: pointer;text-decoration: none;color: #999;">Functions</a>
+			</div>
+
+			<div style="position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;">
+				<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+					<functionlist />
+				</div>
+			</div>
+		</content>
+	</hsplit>
 
 <script>
 
 	import Ractive from 'ractive';
-
+	import functionlist from './functionlist'
 
 	export default Ractive.extend({
 		template: $TEMPLATE,
 		components: {
-
+			functionlist: functionlist,
 		},
 		css: $CSS,
 		data: function() {
@@ -22,7 +54,14 @@ lambda
 
 		on: {
 			init: function() {
-
+				lambda = new AWS.Lambda({
+					endpoint: this.get('endpoint') || undefined,
+					region: this.get('region'),
+					credentials: {
+						accessKeyId: this.get('accessKeyId'),
+						secretAccessKey: this.get('secretAccessKey'),
+					},
+				});
 			}
 		},
 	});
