@@ -156,6 +156,15 @@ exports.default = _ractive2.default.extend({
 					secretAccessKey: this.get('secretAccessKey')
 				}
 			});
+
+			iam = new AWS.IAM({
+				endpoint: this.get('endpoint') || undefined,
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
 		}
 	}
 });
@@ -236,10 +245,69 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: "\n\t\t<h3>Create function</h3>\n\n\t\t<div style=\"box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff\">\n\t\t\tcreate function form\n\t\t</div>\n\n\t\t<div style=\"text-align: right;padding: 10px 0px;\">\n\t\t\t\t<a class=\"btn btn-sm\" on-click=\"cancel\"> Cancel </a>\n\t\t\t\t<a class=\"btn btn-sm btn-warning\" on-click=\"createfunction\"> Create function </a>\n\t\t</div>\n\t",
+	template: '\n\t\t<h2>Create function</h2>\n\n\t\t<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">\n\n\t\t\t<div style="height: 50px;padding: 0px 10px;background-color: #fafafa;font-size: 24px;font-weight: bold;line-height: 50px;;">\n\t\t\t\tBasic information\n\t\t\t</div>\n\n\t\t\t<div style="padding: 10px;">\n\t\t\t\t<div>Function name</div>\n\t\t\t\t<div>Enter a name that describes the purpose of your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<input value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />\n\t\t\t\t</div>\n\n\n\t\t\t\t<div>Runtime</div>\n\t\t\t\t<div>Choose the language to use to write your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<select value={{runtime}} style="width: 50%;" >\n\t\t\t\t\t\t<option value="nodejs10.x">NodeJS 10.x</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\n\t\t\t\t<div>Permissions</div>\n\t\t\t\t<div>Choose a role that defines the permissions of your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<select value={{role}} style="width: 50%;" >\n\t\t\t\t\t\t{{#if !roles}}\n\t\t\t\t\t\t\t<option>Loading...</option>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#roles}}\n\t\t\t\t\t\t\t<option value={{.Arn}}>{{.RoleName}}</option>\n\t\t\t\t\t\t{{/roles}}\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<div style="text-align: right;padding: 10px 0px;">\n\t\t\t\t<a class="btn btn-sm" on-click="cancel"> Cancel </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>\n\t\t</div>\n\t',
+	get_roles: function get_roles() {
+		var ractive = this;
+		var params = {
+			//Marker: 'STRING_VALUE',
+			//MaxItems: 'NUMBER_VALUE',
+			//PathPrefix: 'STRING_VALUE'
+		};
+		iam.listRoles(params, function (err, data) {
+			if (err) return alert('failed listing roles');
+
+			var roles = data.Roles.map(function (r) {
+				try {
+					r.policy = JSON.parse(decodeURIComponent(r.AssumeRolePolicyDocument));
+				} catch (e) {
+					r.policy = {};
+				}
+				return r;
+			}).filter(function (r) {
+				if (((((r.policy || {}).Statement || [])[0] || {}).Principal || {}).Service !== 'lambda.amazonaws.com') return false;
+
+				return true;
+			});
+
+			ractive.set('roles', roles);
+			console.log("roles=", roles);
+		});
+	},
+
+	data: function data() {
+		return {
+			function_name: '',
+			runtime: 'nodejs10.x',
+			role: null,
+			timeout: 3,
+			memory: 128
+		};
+	},
 	on: {
+		init: function init() {
+			this.get_roles();
+		},
 		cancel: function cancel() {
 			this.parent.gotolist();
+		},
+		createfunction: function createfunction() {
+			// var params = {
+			// 	Code: {
+			// 		ZipFile: Buffer.from('...'),
+			// 	},
+			// 	Description: "",
+			// 	FunctionName: this.get('function_name'),
+			// 	Handler: "index.handler",
+			// 	MemorySize: this.get('memory'),
+			// 	Publish: true,
+			// 	Role: this.get('role'),
+			// 	Runtime: this.get('runtime'),
+			// 	Timeout: this.get('timeout'),
+			// 	VpcConfig: {}
+			// };
+			// lambda.createFunction(params, function(err, data) {
+			// 	console.log(err,data)
+			// });
 		}
 	}
 });
