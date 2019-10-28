@@ -46,6 +46,14 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 					<functioncreate />
 				{{/if}}
 
+				{{#if tab === 'detail'}}
+					<div style="height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;">
+						<a style="cursor: pointer;text-decoration: none;">Lambda</a>
+						&gt; <a style="cursor: pointer;text-decoration: none;" on-click="@this.gotolist()">Functions</a>
+						&gt; <a style="cursor: pointer;text-decoration: none;color: #999;">{{detailfunction}}</a>
+					</div>
+					<functiondetail />
+				{{/if}}
 
 			</div>
 		</content>
@@ -56,12 +64,14 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 	import Ractive from 'ractive';
 	import functionlist from './functionlist'
 	import functioncreate from './functioncreate'
+	import functiondetail from './functiondetail'
 
 	export default Ractive.extend({
 		template: $TEMPLATE,
 		components: {
 			functionlist: functionlist,
 			functioncreate: functioncreate,
+			functiondetail: functiondetail,
 		},
 		css: $CSS,
 		data: function() {
@@ -76,8 +86,8 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 		gotolist() {
 			this.set({tab: 'list'})
 		},
-		gotofunction() {
-			this.set({tab: 'detail'})
+		gotofunction( fname ) {
+			this.set({tab: 'detail', detailfunction: fname, })
 		},
 
 
