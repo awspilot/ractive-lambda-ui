@@ -73,7 +73,7 @@ export default Ractive.extend({
 		delete() {
 			var ractive=this;
 			console.log('delete', this.get('selection'))
-			if (confirm('Are you sure you want to delete ' + this.get('selection') )) {
+			if (confirm('Are you sure you want to delete ' + this.get('selection') + ' ?' )) {
 				var params = {
 					FunctionName: this.get('selection'),
 				};
