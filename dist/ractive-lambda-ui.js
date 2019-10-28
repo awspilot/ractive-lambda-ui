@@ -7,7 +7,7 @@
 		exports["ractive-lambda-ui"] = factory(require("ractive"));
 	else
 		root["ractive-lambda-ui"] = factory(root["Ractive"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__1__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__29__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -101,166 +101,11 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _ractive = __webpack_require__(1);
-
-var _ractive2 = _interopRequireDefault(_ractive);
-
-var _functionlist = __webpack_require__(2);
-
-var _functionlist2 = _interopRequireDefault(_functionlist);
-
-var _functioncreate = __webpack_require__(31);
-
-var _functioncreate2 = _interopRequireDefault(_functioncreate);
-
-var _functiondetail = __webpack_require__(60);
-
-var _functiondetail2 = _interopRequireDefault(_functiondetail);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _ractive2.default.extend({
-	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-lambda-ui", g: 1 }], f: [{ t: 7, e: "left", m: [{ t: 13, n: "style", f: "border-right: 1px solid #b9b8b6;background-color: #fff;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;", g: 1 }], f: ["AWS Lambda"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;bottom: 0px;top: 60px;left: 0px;right: 0px;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Dashboard"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Applications"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #ec7211;font-weight: bold;", g: 1 }], f: ["Functions"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Layers"] }] }] }, " ", { t: 7, e: "content", m: [{ t: 13, n: "style", f: "background-color: transparent;border: 0px;overflow-x: auto;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;", g: 1 }], f: [{ t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Functions"] }] }, " ", { t: 7, e: "div", m: [{ n: "style", f: ["position: absolute;top: 0px;left: 0px;width: ", { t: 4, f: ["260px; "], n: 50, x: { r: ["active_id"], s: "_0===\"stackdetails\"" } }, { t: 4, f: ["100%;"], n: 51, l: 1 }, "; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff"], t: 13 }], f: [{ t: 7, e: "functionlist" }] }], n: 50, x: { r: ["tab"], s: "_0===\"list\"" } }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }, { n: ["click"], t: 70, f: { r: ["@this"], s: "[_0.gotolist()]" } }], f: ["Functions"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Create function"] }] }, " ", { t: 7, e: "functioncreate" }], n: 50, x: { r: ["tab"], s: "_0===\"create\"" } }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }, { n: ["click"], t: 70, f: { r: ["@this"], s: "[_0.gotolist()]" } }], f: ["Functions"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: [{ t: 2, r: "detailfunction" }] }] }, " ", { t: 7, e: "functiondetail" }], n: 50, x: { r: ["tab"], s: "_0===\"detail\"" } }] }] }] }], e: { "_0===\"stackdetails\"": function _0Stackdetails(_0) {
-				return _0 === "stackdetails";
-			}, "_0===\"list\"": function _0List(_0) {
-				return _0 === "list";
-			}, "[_0.gotolist()]": function _0Gotolist(_0) {
-				return [_0.gotolist()];
-			}, "_0===\"create\"": function _0Create(_0) {
-				return _0 === "create";
-			}, "_0===\"detail\"": function _0Detail(_0) {
-				return _0 === "detail";
-			} } },
-	components: {
-		functionlist: _functionlist2.default,
-		functioncreate: _functioncreate2.default,
-		functiondetail: _functiondetail2.default
-	},
-	css: ".hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .ractive-lambda-ui {font-family: sans-serif;} .ractive-lambda-ui * {box-sizing: border-box } ",
-	data: function data() {
-		return {
-			tab: 'list'
-		};
-	},
-
-	create_function: function create_function() {
-		this.set({ tab: 'create' });
-	},
-	gotolist: function gotolist() {
-		this.set({ tab: 'list' });
-	},
-	gotofunction: function gotofunction(fname) {
-		this.set({ tab: 'detail', detailfunction: fname });
-	},
-
-
-	on: {
-		init: function init() {
-			lambda = new AWS.Lambda({
-				endpoint: this.get('endpoint') || undefined,
-				region: this.get('region'),
-				credentials: {
-					accessKeyId: this.get('accessKeyId'),
-					secretAccessKey: this.get('secretAccessKey')
-				}
-			});
-
-			iam = new AWS.IAM({
-				endpoint: this.get('endpoint') || undefined,
-				region: this.get('region'),
-				credentials: {
-					accessKeyId: this.get('accessKeyId'),
-					secretAccessKey: this.get('secretAccessKey')
-				}
-			});
-		}
-	}
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = Ractive.extend({
-	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click=\'delete\'{{/if}}> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotofunction">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
-	load_functions: function load_functions() {
-		var ractive = this;
-		var params = {
-			//Marker: "",
-			// MaxItems: 50
-		};
-		ractive.set('functions', []);
-		lambda.listFunctions(params, function (err, data) {
-			if (err) return alert('failed getting functions list');
-
-			ractive.set('functions', data.Functions);
-			console.log(data.Functions);
-		});
-	},
-
-	data: function data() {
-		return {
-			selection: ''
-		};
-	},
-	on: {
-		init: function init() {
-			this.load_functions();
-		},
-		refresh: function refresh() {
-			this.load_functions();
-		},
-		delete: function _delete() {
-			var ractive = this;
-			console.log('delete', this.get('selection'));
-			if (confirm('Are you sure you want to delete ' + this.get('selection') + ' ?')) {
-				var params = {
-					FunctionName: this.get('selection')
-				};
-				lambda.deleteFunction(params, function (err, data) {
-					if (err) alert('Delete failed');
-
-					ractive.load_functions();
-				});
-			}
-		},
-		createfunction: function createfunction() {
-			this.parent.create_function();
-		},
-		gotofunction: function gotofunction(e) {
-			this.parent.gotofunction(this.get(e.resolve() + '.FunctionName'));
-		}
-	}
-});
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var support = __webpack_require__(5);
-var base64 = __webpack_require__(14);
-var nodejsUtils = __webpack_require__(9);
+var support = __webpack_require__(2);
+var base64 = __webpack_require__(11);
+var nodejsUtils = __webpack_require__(6);
 var setImmediate = __webpack_require__(36);
-var external = __webpack_require__(8);
+var external = __webpack_require__(5);
 
 
 /**
@@ -733,7 +578,7 @@ exports.prepareContent = function(name, inputData, isBinary, isOptimizedBinarySt
 
 
 /***/ }),
-/* 4 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1003,7 +848,7 @@ module.exports = GenericWorker;
 
 
 /***/ }),
-/* 5 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1041,14 +886,14 @@ else {
 }
 
 try {
-    exports.nodestream = !!__webpack_require__(13).Readable;
+    exports.nodestream = !!__webpack_require__(10).Readable;
 } catch(e) {
     exports.nodestream = false;
 }
 
 
 /***/ }),
-/* 6 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1160,16 +1005,16 @@ exports.setTyped(TYPED_OK);
 
 
 /***/ }),
-/* 7 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var support = __webpack_require__(5);
-var nodejsUtils = __webpack_require__(9);
-var GenericWorker = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var support = __webpack_require__(2);
+var nodejsUtils = __webpack_require__(6);
+var GenericWorker = __webpack_require__(1);
 
 /**
  * The following functions come from pako, from pako/lib/utils/strings
@@ -1442,7 +1287,7 @@ exports.Utf8EncodeWorker = Utf8EncodeWorker;
 
 
 /***/ }),
-/* 8 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1468,7 +1313,7 @@ module.exports = {
 
 
 /***/ }),
-/* 9 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1532,17 +1377,17 @@ module.exports = {
 
 
 /***/ }),
-/* 10 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var external = __webpack_require__(8);
-var DataWorker = __webpack_require__(17);
-var DataLengthProbe = __webpack_require__(18);
-var Crc32Probe = __webpack_require__(19);
-var DataLengthProbe = __webpack_require__(18);
+var external = __webpack_require__(5);
+var DataWorker = __webpack_require__(14);
+var DataLengthProbe = __webpack_require__(15);
+var Crc32Probe = __webpack_require__(16);
+var DataLengthProbe = __webpack_require__(15);
 
 /**
  * Represent a compressed object, with everything needed to decompress it.
@@ -1614,13 +1459,13 @@ module.exports = CompressedObject;
 
 
 /***/ }),
-/* 11 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(0);
 
 /**
  * The following functions come from pako, from pako/lib/zlib/crc32.js
@@ -1698,7 +1543,7 @@ module.exports = function crc32wrapper(input, crc) {
 
 
 /***/ }),
-/* 12 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1737,7 +1582,7 @@ module.exports = {
 
 
 /***/ }),
-/* 13 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1752,13 +1597,13 @@ module.exports = __webpack_require__(34);
 
 
 /***/ }),
-/* 14 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var utils = __webpack_require__(3);
-var support = __webpack_require__(5);
+var utils = __webpack_require__(0);
+var support = __webpack_require__(2);
 // private property
 var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
@@ -1865,18 +1710,18 @@ exports.decode = function(input) {
 
 
 /***/ }),
-/* 15 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(0);
 var ConvertWorker = __webpack_require__(39);
-var GenericWorker = __webpack_require__(4);
-var base64 = __webpack_require__(14);
-var support = __webpack_require__(5);
-var external = __webpack_require__(8);
+var GenericWorker = __webpack_require__(1);
+var base64 = __webpack_require__(11);
+var support = __webpack_require__(2);
+var external = __webpack_require__(5);
 
 var NodejsStreamOutputAdapter = null;
 if (support.nodestream) {
@@ -2084,7 +1929,7 @@ module.exports = StreamHelper;
 
 
 /***/ }),
-/* 16 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2102,14 +1947,14 @@ exports.dosPermissions = null;
 
 
 /***/ }),
-/* 17 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
 
 // the size of the generated chunks
 // TODO expose this as a public variable
@@ -2225,14 +2070,14 @@ module.exports = DataWorker;
 
 
 /***/ }),
-/* 18 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
 
 /**
  * A worker which calculate the total length of the data flowing through.
@@ -2261,15 +2106,15 @@ module.exports = DataLengthProbe;
 
 
 /***/ }),
-/* 19 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GenericWorker = __webpack_require__(4);
-var crc32 = __webpack_require__(11);
-var utils = __webpack_require__(3);
+var GenericWorker = __webpack_require__(1);
+var crc32 = __webpack_require__(8);
+var utils = __webpack_require__(0);
 
 /**
  * A worker which calculate the crc32 of the data flowing through.
@@ -2292,13 +2137,13 @@ module.exports = Crc32Probe;
 
 
 /***/ }),
-/* 20 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GenericWorker = __webpack_require__(4);
+var GenericWorker = __webpack_require__(1);
 
 exports.STORE = {
     magic: "\x00\x00",
@@ -2313,7 +2158,7 @@ exports.DEFLATE = __webpack_require__(43);
 
 
 /***/ }),
-/* 21 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2371,7 +2216,7 @@ module.exports = adler32;
 
 
 /***/ }),
-/* 22 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2437,7 +2282,7 @@ module.exports = crc32;
 
 
 /***/ }),
-/* 23 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2445,7 +2290,7 @@ module.exports = crc32;
 
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(3);
 
 
 // Quick check if we can use fast array to bin string conversion
@@ -2631,7 +2476,7 @@ exports.utf8border = function (buf, max) {
 
 
 /***/ }),
-/* 24 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2685,7 +2530,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 25 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2760,7 +2605,7 @@ module.exports = {
 
 
 /***/ }),
-/* 26 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2774,18 +2619,18 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 
 /***/ }),
-/* 27 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var support = __webpack_require__(5);
-var ArrayReader = __webpack_require__(28);
+var utils = __webpack_require__(0);
+var support = __webpack_require__(2);
+var ArrayReader = __webpack_require__(25);
 var StringReader = __webpack_require__(57);
 var NodeBufferReader = __webpack_require__(58);
-var Uint8ArrayReader = __webpack_require__(30);
+var Uint8ArrayReader = __webpack_require__(27);
 
 /**
  * Create a reader adapted to the data.
@@ -2809,13 +2654,13 @@ module.exports = function (data) {
 
 
 /***/ }),
-/* 28 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var DataReader = __webpack_require__(29);
-var utils = __webpack_require__(3);
+var DataReader = __webpack_require__(26);
+var utils = __webpack_require__(0);
 
 function ArrayReader(data) {
     DataReader.call(this, data);
@@ -2873,12 +2718,12 @@ module.exports = ArrayReader;
 
 
 /***/ }),
-/* 29 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(0);
 
 function DataReader(data) {
     this.data = data; // type : see implementation
@@ -2996,13 +2841,13 @@ module.exports = DataReader;
 
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ArrayReader = __webpack_require__(28);
-var utils = __webpack_require__(3);
+var ArrayReader = __webpack_require__(25);
+var utils = __webpack_require__(0);
 
 function Uint8ArrayReader(data) {
     ArrayReader.call(this, data);
@@ -3023,6 +2868,161 @@ Uint8ArrayReader.prototype.readData = function(size) {
 };
 module.exports = Uint8ArrayReader;
 
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _ractive = __webpack_require__(29);
+
+var _ractive2 = _interopRequireDefault(_ractive);
+
+var _functionlist = __webpack_require__(30);
+
+var _functionlist2 = _interopRequireDefault(_functionlist);
+
+var _functioncreate = __webpack_require__(31);
+
+var _functioncreate2 = _interopRequireDefault(_functioncreate);
+
+var _functiondetail = __webpack_require__(60);
+
+var _functiondetail2 = _interopRequireDefault(_functiondetail);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _ractive2.default.extend({
+	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-lambda-ui", g: 1 }], f: [{ t: 7, e: "left", m: [{ t: 13, n: "style", f: "border-right: 1px solid #b9b8b6;background-color: #fff;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;", g: 1 }], f: ["AWS Lambda"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;bottom: 0px;top: 60px;left: 0px;right: 0px;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Dashboard"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Applications"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #ec7211;font-weight: bold;", g: 1 }], f: ["Functions"] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "display: block;height: 30px;line-height: 30px;font-size: 13px;padding: 0px 35px;border-top: 1px solid transparent;border-left: 1px solid transparent;margin-bottom: 0px;color: #000;", g: 1 }], f: ["Layers"] }] }] }, " ", { t: 7, e: "content", m: [{ t: 13, n: "style", f: "background-color: transparent;border: 0px;overflow-x: auto;", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;", g: 1 }], f: [{ t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Functions"] }] }, " ", { t: 7, e: "div", m: [{ n: "style", f: ["position: absolute;top: 0px;left: 0px;width: ", { t: 4, f: ["260px; "], n: 50, x: { r: ["active_id"], s: "_0===\"stackdetails\"" } }, { t: 4, f: ["100%;"], n: 51, l: 1 }, "; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff"], t: 13 }], f: [{ t: 7, e: "functionlist" }] }], n: 50, x: { r: ["tab"], s: "_0===\"list\"" } }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }, { n: ["click"], t: 70, f: { r: ["@this"], s: "[_0.gotolist()]" } }], f: ["Functions"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: ["Create function"] }] }, " ", { t: 7, e: "functioncreate" }], n: 50, x: { r: ["tab"], s: "_0===\"create\"" } }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;", g: 1 }], f: [{ t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }], f: ["Lambda"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;", g: 1 }, { n: ["click"], t: 70, f: { r: ["@this"], s: "[_0.gotolist()]" } }], f: ["Functions"] }, " > ", { t: 7, e: "a", m: [{ t: 13, n: "style", f: "cursor: pointer;text-decoration: none;color: #999;", g: 1 }], f: [{ t: 2, r: "detailfunction" }] }] }, " ", { t: 7, e: "functiondetail", m: [{ n: "name", f: [{ t: 2, r: "detailfunction" }], t: 13 }] }], n: 50, x: { r: ["tab"], s: "_0===\"detail\"" } }] }] }] }], e: { "_0===\"stackdetails\"": function _0Stackdetails(_0) {
+				return _0 === "stackdetails";
+			}, "_0===\"list\"": function _0List(_0) {
+				return _0 === "list";
+			}, "[_0.gotolist()]": function _0Gotolist(_0) {
+				return [_0.gotolist()];
+			}, "_0===\"create\"": function _0Create(_0) {
+				return _0 === "create";
+			}, "_0===\"detail\"": function _0Detail(_0) {
+				return _0 === "detail";
+			} } },
+	components: {
+		functionlist: _functionlist2.default,
+		functioncreate: _functioncreate2.default,
+		functiondetail: _functiondetail2.default
+	},
+	css: ".hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .ractive-lambda-ui {font-family: sans-serif;} .ractive-lambda-ui * {box-sizing: border-box } content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 38px;overflow: hidden;font-size: 0px;} content tabhead tab {display: inline-block;line-height: 28px;padding: 0px 25px 0px 25px; margin-bottom: 10px; cursor: pointer;font-size: 14px;} content tabhead tab.active {} body content tabhead { padding-bottom: 10px;border-bottom: 1px solid #cccccc;} body content tabhead tab:first-child {border-left: 0px;} body content tabhead tab {border-left: 1px solid #cccccc;font-weight: bold;color: #545b64;} body content tabhead tab.active {color: #eb5f07;position: relative;} body content tabhead tab.active:after {content: '';position: absolute;left: 0px;right: 0px;bottom: -9px;border-bottom: 2px solid #000;} ",
+	data: function data() {
+		return {
+			tab: 'list'
+		};
+	},
+
+	create_function: function create_function() {
+		this.set({ tab: 'create' });
+	},
+	gotolist: function gotolist() {
+		this.set({ tab: 'list' });
+	},
+	gotofunction: function gotofunction(fname) {
+		this.set({ tab: 'detail', detailfunction: fname });
+	},
+
+
+	on: {
+		init: function init() {
+			lambda = new AWS.Lambda({
+				endpoint: this.get('endpoint') || undefined,
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
+
+			iam = new AWS.IAM({
+				endpoint: this.get('endpoint') || undefined,
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
+		}
+	}
+});
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__29__;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	template: '\n\n\t\t<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">\n\n\t\t\t<div style="float: right;">\n\t\t\t\t<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>\n\t\t\t\t<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click=\'delete\'{{/if}}> Delete </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">\n\t\t\t<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">\n\t\t\t\t<tr>\n\t\t\t\t\t<th style="padding: 0.5em 1em;"></th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Function name</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Description</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Runtime</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Code size</th>\n\t\t\t\t\t<th style="padding: 0.5em 1em;">Last modified</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t{{#functions}}\n\n\t\t\t\t<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value=\'{{.FunctionName}}\'></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotofunction">{{.FunctionName}}</a></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>\n\t\t\t\t\t<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>\n\t\t\t\t</tr>\n\t\t\t\t{{/functions}}\n\n\t\t\t</tbody>\n\t\t</table>\n\n\n\t',
+	load_functions: function load_functions() {
+		var ractive = this;
+		var params = {
+			//Marker: "",
+			// MaxItems: 50
+		};
+		ractive.set('functions', []);
+		lambda.listFunctions(params, function (err, data) {
+			if (err) return alert('failed getting functions list');
+
+			ractive.set('functions', data.Functions);
+			console.log(data.Functions);
+		});
+	},
+
+	data: function data() {
+		return {
+			selection: ''
+		};
+	},
+	on: {
+		init: function init() {
+			this.load_functions();
+		},
+		refresh: function refresh() {
+			this.load_functions();
+		},
+		delete: function _delete() {
+			var ractive = this;
+			console.log('delete', this.get('selection'));
+			if (confirm('Are you sure you want to delete ' + this.get('selection') + ' ?')) {
+				var params = {
+					FunctionName: this.get('selection')
+				};
+				lambda.deleteFunction(params, function (err, data) {
+					if (err) alert('Delete failed');
+
+					ractive.load_functions();
+				});
+			}
+		},
+		createfunction: function createfunction() {
+			this.parent.create_function();
+		},
+		gotofunction: function gotofunction(e) {
+			this.parent.gotofunction(this.get(e.resolve() + '.FunctionName'));
+		}
+	}
+});
 
 /***/ }),
 /* 31 */
@@ -3162,8 +3162,8 @@ function JSZip() {
 }
 JSZip.prototype = __webpack_require__(33);
 JSZip.prototype.loadAsync = __webpack_require__(55);
-JSZip.support = __webpack_require__(5);
-JSZip.defaults = __webpack_require__(16);
+JSZip.support = __webpack_require__(2);
+JSZip.defaults = __webpack_require__(13);
 
 // TODO find a better way to handle this version,
 // a require('package.json').version doesn't work with webpack, see #327
@@ -3173,7 +3173,7 @@ JSZip.loadAsync = function (content, options) {
     return new JSZip().loadAsync(content, options);
 };
 
-JSZip.external = __webpack_require__(8);
+JSZip.external = __webpack_require__(5);
 module.exports = JSZip;
 
 
@@ -3183,15 +3183,15 @@ module.exports = JSZip;
 
 "use strict";
 
-var utf8 = __webpack_require__(7);
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
-var StreamHelper = __webpack_require__(15);
-var defaults = __webpack_require__(16);
-var CompressedObject = __webpack_require__(10);
+var utf8 = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
+var StreamHelper = __webpack_require__(12);
+var defaults = __webpack_require__(13);
+var CompressedObject = __webpack_require__(7);
 var ZipObject = __webpack_require__(41);
 var generate = __webpack_require__(42);
-var nodejsUtils = __webpack_require__(9);
+var nodejsUtils = __webpack_require__(6);
 var NodejsStreamInputAdapter = __webpack_require__(54);
 
 
@@ -4241,8 +4241,8 @@ function immediate(task) {
 "use strict";
 
 
-var GenericWorker = __webpack_require__(4);
-var utils = __webpack_require__(3);
+var GenericWorker = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 /**
  * A worker which convert chunks to a specified type.
@@ -4274,9 +4274,9 @@ module.exports = ConvertWorker;
 "use strict";
 
 
-var Readable = __webpack_require__(13).Readable;
+var Readable = __webpack_require__(10).Readable;
 
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(0);
 utils.inherits(NodejsStreamOutputAdapter, Readable);
 
 /**
@@ -4323,11 +4323,11 @@ module.exports = NodejsStreamOutputAdapter;
 "use strict";
 
 
-var StreamHelper = __webpack_require__(15);
-var DataWorker = __webpack_require__(17);
-var utf8 = __webpack_require__(7);
-var CompressedObject = __webpack_require__(10);
-var GenericWorker = __webpack_require__(4);
+var StreamHelper = __webpack_require__(12);
+var DataWorker = __webpack_require__(14);
+var utf8 = __webpack_require__(4);
+var CompressedObject = __webpack_require__(7);
+var GenericWorker = __webpack_require__(1);
 
 /**
  * A simple object representing a file in the zip file.
@@ -4463,7 +4463,7 @@ module.exports = ZipObject;
 "use strict";
 
 
-var compressions = __webpack_require__(20);
+var compressions = __webpack_require__(17);
 var ZipFileWorker = __webpack_require__(53);
 
 /**
@@ -4529,8 +4529,8 @@ exports.generateWorker = function (zip, options, comment) {
 var USE_TYPEDARRAY = (typeof Uint8Array !== 'undefined') && (typeof Uint16Array !== 'undefined') && (typeof Uint32Array !== 'undefined');
 
 var pako = __webpack_require__(44);
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
 
 var ARRAY_TYPE = USE_TYPEDARRAY ? "uint8array" : "array";
 
@@ -4620,11 +4620,11 @@ exports.uncompressWorker = function () {
 // Top level file is just a mixin of submodules & constants
 
 
-var assign    = __webpack_require__(6).assign;
+var assign    = __webpack_require__(3).assign;
 
 var deflate   = __webpack_require__(45);
 var inflate   = __webpack_require__(48);
-var constants = __webpack_require__(25);
+var constants = __webpack_require__(22);
 
 var pako = {};
 
@@ -4642,10 +4642,10 @@ module.exports = pako;
 
 
 var zlib_deflate = __webpack_require__(46);
-var utils        = __webpack_require__(6);
-var strings      = __webpack_require__(23);
-var msg          = __webpack_require__(12);
-var ZStream      = __webpack_require__(24);
+var utils        = __webpack_require__(3);
+var strings      = __webpack_require__(20);
+var msg          = __webpack_require__(9);
+var ZStream      = __webpack_require__(21);
 
 var toString = Object.prototype.toString;
 
@@ -5066,11 +5066,11 @@ exports.gzip = gzip;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils   = __webpack_require__(6);
+var utils   = __webpack_require__(3);
 var trees   = __webpack_require__(47);
-var adler32 = __webpack_require__(21);
-var crc32   = __webpack_require__(22);
-var msg     = __webpack_require__(12);
+var adler32 = __webpack_require__(18);
+var crc32   = __webpack_require__(19);
+var msg     = __webpack_require__(9);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -6949,7 +6949,7 @@ exports.deflateTune = deflateTune;
 
 /* eslint-disable space-unary-ops */
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(3);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -8159,11 +8159,11 @@ exports._tr_align = _tr_align;
 
 
 var zlib_inflate = __webpack_require__(49);
-var utils        = __webpack_require__(6);
-var strings      = __webpack_require__(23);
-var c            = __webpack_require__(25);
-var msg          = __webpack_require__(12);
-var ZStream      = __webpack_require__(24);
+var utils        = __webpack_require__(3);
+var strings      = __webpack_require__(20);
+var c            = __webpack_require__(22);
+var msg          = __webpack_require__(9);
+var ZStream      = __webpack_require__(21);
 var GZheader     = __webpack_require__(52);
 
 var toString = Object.prototype.toString;
@@ -8606,9 +8606,9 @@ exports.ungzip  = inflate;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils         = __webpack_require__(6);
-var adler32       = __webpack_require__(21);
-var crc32         = __webpack_require__(22);
+var utils         = __webpack_require__(3);
+var adler32       = __webpack_require__(18);
+var crc32         = __webpack_require__(19);
 var inflate_fast  = __webpack_require__(50);
 var inflate_table = __webpack_require__(51);
 
@@ -10521,7 +10521,7 @@ module.exports = function inflate_fast(strm, start) {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(3);
 
 var MAXBITS = 15;
 var ENOUGH_LENS = 852;
@@ -10917,11 +10917,11 @@ module.exports = GZheader;
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
-var utf8 = __webpack_require__(7);
-var crc32 = __webpack_require__(11);
-var signature = __webpack_require__(26);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
+var utf8 = __webpack_require__(4);
+var crc32 = __webpack_require__(8);
+var signature = __webpack_require__(23);
 
 /**
  * Transform an integer into a string in hexadecimal.
@@ -11464,8 +11464,8 @@ module.exports = ZipFileWorker;
 "use strict";
 
 
-var utils = __webpack_require__(3);
-var GenericWorker = __webpack_require__(4);
+var utils = __webpack_require__(0);
+var GenericWorker = __webpack_require__(1);
 
 /**
  * A worker that use a nodejs stream as source.
@@ -11544,13 +11544,13 @@ module.exports = NodejsStreamInputAdapter;
 
 "use strict";
 
-var utils = __webpack_require__(3);
-var external = __webpack_require__(8);
-var utf8 = __webpack_require__(7);
-var utils = __webpack_require__(3);
+var utils = __webpack_require__(0);
+var external = __webpack_require__(5);
+var utf8 = __webpack_require__(4);
+var utils = __webpack_require__(0);
 var ZipEntries = __webpack_require__(56);
-var Crc32Probe = __webpack_require__(19);
-var nodejsUtils = __webpack_require__(9);
+var Crc32Probe = __webpack_require__(16);
+var nodejsUtils = __webpack_require__(6);
 
 /**
  * Check the CRC32 of an entry.
@@ -11633,12 +11633,12 @@ module.exports = function(data, options) {
 
 "use strict";
 
-var readerFor = __webpack_require__(27);
-var utils = __webpack_require__(3);
-var sig = __webpack_require__(26);
+var readerFor = __webpack_require__(24);
+var utils = __webpack_require__(0);
+var sig = __webpack_require__(23);
 var ZipEntry = __webpack_require__(59);
-var utf8 = __webpack_require__(7);
-var support = __webpack_require__(5);
+var utf8 = __webpack_require__(4);
+var support = __webpack_require__(2);
 //  class ZipEntries {{{
 /**
  * All the entries in the zip file.
@@ -11902,8 +11902,8 @@ module.exports = ZipEntries;
 
 "use strict";
 
-var DataReader = __webpack_require__(29);
-var utils = __webpack_require__(3);
+var DataReader = __webpack_require__(26);
+var utils = __webpack_require__(0);
 
 function StringReader(data) {
     DataReader.call(this, data);
@@ -11947,8 +11947,8 @@ module.exports = StringReader;
 
 "use strict";
 
-var Uint8ArrayReader = __webpack_require__(30);
-var utils = __webpack_require__(3);
+var Uint8ArrayReader = __webpack_require__(27);
+var utils = __webpack_require__(0);
 
 function NodeBufferReader(data) {
     Uint8ArrayReader.call(this, data);
@@ -11973,13 +11973,13 @@ module.exports = NodeBufferReader;
 
 "use strict";
 
-var readerFor = __webpack_require__(27);
-var utils = __webpack_require__(3);
-var CompressedObject = __webpack_require__(10);
-var crc32fn = __webpack_require__(11);
-var utf8 = __webpack_require__(7);
-var compressions = __webpack_require__(20);
-var support = __webpack_require__(5);
+var readerFor = __webpack_require__(24);
+var utils = __webpack_require__(0);
+var CompressedObject = __webpack_require__(7);
+var crc32fn = __webpack_require__(8);
+var utf8 = __webpack_require__(4);
+var compressions = __webpack_require__(17);
+var support = __webpack_require__(2);
 
 var MADE_BY_DOS = 0x00;
 var MADE_BY_UNIX = 0x03;
@@ -12272,6 +12272,18 @@ module.exports = ZipEntry;
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	template: '\n\t\t<div style="position: absolute;top: 30px;left: 10px;right: 0px;bottom:0px;">\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 0px;height: 50px;">\n\t\t\t\t<div style="float: right;padding-top: 7px;">\n\t\t\t\t\t<a class="btn btn-sm btn-default disabled" > Delete </a>\n\t\t\t\t</div>\n\t\t\t\t<h4 style="color: #000;">{{name}}</h4>\n\t\t\t</div>\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 40px;bottom: 0px;">\n\t\t\t\t<tabhead style="">\n\t\t\t\t\t<tab class=\'{{#if tab === "configuration" }}active{{/if}}\' on-click=\'@this.set("tab", "configuration")\'>Configuration</tab>\n\t\t\t\t\t<tab class=\'{{#if tab === "monitoring" }}active{{/if}}\' on-click=\'@this.set("tab", "monitoring")\'>Monitoring</tab>\n\t\t\t\t</tabhead>\n\t\t\t</div>\n\t\t</div>\n\t',
+	data: function data() {
+		return {
+			tab: 'configuration'
+		};
+	}
+});
 
 /***/ })
 /******/ ])["default"];
