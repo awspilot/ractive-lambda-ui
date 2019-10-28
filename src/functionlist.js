@@ -28,7 +28,7 @@ export default Ractive.extend({
 
 				<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">
 					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value='{{.FunctionName}}'></td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.FunctionName}}</a></td>
+					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotofunction">{{.FunctionName}}</a></td>
 					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>
 					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>
 					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>
@@ -89,6 +89,10 @@ export default Ractive.extend({
 
 		createfunction() {
 			this.parent.create_function()
+		},
+
+		gotofunction(e) {
+			this.parent.gotofunction( this.get(e.resolve() + '.FunctionName'))
 		}
 	}
 })
