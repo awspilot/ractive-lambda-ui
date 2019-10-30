@@ -7,7 +7,7 @@
 		exports["ractive-lambda-ui"] = factory(require("ractive"));
 	else
 		root["ractive-lambda-ui"] = factory(root["Ractive"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__29__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__30__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 var support = __webpack_require__(2);
-var base64 = __webpack_require__(11);
+var base64 = __webpack_require__(12);
 var nodejsUtils = __webpack_require__(6);
 var setImmediate = __webpack_require__(36);
 var external = __webpack_require__(5);
@@ -886,7 +886,7 @@ else {
 }
 
 try {
-    exports.nodestream = !!__webpack_require__(10).Readable;
+    exports.nodestream = !!__webpack_require__(11).Readable;
 } catch(e) {
     exports.nodestream = false;
 }
@@ -1384,10 +1384,10 @@ module.exports = {
 
 
 var external = __webpack_require__(5);
-var DataWorker = __webpack_require__(14);
-var DataLengthProbe = __webpack_require__(15);
-var Crc32Probe = __webpack_require__(16);
-var DataLengthProbe = __webpack_require__(15);
+var DataWorker = __webpack_require__(15);
+var DataLengthProbe = __webpack_require__(16);
+var Crc32Probe = __webpack_require__(17);
+var DataLengthProbe = __webpack_require__(16);
 
 /**
  * Represent a compressed object, with everything needed to decompress it.
@@ -1585,6 +1585,65 @@ module.exports = {
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+/**
+ * Representation a of zip file in js
+ * @constructor
+ */
+function JSZip() {
+    // if this constructor is used without `new`, it adds `new` before itself:
+    if(!(this instanceof JSZip)) {
+        return new JSZip();
+    }
+
+    if(arguments.length) {
+        throw new Error("The constructor with parameters has been removed in JSZip 3.0, please check the upgrade guide.");
+    }
+
+    // object containing the files :
+    // {
+    //   "folder/" : {...},
+    //   "folder/data.txt" : {...}
+    // }
+    this.files = {};
+
+    this.comment = null;
+
+    // Where we are in the hierarchy
+    this.root = "";
+    this.clone = function() {
+        var newObj = new JSZip();
+        for (var i in this) {
+            if (typeof this[i] !== "function") {
+                newObj[i] = this[i];
+            }
+        }
+        return newObj;
+    };
+}
+JSZip.prototype = __webpack_require__(33);
+JSZip.prototype.loadAsync = __webpack_require__(55);
+JSZip.support = __webpack_require__(2);
+JSZip.defaults = __webpack_require__(14);
+
+// TODO find a better way to handle this version,
+// a require('package.json').version doesn't work with webpack, see #327
+JSZip.version = "3.2.0";
+
+JSZip.loadAsync = function (content, options) {
+    return new JSZip().loadAsync(content, options);
+};
+
+JSZip.external = __webpack_require__(5);
+module.exports = JSZip;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
  * This file is used by module bundlers (browserify/webpack/etc) when
  * including a stream implementation. We use "readable-stream" to get a
@@ -1597,7 +1656,7 @@ module.exports = __webpack_require__(34);
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1710,7 +1769,7 @@ exports.decode = function(input) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1719,7 +1778,7 @@ exports.decode = function(input) {
 var utils = __webpack_require__(0);
 var ConvertWorker = __webpack_require__(39);
 var GenericWorker = __webpack_require__(1);
-var base64 = __webpack_require__(11);
+var base64 = __webpack_require__(12);
 var support = __webpack_require__(2);
 var external = __webpack_require__(5);
 
@@ -1929,7 +1988,7 @@ module.exports = StreamHelper;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1947,7 +2006,7 @@ exports.dosPermissions = null;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2070,7 +2129,7 @@ module.exports = DataWorker;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2106,7 +2165,7 @@ module.exports = DataLengthProbe;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2137,7 +2196,7 @@ module.exports = Crc32Probe;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2158,7 +2217,7 @@ exports.DEFLATE = __webpack_require__(43);
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2216,7 +2275,7 @@ module.exports = adler32;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2282,7 +2341,7 @@ module.exports = crc32;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2476,7 +2535,7 @@ exports.utf8border = function (buf, max) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2530,7 +2589,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2605,7 +2664,7 @@ module.exports = {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2619,7 +2678,7 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2627,10 +2686,10 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 var utils = __webpack_require__(0);
 var support = __webpack_require__(2);
-var ArrayReader = __webpack_require__(25);
+var ArrayReader = __webpack_require__(26);
 var StringReader = __webpack_require__(57);
 var NodeBufferReader = __webpack_require__(58);
-var Uint8ArrayReader = __webpack_require__(27);
+var Uint8ArrayReader = __webpack_require__(28);
 
 /**
  * Create a reader adapted to the data.
@@ -2654,12 +2713,12 @@ module.exports = function (data) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var DataReader = __webpack_require__(26);
+var DataReader = __webpack_require__(27);
 var utils = __webpack_require__(0);
 
 function ArrayReader(data) {
@@ -2718,7 +2777,7 @@ module.exports = ArrayReader;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2841,12 +2900,12 @@ module.exports = DataReader;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ArrayReader = __webpack_require__(25);
+var ArrayReader = __webpack_require__(26);
 var utils = __webpack_require__(0);
 
 function Uint8ArrayReader(data) {
@@ -2870,7 +2929,7 @@ module.exports = Uint8ArrayReader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2880,15 +2939,15 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _ractive = __webpack_require__(29);
+var _ractive = __webpack_require__(30);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
-var _functionlist = __webpack_require__(30);
+var _functionlist = __webpack_require__(31);
 
 var _functionlist2 = _interopRequireDefault(_functionlist);
 
-var _functioncreate = __webpack_require__(31);
+var _functioncreate = __webpack_require__(32);
 
 var _functioncreate2 = _interopRequireDefault(_functioncreate);
 
@@ -2957,13 +3016,13 @@ exports.default = _ractive2.default.extend({
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__29__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__30__;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3025,7 +3084,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3035,7 +3094,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var JSZip = __webpack_require__(32);
+var JSZip = __webpack_require__(10);
 
 exports.default = Ractive.extend({
 	template: '\n\t\t<h2>Create function</h2>\n\n\t\t<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">\n\n\t\t\t<div style="height: 50px;padding: 0px 10px;background-color: #fafafa;font-size: 24px;font-weight: bold;line-height: 50px;;">\n\t\t\t\tBasic information\n\t\t\t</div>\n\n\t\t\t<div style="padding: 10px;">\n\t\t\t\t<div>Function name</div>\n\t\t\t\t<div>Enter a name that describes the purpose of your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<input value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />\n\t\t\t\t</div>\n\n\n\t\t\t\t<div>Runtime</div>\n\t\t\t\t<div>Choose the language to use to write your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<select value={{runtime}} style="width: 50%;" >\n\t\t\t\t\t\t<option value="nodejs10.x">NodeJS 10.x</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\n\n\t\t\t\t<div>Permissions</div>\n\t\t\t\t<div>Choose a role that defines the permissions of your function.</div>\n\t\t\t\t<div>\n\t\t\t\t\t<select value={{role}} style="width: 50%;" >\n\t\t\t\t\t\t{{#if !roles}}\n\t\t\t\t\t\t\t<option>Loading...</option>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#roles}}\n\t\t\t\t\t\t\t<option value={{.Arn}}>{{.RoleName}}</option>\n\t\t\t\t\t\t{{/roles}}\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<div style="text-align: right;padding: 10px 0px;">\n\t\t\t\t<a class="btn btn-sm" on-click="cancel"> Cancel </a>\n\t\t\t\t<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>\n\t\t</div>\n\t',
@@ -3119,65 +3178,6 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Representation a of zip file in js
- * @constructor
- */
-function JSZip() {
-    // if this constructor is used without `new`, it adds `new` before itself:
-    if(!(this instanceof JSZip)) {
-        return new JSZip();
-    }
-
-    if(arguments.length) {
-        throw new Error("The constructor with parameters has been removed in JSZip 3.0, please check the upgrade guide.");
-    }
-
-    // object containing the files :
-    // {
-    //   "folder/" : {...},
-    //   "folder/data.txt" : {...}
-    // }
-    this.files = {};
-
-    this.comment = null;
-
-    // Where we are in the hierarchy
-    this.root = "";
-    this.clone = function() {
-        var newObj = new JSZip();
-        for (var i in this) {
-            if (typeof this[i] !== "function") {
-                newObj[i] = this[i];
-            }
-        }
-        return newObj;
-    };
-}
-JSZip.prototype = __webpack_require__(33);
-JSZip.prototype.loadAsync = __webpack_require__(55);
-JSZip.support = __webpack_require__(2);
-JSZip.defaults = __webpack_require__(13);
-
-// TODO find a better way to handle this version,
-// a require('package.json').version doesn't work with webpack, see #327
-JSZip.version = "3.2.0";
-
-JSZip.loadAsync = function (content, options) {
-    return new JSZip().loadAsync(content, options);
-};
-
-JSZip.external = __webpack_require__(5);
-module.exports = JSZip;
-
-
-/***/ }),
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3186,8 +3186,8 @@ module.exports = JSZip;
 var utf8 = __webpack_require__(4);
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(1);
-var StreamHelper = __webpack_require__(12);
-var defaults = __webpack_require__(13);
+var StreamHelper = __webpack_require__(13);
+var defaults = __webpack_require__(14);
 var CompressedObject = __webpack_require__(7);
 var ZipObject = __webpack_require__(41);
 var generate = __webpack_require__(42);
@@ -4274,7 +4274,7 @@ module.exports = ConvertWorker;
 "use strict";
 
 
-var Readable = __webpack_require__(10).Readable;
+var Readable = __webpack_require__(11).Readable;
 
 var utils = __webpack_require__(0);
 utils.inherits(NodejsStreamOutputAdapter, Readable);
@@ -4323,8 +4323,8 @@ module.exports = NodejsStreamOutputAdapter;
 "use strict";
 
 
-var StreamHelper = __webpack_require__(12);
-var DataWorker = __webpack_require__(14);
+var StreamHelper = __webpack_require__(13);
+var DataWorker = __webpack_require__(15);
 var utf8 = __webpack_require__(4);
 var CompressedObject = __webpack_require__(7);
 var GenericWorker = __webpack_require__(1);
@@ -4463,7 +4463,7 @@ module.exports = ZipObject;
 "use strict";
 
 
-var compressions = __webpack_require__(17);
+var compressions = __webpack_require__(18);
 var ZipFileWorker = __webpack_require__(53);
 
 /**
@@ -4624,7 +4624,7 @@ var assign    = __webpack_require__(3).assign;
 
 var deflate   = __webpack_require__(45);
 var inflate   = __webpack_require__(48);
-var constants = __webpack_require__(22);
+var constants = __webpack_require__(23);
 
 var pako = {};
 
@@ -4643,9 +4643,9 @@ module.exports = pako;
 
 var zlib_deflate = __webpack_require__(46);
 var utils        = __webpack_require__(3);
-var strings      = __webpack_require__(20);
+var strings      = __webpack_require__(21);
 var msg          = __webpack_require__(9);
-var ZStream      = __webpack_require__(21);
+var ZStream      = __webpack_require__(22);
 
 var toString = Object.prototype.toString;
 
@@ -5068,8 +5068,8 @@ exports.gzip = gzip;
 
 var utils   = __webpack_require__(3);
 var trees   = __webpack_require__(47);
-var adler32 = __webpack_require__(18);
-var crc32   = __webpack_require__(19);
+var adler32 = __webpack_require__(19);
+var crc32   = __webpack_require__(20);
 var msg     = __webpack_require__(9);
 
 /* Public constants ==========================================================*/
@@ -8160,10 +8160,10 @@ exports._tr_align = _tr_align;
 
 var zlib_inflate = __webpack_require__(49);
 var utils        = __webpack_require__(3);
-var strings      = __webpack_require__(20);
-var c            = __webpack_require__(22);
+var strings      = __webpack_require__(21);
+var c            = __webpack_require__(23);
 var msg          = __webpack_require__(9);
-var ZStream      = __webpack_require__(21);
+var ZStream      = __webpack_require__(22);
 var GZheader     = __webpack_require__(52);
 
 var toString = Object.prototype.toString;
@@ -8607,8 +8607,8 @@ exports.ungzip  = inflate;
 // 3. This notice may not be removed or altered from any source distribution.
 
 var utils         = __webpack_require__(3);
-var adler32       = __webpack_require__(18);
-var crc32         = __webpack_require__(19);
+var adler32       = __webpack_require__(19);
+var crc32         = __webpack_require__(20);
 var inflate_fast  = __webpack_require__(50);
 var inflate_table = __webpack_require__(51);
 
@@ -10921,7 +10921,7 @@ var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(1);
 var utf8 = __webpack_require__(4);
 var crc32 = __webpack_require__(8);
-var signature = __webpack_require__(23);
+var signature = __webpack_require__(24);
 
 /**
  * Transform an integer into a string in hexadecimal.
@@ -11549,7 +11549,7 @@ var external = __webpack_require__(5);
 var utf8 = __webpack_require__(4);
 var utils = __webpack_require__(0);
 var ZipEntries = __webpack_require__(56);
-var Crc32Probe = __webpack_require__(16);
+var Crc32Probe = __webpack_require__(17);
 var nodejsUtils = __webpack_require__(6);
 
 /**
@@ -11633,9 +11633,9 @@ module.exports = function(data, options) {
 
 "use strict";
 
-var readerFor = __webpack_require__(24);
+var readerFor = __webpack_require__(25);
 var utils = __webpack_require__(0);
-var sig = __webpack_require__(23);
+var sig = __webpack_require__(24);
 var ZipEntry = __webpack_require__(59);
 var utf8 = __webpack_require__(4);
 var support = __webpack_require__(2);
@@ -11902,7 +11902,7 @@ module.exports = ZipEntries;
 
 "use strict";
 
-var DataReader = __webpack_require__(26);
+var DataReader = __webpack_require__(27);
 var utils = __webpack_require__(0);
 
 function StringReader(data) {
@@ -11947,7 +11947,7 @@ module.exports = StringReader;
 
 "use strict";
 
-var Uint8ArrayReader = __webpack_require__(27);
+var Uint8ArrayReader = __webpack_require__(28);
 var utils = __webpack_require__(0);
 
 function NodeBufferReader(data) {
@@ -11973,12 +11973,12 @@ module.exports = NodeBufferReader;
 
 "use strict";
 
-var readerFor = __webpack_require__(24);
+var readerFor = __webpack_require__(25);
 var utils = __webpack_require__(0);
 var CompressedObject = __webpack_require__(7);
 var crc32fn = __webpack_require__(8);
 var utf8 = __webpack_require__(4);
-var compressions = __webpack_require__(17);
+var compressions = __webpack_require__(18);
 var support = __webpack_require__(2);
 
 var MADE_BY_DOS = 0x00;
@@ -12276,12 +12276,111 @@ module.exports = ZipEntry;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+var JSZip = __webpack_require__(10);
 exports.default = Ractive.extend({
-	template: '\n\t\t<div style="position: absolute;top: 30px;left: 10px;right: 0px;bottom:0px;">\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 0px;height: 50px;">\n\t\t\t\t<div style="float: right;padding-top: 7px;">\n\t\t\t\t\t<a class="btn btn-sm btn-default disabled" > Delete </a>\n\t\t\t\t</div>\n\t\t\t\t<h4 style="color: #000;">{{name}}</h4>\n\t\t\t</div>\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 40px;bottom: 0px;">\n\t\t\t\t<tabhead style="">\n\t\t\t\t\t<tab class=\'{{#if tab === "configuration" }}active{{/if}}\' on-click=\'@this.set("tab", "configuration")\'>Configuration</tab>\n\t\t\t\t\t<tab class=\'{{#if tab === "monitoring" }}active{{/if}}\' on-click=\'@this.set("tab", "monitoring")\'>Monitoring</tab>\n\t\t\t\t</tabhead>\n\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div style="position: absolute;top: 30px;left: 10px;right: 0px;bottom:0px;">\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 0px;height: 50px;">\n\t\t\t\t<div style="float: right;padding-top: 7px;">\n\t\t\t\t\t<a class="btn btn-sm btn-default disabled" > Delete </a>\n\t\t\t\t\t<a class="btn btn-sm btn-default" on-click="save" > Save </a>\n\t\t\t\t</div>\n\t\t\t\t<h4 style="color: #000;">{{name}}</h4>\n\t\t\t</div>\n\t\t\t<div style="position: absolute;left: 0px;right:0px;top: 40px;bottom: 0px;">\n\t\t\t\t<tabhead style="">\n\t\t\t\t\t<tab class=\'{{#if tab === "configuration" }}active{{/if}}\' on-click=\'@this.set("tab", "configuration")\'>Configuration</tab>\n\t\t\t\t\t<tab class=\'{{#if tab === "monitoring" }}active{{/if}}\' on-click=\'@this.set("tab", "monitoring")\'>Monitoring</tab>\n\t\t\t\t</tabhead>\n\n\t\t\t\t<tabcontent style="top: 50px;">\n\t\t\t\t\t<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">\n\n\t\t\t\t\t\t<div style="height: 50px;padding: 0px 10px;background-color: #fafafa;font-size: 18px;font-weight: bold;line-height: 50px;border-bottom: 1px solid #eaeded;">\n\t\t\t\t\t\t\tFunction code\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div style="padding: 10px;">\n\n\t\t\t\t\t\t\t<div style="height: 600px;border: 1px solid #545b64;position: relative;">\n\n\t\t\t\t\t\t\t\t<div style="position: absolute;top: 0px;left: 0px;right: 0px;height: 40px;border-bottom: 1px solid #eaeaea;"></div>\n\t\t\t\t\t\t\t\t<!-- folders -->\n\t\t\t\t\t\t\t\t<div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;">\n\t\t\t\t\t\t\t\t\t<div style="text-align: center;margin-top: 280px;">\n\t\t\t\t\t\t\t\t\t\tFolder preview<br>\n\t\t\t\t\t\t\t\t\t\tnot implemented.\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<!-- content -->\n\t\t\t\t\t\t\t\t<div style="position: absolute;top: 40px;left: 233px;right: 0px;bottom: 0px;">\n\t\t\t\t\t\t\t\t\t{{#if indexjs_content === false}}\n\t\t\t\t\t\t\t\t\t\t<div style="text-align: center;margin-top: 280px;">\n\t\t\t\t\t\t\t\t\t\t\tDownloading and unpacking zip locally\n\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t<textarea style="border: 0px;position: absolute;top: 0px;left: 0px;width: 100%;bottom: 0px;outline: none;{{#if busy}}background-color: #ccc;{{/if}}" value={{indexjs_content}} {{#if busy}}readonly{{/if}}></textarea>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</tabcontent>\n\n\n\t\t\t</div>\n\n\n\n\n\n\n\n\n\t\t</div>\n\t',
 	data: function data() {
 		return {
-			tab: 'configuration'
+			tab: 'configuration',
+			indexjs_content: false,
+			busy: false
 		};
+	},
+
+	get_function: function get_function(cb) {
+		var ractive = this;
+		var params = {
+			FunctionName: this.get('name')
+		};
+		lambda.getFunction(params, function (err, data) {
+			if (err) {
+				alert('Failed getting function configuration');
+				return cb(err);
+			}
+
+			console.log('getfunction', data);
+			ractive.set({ function: data });
+			cb(null, data);
+		});
+	},
+
+
+	on: {
+		init: function init() {
+			var ractive = this;
+
+			this.get_function(function (err, data) {
+
+				var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent(ractive.get('function').Code.Location);
+
+				fetch(url, { mode: 'cors', cache: 'no-cache' }).then(function (response) {
+					return response.blob();
+				}).then(function (data) {
+					console.log("codebuff", data);
+					var new_zip = new JSZip();
+
+					new_zip.loadAsync(data).then(function (contents) {
+						// contents.files
+						console.log("after zip.loadAsync", contents);
+						new_zip.file('index.js').async('string').then(function (response) {
+							//console.log('contents of index.js', response )
+							ractive.set({ indexjs_content: response });
+						});
+						//    // you now have every files contained in the loaded zip
+						//    new_zip.file("hello.txt").async("string"); // a promise of "Hello World\n"
+					});
+				});
+			});
+		},
+		save: function save() {
+			var ractive = this;
+
+			var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent(ractive.get('function').Code.Location);
+
+			this.set({ busy: true });
+
+			fetch(url, { mode: 'cors', cache: 'no-cache' }).then(function (response) {
+				return response.blob();
+			}).then(function (data) {
+				console.log("codebuff", data);
+				var new_zip = new JSZip();
+
+				new_zip.loadAsync(data).then(function (contents) {
+
+					console.log('zip loaded');
+
+					new_zip.file("index.js", ractive.get('indexjs_content'));
+
+					console.log("zip added index.js");
+					new_zip.generateAsync({
+						type: "blob",
+						//type: 'uint8array',
+						compression: "DEFLATE",
+						compressionOptions: { level: 9 }
+					}).then(function (content) {
+
+						console.log("zip regenerated");
+
+						content.arrayBuffer().then(function (buff) {
+							console.log('save back buff', buff); // content is blob
+
+
+							var params = {
+								FunctionName: ractive.get('name'),
+								Publish: true,
+								ZipFile: buff
+							};
+							lambda.updateFunctionCode(params, function (err, data) {
+								if (err) return alert('update code failed');
+
+								ractive.set({ busy: false });
+								console.log(err, data);
+							});
+						});
+					});
+				});
+			});
+		}
 	}
 });
 
