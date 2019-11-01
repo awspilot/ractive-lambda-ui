@@ -1,10 +1,10 @@
-var JSZip = require("jszip");
 
-import ace from '@databank/ractive-ace-editor';
+import editor from './editor.ractive.html';
+
 
 export default Ractive.extend({
 	components: {
-		ace: ace,
+		editor: editor,
 	},
 	template: `
 		<div style="position: absolute;top: 30px;left: 10px;right: 0px;bottom:0px;">
@@ -31,46 +31,13 @@ export default Ractive.extend({
 
 						<div style="padding: 10px;">
 
-							<div style="height: 600px;border: 1px solid #545b64;position: relative;">
-
-								<div style="position: absolute;top: 0px;left: 0px;right: 0px;height: 40px;border-bottom: 1px solid #eaeaea;"></div>
-								<!-- folders -->
-								<div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;">
-									<div style="text-align: center;margin-top: 280px;">
-										Folder preview<br>
-										not implemented.
-									</div>
-								</div>
-
-								<!-- content -->
-								<div style="position: absolute;top: 40px;left: 233px;right: 0px;	{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}} ">
-									{{#if indexjs_content === false}}
-										<div style="text-align: center;margin-top: 280px;">
-											Downloading and unpacking zip locally
-										<div>
-									{{else}}
-
-										<ace
-											style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;"
-											class=""
-
-											font-size={{13}}
-											show-invisibles={{false}}
-											show-indent-guides={{false}}
-											read-only={{ busy }}
-
-
-											value={{indexjs_content}} />
-									{{/if}}
-								</div>
-
-								{{#if editor_result_open}}
-									<div style="position: absolute;left: 233px;right: 0px;height: 280px;bottom: 0px;border-top: 1px solid #ccc;">
-										<pre style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;white-space: pre-wrap;border: 0px;background-color: transparent;">{{editor_result_raw}}</pre>
-									</div>
-								{{/if}}
-
-							</div>
+							{{#if function.Code.Location}}
+							<editor
+								editor_result_open={{editor_result_open}}
+								editor_result_raw={{editor_result_raw}}
+								zip-url={{function.Code.Location}}
+							/>
+							{{/if}}
 
 						</div>
 
@@ -93,7 +60,6 @@ export default Ractive.extend({
 	data: function() {
 		return {
 			tab: 'configuration',
-			indexjs_content: false,
 			busy: false,
 			editor_result_open: false,
 			editor_result_raw: '',
@@ -123,107 +89,72 @@ export default Ractive.extend({
 		init: function() {
 			var ractive = this;
 
-			this.observe('editor_result_open', function() {
-
-				var ractive=this;
-				setTimeout(function() {
-					try {
-						ractive.findComponent('ace').resize()
-					} catch(e) {
-						console.log("resize failed", e )
-					}
-				}, 200)
-
-			})
-
 			this.get_function(function(err,data) {
 
 
 
-				var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent( ractive.get('function').Code.Location )
-				//var url = "https://cors-anywhere.herokuapp.com/" + ractive.get('function').Code.Location
-
-
-				fetch(url, { mode: 'cors', cache: 'no-cache', })
-					.then(function(response) { return response.blob() })
-					.then(function(data) {
-						console.log("codebuff", data )
-						var new_zip = new JSZip();
-
-						new_zip.loadAsync(data)
-						.then(function(contents) {
-							// contents.files
-							console.log("after zip.loadAsync", contents )
-							new_zip.file('index.js').async('string').then(function(response) {
-								//console.log('contents of index.js', response )
-								ractive.set({indexjs_content: response })
-							})
-						//    // you now have every files contained in the loaded zip
-						//    new_zip.file("hello.txt").async("string"); // a promise of "Hello World\n"
-						});
-					})
 			})
 
 		},
-		save: function() {
-			var ractive=this;
-
-			var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent( ractive.get('function').Code.Location )
-
-			this.set({busy: true,})
-
-			fetch(url, { mode: 'cors', cache: 'no-cache', })
-				.then(function(response) { return response.blob() })
-				.then(function(data) {
-					console.log("codebuff", data )
-					var new_zip = new JSZip();
-
-					new_zip.loadAsync(data)
-					.then(function(contents) {
-
-						console.log('zip loaded')
-
-						new_zip.file("index.js", ractive.get('indexjs_content'))
-
-						console.log("zip added index.js")
-						new_zip.generateAsync({
-							type:"blob",
-							//type: 'uint8array',
-							streamFiles: true,
-							compression: "DEFLATE",
-							compressionOptions: {level: 9}
-						})
-						.then(function(content) {
-
-							console.log("zip regenerated")
-
-							content.arrayBuffer().then(function(buff) {
-								console.log('save back buff', buff ) // content is blob
-
-
-								var params = {
-									FunctionName: ractive.get('name'),
-									Publish: true,
-									ZipFile: buff,
-								};
-								lambda.updateFunctionCode(params, function(err, data) {
-									if (err)
-										return alert('update code failed')
-
-									ractive.set({busy: false,})
-									console.log(err,data)
-								});
-
-							})
-
-						});
-
-
-
-
-					});
-				})
-		},
+		// save: function() {
+		// 	var ractive=this;
+		//
+		// 	var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent( ractive.get('function').Code.Location )
+		//
+		// 	this.set({busy: true,})
+		//
+		// 	fetch(url, { mode: 'cors', cache: 'no-cache', })
+		// 		.then(function(response) { return response.blob() })
+		// 		.then(function(data) {
+		// 			console.log("codebuff", data )
+		// 			var new_zip = new JSZip();
+		//
+		// 			new_zip.loadAsync(data)
+		// 			.then(function(contents) {
+		//
+		// 				console.log('zip loaded')
+		//
+		// 				new_zip.file("index.js", ractive.get('indexjs_content'))
+		//
+		// 				console.log("zip added index.js")
+		// 				new_zip.generateAsync({
+		// 					type:"blob",
+		// 					//type: 'uint8array',
+		// 					streamFiles: true,
+		// 					compression: "DEFLATE",
+		// 					compressionOptions: {level: 9}
+		// 				})
+		// 				.then(function(content) {
+		//
+		// 					console.log("zip regenerated")
+		//
+		// 					content.arrayBuffer().then(function(buff) {
+		// 						console.log('save back buff', buff ) // content is blob
+		//
+		//
+		// 						var params = {
+		// 							FunctionName: ractive.get('name'),
+		// 							Publish: true,
+		// 							ZipFile: buff,
+		// 						};
+		// 						lambda.updateFunctionCode(params, function(err, data) {
+		// 							if (err)
+		// 								return alert('update code failed')
+		//
+		// 							ractive.set({busy: false,})
+		// 							console.log(err,data)
+		// 						});
+		//
+		// 					})
+		//
+		// 				});
+		//
+		//
+		//
+		//
+		// 			});
+		// 		})
+		// },
 		test: function() {
 			var ractive=this;
 			this.set({ editor_result_open: true, editor_result_raw: '' })
