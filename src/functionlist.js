@@ -53,7 +53,7 @@ export default Ractive.extend({
 				return alert('failed getting functions list')
 
 			ractive.set('functions', data.Functions)
-			console.log(data.Functions)
+			//console.log(data.Functions)
 		});
 	},
 	data: function() {
