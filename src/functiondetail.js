@@ -1,10 +1,17 @@
 var JSZip = require("jszip");
+
+import ace from '@databank/ractive-ace-editor';
+
 export default Ractive.extend({
+	components: {
+		ace: ace,
+	},
 	template: `
 		<div style="position: absolute;top: 30px;left: 10px;right: 0px;bottom:0px;">
 			<div style="position: absolute;left: 0px;right:0px;top: 0px;height: 50px;">
 				<div style="float: right;padding-top: 7px;">
 					<a class="btn btn-sm btn-default disabled" > Delete </a>
+					<a class="btn btn-sm btn-default" on-click="test" > Test </a>
 					<a class="btn btn-sm btn-default" on-click="save" > Save </a>
 				</div>
 				<h4 style="color: #000;">{{name}}</h4>
@@ -36,15 +43,34 @@ export default Ractive.extend({
 								</div>
 
 								<!-- content -->
-								<div style="position: absolute;top: 40px;left: 233px;right: 0px;bottom: 0px;">
+								<div style="position: absolute;top: 40px;left: 233px;right: 0px;	{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}} ">
 									{{#if indexjs_content === false}}
 										<div style="text-align: center;margin-top: 280px;">
 											Downloading and unpacking zip locally
 										<div>
 									{{else}}
+
+										<ace
+											style="position: absolute;top: 0px;left: 0px;width: 100%;bottom: 0px;"
+											class=""
+
+											font-size={{13}}
+											show-invisibles={{true}}
+
+											value={{indexjs_content}} />
+
+										<!--
 										<textarea style="border: 0px;position: absolute;top: 0px;left: 0px;width: 100%;bottom: 0px;outline: none;{{#if busy}}background-color: #ccc;{{/if}}" value={{indexjs_content}} {{#if busy}}readonly{{/if}}></textarea>
+										-->
 									{{/if}}
 								</div>
+
+								{{#if editor_result_open}}
+									<div style="position: absolute;left: 233px;right: 0px;height: 280px;bottom: 0px;border-top: 1px solid #ccc;">
+										<pre style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;white-space: pre-wrap;border: 0px;background-color: transparent;">{{editor_result_raw}}</pre>
+									</div>
+								{{/if}}
+
 							</div>
 
 						</div>
@@ -70,6 +96,8 @@ export default Ractive.extend({
 			tab: 'configuration',
 			indexjs_content: false,
 			busy: false,
+			editor_result_open: false,
+			editor_result_raw: '',
 		}
 	},
 
@@ -101,6 +129,8 @@ export default Ractive.extend({
 
 
 				var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent( ractive.get('function').Code.Location )
+				//var url = "https://cors-anywhere.herokuapp.com/" + ractive.get('function').Code.Location
+
 
 				fetch(url, { mode: 'cors', cache: 'no-cache', })
 					.then(function(response) { return response.blob() })
@@ -147,6 +177,7 @@ export default Ractive.extend({
 						new_zip.generateAsync({
 							type:"blob",
 							//type: 'uint8array',
+							streamFiles: true,
 							compression: "DEFLATE",
 							compressionOptions: {level: 9}
 						})
@@ -180,6 +211,34 @@ export default Ractive.extend({
 
 					});
 				})
+		},
+		test: function() {
+			var ractive=this;
+			this.set({ editor_result_open: true, editor_result_raw: '' })
+
+			var ractive=this;
+			var params = {
+				FunctionName: ractive.get('name'),
+				InvocationType: 'RequestResponse',
+				LogType: "Tail",
+				Payload: JSON.stringify({}),
+			};
+			lambda.invoke(params, function(err, data) {
+				if (err) {
+					ractive.set({ editor_result_open: true, editor_result_raw:
+						"Response:\n" +
+						JSON.stringify(JSON.parse(err), null, "\t")
+					})
+					return;
+				}
+
+				ractive.set({ editor_result_open: true, editor_result_raw:
+					"Response:\n" +
+					JSON.stringify(JSON.parse(data.Payload), null, "\t") +
+					"\n" +
+					atob(data.LogResult)
+				})
+			});
 		}
 	}
 })
