@@ -51,17 +51,16 @@ export default Ractive.extend({
 									{{else}}
 
 										<ace
-											style="position: absolute;top: 0px;left: 0px;width: 100%;bottom: 0px;"
+											style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;"
 											class=""
 
 											font-size={{13}}
-											show-invisibles={{true}}
+											show-invisibles={{false}}
+											show-indent-guides={{false}}
+											read-only={{ busy }}
+
 
 											value={{indexjs_content}} />
-
-										<!--
-										<textarea style="border: 0px;position: absolute;top: 0px;left: 0px;width: 100%;bottom: 0px;outline: none;{{#if busy}}background-color: #ccc;{{/if}}" value={{indexjs_content}} {{#if busy}}readonly{{/if}}></textarea>
-										-->
 									{{/if}}
 								</div>
 
@@ -123,6 +122,19 @@ export default Ractive.extend({
 	on: {
 		init: function() {
 			var ractive = this;
+
+			this.observe('editor_result_open', function() {
+
+				var ractive=this;
+				setTimeout(function() {
+					try {
+						ractive.findComponent('ace').resize()
+					} catch(e) {
+						console.log("resize failed", e )
+					}
+				}, 200)
+
+			})
 
 			this.get_function(function(err,data) {
 
