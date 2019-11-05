@@ -1,5 +1,6 @@
 <style>
 	ul { list-style-type: none; padding: 5px;font-size: 12px;}
+	ul > li > a { text-decoration: none; color: #333; cursor: pointer; }
 </style>
 
 <div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;overflow: auto;">
@@ -28,14 +29,14 @@
 					{{/if}}
 
 					{{#if .dir}}
-						<a  on-click="open">{{.name}}</a>
+						<a on-click="openfolder">{{.name}}</a>
 					{{else}}
-						{{.name}}
+						<a on-dblclick="openfile">{{.name}}</a>
 					{{/if}}
 
 
 					{{#if .dir && .open}}
-						<div class="sublevel{{level}}" style="margin-left: 16px;">
+						<div style="margin-left: 16px;">
 							<treelevel tree={{.childs}} level={{level+1}} />
 						</div>
 					{{/if}}
@@ -44,10 +45,16 @@
 			{{/each}}
 		</ul>
 		`,
+		openfile: function(path) {
+			this.parent.openfile(path)
+		},
 		on:{
-			open: function(e) {
+			openfolder: function(e) {
 				this.toggle( e.resolve() + '.open' )
-			}
+			},
+			openfile: function(e) {
+				this.parent.openfile(this.get(e.resolve() + '.path'))
+			},
 		},
 		onconfig: function(options) {
 			this.components['treelevel'] = treelevel;
@@ -60,6 +67,10 @@
 		},
 		template: $TEMPLATE,
 		css: $CSS,
+
+		openfile: function(path) {
+			alert('open file ' + path )
+		},
 		on: {
 			init: function() {
 				var files = this.get('files')
@@ -68,7 +79,7 @@
 					tree[k] = {
 						dir: files[k].dir,
 						name: files[k].dir ? files[k].name.slice(0,-1) : files[k].name,
-
+						path: files[k].dir ? undefined : files[k].name,
 					}
 				})
 				Object.keys(tree).map(function(k) {
@@ -97,6 +108,7 @@
 							tree[ k.slice(folder.length+1)] = {
 								dir: childs[k].dir,
 								name: childs[k].name.slice(folder.length+1),
+								path: childs[k].dir ? undefined : childs[k].path,
 							}
 					})
 
