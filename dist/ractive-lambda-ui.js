@@ -12505,9 +12505,26 @@ exports.default = Ractive.extend({
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var treelevel = Ractive.extend({
+	template: '\n\t<ul>\n\t\t{{#each tree}}\n\t\t\t<li>\n\t\t\t\t{{#if .dir}}\n\t\t\t\t<svg style="width: 18px;height: 18px;vertical-align: sub;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t\t\t viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">\n\t\t\t\t<path style="fill:#EFCE4A;" d="M55.981,54.5H2.019C0.904,54.5,0,53.596,0,52.481V20.5h58v31.981C58,53.596,57.096,54.5,55.981,54.5z\n\t\t\t\t\t"/>\n\t\t\t\t<path style="fill:#EBBA16;" d="M26.019,11.5V5.519C26.019,4.404,25.115,3.5,24,3.5H2.019C0.904,3.5,0,4.404,0,5.519V10.5v10h58\n\t\t\t\t\tv-6.981c0-1.115-0.904-2.019-2.019-2.019H26.019z"/>\n\t\t\t\t</svg>\n\t\t\t\t{{else}}\n\t\t\t\t\t<svg style="width: 18px;height: 18px;vertical-align: sub;" viewBox="-48 0 512 512"  xmlns="http://www.w3.org/2000/svg"><path d="m416 512h-416v-374.625l137.375-137.375h278.625zm0 0" fill="#d7dee2"/><path d="m176 448h-16c-26.464844 0-48-21.535156-48-48v-41.375l-38.625-38.625 38.625-38.625v-41.375c0-26.464844 21.535156-48 48-48h16v32h-16c-8.816406 0-16 7.183594-16 16v54.625l-25.375 25.375 25.375 25.375v54.625c0 8.816406 7.183594 16 16 16h16zm0 0" fill="#48c8ef"/><path d="m256 448h-16v-32h16c8.816406 0 16-7.183594 16-16v-54.625l25.375-25.375-25.375-25.375v-54.625c0-8.816406-7.183594-16-16-16h-16v-32h16c26.464844 0 48 21.535156 48 48v41.375l38.625 38.625-38.625 38.625v41.375c0 26.464844-21.535156 48-48 48zm0 0" fill="#48c8ef"/><path d="m137.375 137.375v-137.375l-137.375 137.375zm0 0" fill="#bfc9d1"/></svg>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#if .dir}}\n\t\t\t\t\t<a  on-click="open">{{.name}}</a>\n\t\t\t\t{{else}}\n\t\t\t\t\t{{.name}}\n\t\t\t\t{{/if}}\n\n\n\t\t\t\t{{#if .dir && .open}}\n\t\t\t\t\t<div class="sublevel{{level}}" style="margin-left: 16px;">\n\t\t\t\t\t\t<treelevel tree={{.childs}} level={{level+1}} />\n\t\t\t\t\t</div>\n\t\t\t\t{{/if}}\n\n\n\t\t{{/each}}\n\t</ul>\n\t',
+	on: {
+		open: function open(e) {
+			this.toggle(e.resolve() + '.open');
+		}
+	},
+	onconfig: function onconfig(options) {
+		this.components['treelevel'] = treelevel;
+	}
+});
+
 exports.default = Ractive.extend({
-	components: {},
-	template: { v: 4, t: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;", g: 1 }], f: [{ t: 7, e: "ul", f: [{ t: 4, f: [{ t: 7, e: "li", f: [{ t: 4, f: [{ t: 7, e: "svg", m: [{ t: 13, n: "style", f: "width: 18px;height: 18px;vertical-align: sub; enable-background:new 0 0 58 58;", g: 1 }, { n: "version", f: "1.1", t: 13, g: 1 }, { n: "id", f: "Capa_1", t: 13, g: 1 }, { n: "xmlns", f: "http://www.w3.org/2000/svg", t: 13, g: 1 }, { n: "xmlns:xlink", f: "http://www.w3.org/1999/xlink", t: 13 }, { n: "x", f: "0px", t: 13, g: 1 }, { n: "y", f: "0px", t: 13, g: 1 }, { n: "viewBox", f: "0 0 58 58", t: 13, g: 1 }, { n: "xml:space", f: "preserve", t: 13 }], f: [{ t: 7, e: "path", m: [{ t: 13, n: "style", f: "fill:#EFCE4A;", g: 1 }, { n: "d", f: "M55.981,54.5H2.019C0.904,54.5,0,53.596,0,52.481V20.5h58v31.981C58,53.596,57.096,54.5,55.981,54.5z\n\t\t\t\t\t", t: 13, g: 1 }] }, " ", { t: 7, e: "path", m: [{ t: 13, n: "style", f: "fill:#EBBA16;", g: 1 }, { n: "d", f: "M26.019,11.5V5.519C26.019,4.404,25.115,3.5,24,3.5H2.019C0.904,3.5,0,4.404,0,5.519V10.5v10h58\n\t\t\t\t\tv-6.981c0-1.115-0.904-2.019-2.019-2.019H26.019z", t: 13, g: 1 }] }] }], n: 50, r: ".dir" }, { t: 4, f: [{ t: 7, e: "svg", m: [{ t: 13, n: "style", f: "width: 18px;height: 18px;vertical-align: sub;", g: 1 }, { n: "viewBox", f: "-48 0 512 512", t: 13, g: 1 }, { n: "xmlns", f: "http://www.w3.org/2000/svg", t: 13, g: 1 }], f: [{ t: 7, e: "path", m: [{ n: "d", f: "m416 512h-416v-374.625l137.375-137.375h278.625zm0 0", t: 13, g: 1 }, { n: "fill", f: "#d7dee2", t: 13, g: 1 }] }, { t: 7, e: "path", m: [{ n: "d", f: "m176 448h-16c-26.464844 0-48-21.535156-48-48v-41.375l-38.625-38.625 38.625-38.625v-41.375c0-26.464844 21.535156-48 48-48h16v32h-16c-8.816406 0-16 7.183594-16 16v54.625l-25.375 25.375 25.375 25.375v54.625c0 8.816406 7.183594 16 16 16h16zm0 0", t: 13, g: 1 }, { n: "fill", f: "#48c8ef", t: 13, g: 1 }] }, { t: 7, e: "path", m: [{ n: "d", f: "m256 448h-16v-32h16c8.816406 0 16-7.183594 16-16v-54.625l25.375-25.375-25.375-25.375v-54.625c0-8.816406-7.183594-16-16-16h-16v-32h16c26.464844 0 48 21.535156 48 48v41.375l38.625 38.625-38.625 38.625v41.375c0 26.464844-21.535156 48-48 48zm0 0", t: 13, g: 1 }, { n: "fill", f: "#48c8ef", t: 13, g: 1 }] }, { t: 7, e: "path", m: [{ n: "d", f: "m137.375 137.375v-137.375l-137.375 137.375zm0 0", t: 13, g: 1 }, { n: "fill", f: "#bfc9d1", t: 13, g: 1 }] }] }], n: 51, l: 1 }, " ", { t: 2, r: ".name" }] }], n: 52, r: "tree" }] }] }] },
+	components: {
+		treelevel: treelevel
+	},
+	template: { v: 4, t: [{ t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;overflow: auto;", g: 1 }], f: [{ t: 7, e: "treelevel", m: [{ n: "tree", f: [{ t: 2, r: "tree" }], t: 13 }, { n: "level", f: [{ t: 2, x: { r: [], s: "1" } }], t: 13 }] }] }], e: { "1": function _() {
+				return 1;
+			} } },
 	css: " ul { list-style-type: none; padding: 5px;font-size: 12px;}",
 	on: {
 		init: function init() {
@@ -12517,6 +12534,7 @@ exports.default = Ractive.extend({
 				tree[k] = {
 					dir: files[k].dir,
 					name: files[k].dir ? files[k].name.slice(0, -1) : files[k].name
+
 				};
 			});
 			Object.keys(tree).map(function (k) {
@@ -12533,6 +12551,62 @@ exports.default = Ractive.extend({
 				}
 			});
 
+			var process_subfolder = function process_subfolder(childs, folder) {
+				var files = JSON.parse(JSON.stringify(childs));
+				var tree = {};
+
+				// remove preceding dir
+				Object.keys(childs).map(function (k) {
+					if (k.indexOf(folder + '/') === 0) tree[k.slice(folder.length + 1)] = {
+						dir: childs[k].dir,
+						name: childs[k].name.slice(folder.length + 1)
+					};
+				});
+
+				Object.keys(tree).map(function (k) {
+					if (k.split('/').length > 1 && k.split('/')[1] !== "") {
+
+						if (tree.hasOwnProperty(k.split('/')[0] + '/')) {
+							// move it and delete
+							if (!tree[k.split('/')[0] + '/'].hasOwnProperty('childs')) tree[k.split('/')[0] + '/'].childs = {};
+
+							tree[k.split('/')[0] + '/'].childs[k] = tree[k];
+
+							delete tree[k];
+						}
+					}
+				});
+
+				Object.keys(tree).map(function (k) {
+					if (tree[k].dir === true && tree[k].childs) {
+						tree[k].childs = process_subfolder(tree[k].childs, tree[k].name);
+						//console.log("must process", tree[k].childs )
+					}
+				});
+
+				var sorted = {};
+				Object.keys(tree).sort(function (a, b) {
+					if (tree[a].dir && tree[b].dir) return a > b ? 1 : -1;
+
+					if (tree[a].dir) return -1;
+
+					if (tree[b].dir) return 1;
+
+					return a > b ? 1 : -1;
+				}).map(function (k) {
+					sorted[k] = tree[k];
+				});
+
+				return sorted;
+			};
+
+			Object.keys(tree).map(function (k) {
+				if (tree[k].dir === true && tree[k].childs) {
+					tree[k].childs = process_subfolder(tree[k].childs, tree[k].name);
+					//console.log("must process", tree[k].childs )
+				}
+			});
+
 			var sorted = {};
 			Object.keys(tree).sort(function (a, b) {
 				if (tree[a].dir && tree[b].dir) return a > b ? 1 : -1;
@@ -12545,6 +12619,7 @@ exports.default = Ractive.extend({
 			}).map(function (k) {
 				sorted[k] = tree[k];
 			});
+
 			this.set({ tree: sorted });
 		}
 	}
