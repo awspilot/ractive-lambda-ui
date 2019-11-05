@@ -77,7 +77,7 @@ export default Ractive.extend({
 				return cb(err)
 			}
 
-			console.log('getfunction', data)
+			//console.log('getfunction', data)
 			ractive.set({function: data })
 			cb(null, data )
 		})

@@ -7,12 +7,9 @@
 
 			<div class="editor-menubar"></div>
 			<!-- folders -->
-			<div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;">
-				<div style="text-align: center;margin-top: 280px;">
-					Folder preview<br>
-					not implemented.
-				</div>
-			</div>
+			{{#if files}}
+				<tree files={{files}}/>
+			{{/if}}
 
 			<div class="editor-tabheads">
 			</div>
@@ -50,10 +47,13 @@
 <script>
 	var JSZip = require("jszip")
 	import ace from '@databank/ractive-ace-editor'
+	import tree from './editor-tree.ractive.html'
+
 
 	export default Ractive.extend({
 		components: {
 			ace: ace,
+			tree: tree,
 		},
 		css: $CSS,
 		template: $TEMPLATE,
@@ -87,13 +87,16 @@
 						fetch(url, { mode: 'cors', cache: 'no-cache', })
 							.then(function(response) { return response.blob() })
 							.then(function(data) {
-								console.log("codebuff", data )
+								//console.log("codebuff", data )
 								var new_zip = new JSZip();
 
 								new_zip.loadAsync(data)
 								.then(function(contents) {
 									// contents.files
-									console.log("after zip.loadAsync", contents )
+									//console.log("after zip.loadAsync", contents.files )
+
+									ractive.set({ files: contents.files })
+
 									new_zip.file('index.js').async('string').then(function(response) {
 										//console.log('contents of index.js', response )
 										ractive.set({indexjs_content: response })
