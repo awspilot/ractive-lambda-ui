@@ -1,6 +1,7 @@
 		<style>
 			.editor-menubar {position: absolute;top: 0px;left: 0px;right: 0px;height: 40px;box-sizing: border-box;border-bottom: 1px solid #eaeaea;background-color: #f2f3f3;}
 			.editor-tabheads {position: absolute;top: 40px;left: 233px;right: 0px;height: 33px;box-sizing: border-box;border-bottom: 1px solid #eaeaea;}
+			.editor-tabheads {background-color: #ddd;}
 
 			.editor-tabheads tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
 			.editor-tabheads tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
@@ -8,7 +9,12 @@
 			.editor-tabheads tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
 			.editor-tabheads tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 
+			.editor-tabheads tabhead {background-color: #fff;}
+			.editor-tabheads tabhead tab:first-child {}
+			.editor-tabheads tabhead tab {border-right: 1px solid #cccccc;}
+			.editor-tabheads tabhead tab.active {background-color: #ddd;color: #333;}
 
+			.editor-content {position: absolute;top: 72px;/* 1px under tabhead to hide white line */left: 233px;right: 0px;}
 		</style>
 
 		<div style="height: 600px;border: 1px solid #545b64;position: relative;">
@@ -25,11 +31,17 @@
 						index.js
 						<i class='icon zmdi zmdi-close' on-click='closetab'></i>
 					</tab>
+
+					<tab class=''>
+						index2.js
+						<i class='icon zmdi zmdi-close' on-click='closetab'></i>
+					</tab>
+
 				</tabhead>
 			</div>
 
 			<!-- content -->
-			<div style="position: absolute;top: 73px;left: 233px;right: 0px;	{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}} ">
+			<div class="editor-content" style="{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}} ">
 				{{#if indexjs_content === false}}
 					<div style="text-align: center;margin-top: 280px;">
 						Downloading and unpacking zip locally
