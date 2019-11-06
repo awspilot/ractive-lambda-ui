@@ -16,7 +16,7 @@ export default Ractive.extend({
 				</div>
 				<h4 style="color: #000;">{{name}}</h4>
 			</div>
-			<div style="position: absolute;left: 0px;right:0px;top: 40px;bottom: 0px;">
+			<div class="function-details-head" style="position: absolute;left: 0px;right:0px;top: 40px;bottom: 0px;">
 				<tabhead style="">
 					<tab class='{{#if tab === "configuration" }}active{{/if}}' on-click='@this.set("tab", "configuration")'>Configuration</tab>
 					<tab class='{{#if tab === "monitoring" }}active{{/if}}' on-click='@this.set("tab", "monitoring")'>Monitoring</tab>
