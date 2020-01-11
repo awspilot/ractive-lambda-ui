@@ -4,8 +4,8 @@
 	"description": "ractivejs component to manage lambda functions",
 	"main": "dist/ractive-lambda-ui.min.js",
 	"scripts": {
+		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 9992:80 nginx",
 		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 9992",
-		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
 	"repository": {
@@ -29,9 +29,7 @@
 		"ractive-bin-loader": "^1.0.1",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^4.41.0",
-		"webpack-cli": "^3.3.9",
-
-		"node-static": "^0.7.11"
+		"webpack-cli": "^3.3.9"
 
 	},
 	"dependencies": {
