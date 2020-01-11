@@ -1,11 +1,6 @@
-<style>
-
-
-</style>
 
 
 
-<script>
 
 	import "./css/style.less";
 
@@ -114,4 +109,3 @@
 			}
 		},
 	});
-</script>
