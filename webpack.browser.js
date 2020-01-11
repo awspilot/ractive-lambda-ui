@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-//const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // no support for ES6+
 const TerserPlugin = require('terser-webpack-plugin'); // support for ES6+ (succesor of uglify-es)
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -10,15 +10,13 @@ module.exports = {
 		fs: 'empty'
 	},
 	mode: 'production',
-
-
-
-
-
-
-
-
-
+	// devtool:
+	// devServer: {
+	// 	//contentBase: path.join(__dirname, 'demo'),
+	// 	//compress: true,
+	// 	port: 8889,
+	// 	writeToDisk: false,
+	// },
 	performance: {
 		hints: false,
 	},
@@ -44,7 +42,7 @@ module.exports = {
 		filename: '[name].js',
 		library: '@awspilot/ractive-lambda-ui',
 
-		// var, this, window, umd
+		// var, this, window, umd , amd, commonjs, global
 		libraryTarget: 'umd',
 		umdNamedDefine: true,   // Important
 		libraryExport: 'default',
@@ -52,11 +50,16 @@ module.exports = {
 	},
 	externals: {
 		ractive: {
-			commonjs: 'ractive',
-			commonjs2: 'ractive',
+			commonjs: 'ractive',  // require
+			commonjs2: 'ractive', // require + module.exports - used by nodejs
 			amd: 'ractive',
 			root: 'Ractive'
 		},
+		// '@awspilot/dynamodb': {
+		// 	commonjs: '@awspilot/dynamodb',
+		// 	commonjs2: '@awspilot/dynamodb',
+		// 	root: '@awspilot/dynamodb',
+		// },
 		"aws-sdk": {
 				commonjs: 'aws-sdk',
 				commonjs2: 'aws-sdk',
