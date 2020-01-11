@@ -34,8 +34,8 @@ module.exports = {
 	},
 
 	entry: {
-		'ractive-lambda-ui': path.resolve(__dirname, './src/index.ractive.html'),
-		'ractive-lambda-ui.min': path.resolve(__dirname, './src/index.ractive.html')
+		'ractive-lambda-ui': path.resolve(__dirname, './src/index.js'),
+		'ractive-lambda-ui.min': path.resolve(__dirname, './src/index.js')
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
