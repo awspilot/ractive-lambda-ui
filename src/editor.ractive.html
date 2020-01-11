@@ -1,21 +1,23 @@
-		<style>
-			.editor-menubar {position: absolute;top: 0px;left: 0px;right: 0px;height: 40px;box-sizing: border-box;border-bottom: 1px solid #eaeaea;background-color: #f2f3f3;}
-			.editor-tabheads {position: absolute;top: 40px;left: 233px;right: 0px;height: 33px;box-sizing: border-box;border-bottom: 1px solid #eaeaea;}
-			.editor-tabheads {background-color: #ddd;}
 
-			.editor-tabheads tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
-			.editor-tabheads tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
-			.editor-tabheads tabhead tab.active {}
-			.editor-tabheads tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
-			.editor-tabheads tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 
-			.editor-tabheads tabhead {background-color: #fff;}
-			.editor-tabheads tabhead tab:first-child {}
-			.editor-tabheads tabhead tab {border-right: 1px solid #cccccc;}
-			.editor-tabheads tabhead tab.active {background-color: #ddd;color: #333;}
 
-			.editor-content {position: absolute;top: 72px;/* 1px under tabhead to hide white line */left: 233px;right: 0px;}
-		</style>
+	var JSZip = require("jszip")
+	import ace from '@databank/ractive-ace-editor'
+	import tree from './editor-tree.ractive.html'
+	import tabs from './tabs'
+
+
+
+	export default Ractive.extend({
+		isolated: true,
+		components: {
+			ace: ace,
+			tree: tree,
+			tabs: tabs,
+		},
+
+		template: `
+
 
 		<div style="height: 600px;border: 1px solid #545b64;position: relative;">
 
@@ -25,28 +27,19 @@
 				<tree files={{files}}/>
 			{{/if}}
 
-			<div class="editor-tabheads">
-				<tabhead>
-					<tab class='active'>
-						index.js
-						<i class='icon zmdi zmdi-close' on-click='closetab'></i>
-					</tab>
 
-					<tab class=''>
-						index2.js
-						<i class='icon zmdi zmdi-close' on-click='closetab'></i>
-					</tab>
+			<tabs style="position: absolute;top: 40px;left: 233px;right: 0px;border-bottom: 1px solid #eaeaea;background-color: #ddd;{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}}">
 
-				</tabhead>
-			</div>
+				{{#tabs}}
+				<tab name={{.name}} style="background-color: blue;font-size:  12px;" >
+					<textarea value={{.content}}></textarea>
+				</tab>
+				{{/tabs}}
 
-			<!-- content -->
-			<div class="editor-content" style="{{#if editor_result_open}}bottom: 280px;{{else}}bottom: 0px;{{/if}} ">
-				{{#if indexjs_content === false}}
-					<div style="text-align: center;margin-top: 280px;">
-						Downloading and unpacking zip locally
-					<div>
-				{{else}}
+				<tab name="index.js" active={{true}} style="background-color: red;font-size:  12px;">
+
+
+
 
 					<ace
 						style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;"
@@ -58,9 +51,35 @@
 						read-only={{ busy }}
 
 
-						value={{indexjs_content}} />
-				{{/if}}
-			</div>
+						value='this is editor 2' />
+
+
+						{{#if indexjs_content === false}}
+							<div style="text-align: center;margin-top: 280px;">
+								Downloading and unpacking zip locally
+							<div>
+						{{else}}
+
+
+						<ace
+							style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;"
+							class=""
+
+							font-size={{13}}
+							show-invisibles={{false}}
+							show-indent-guides={{false}}
+							read-only={{ busy }}
+
+
+							value='this is editor 1' />
+
+						{{/if}}
+
+				</tab>
+
+			</tabs>
+
+
 
 			{{#if editor_result_open}}
 				<div style="position: absolute;left: 233px;right: 0px;height: 280px;bottom: 0px;border-top: 1px solid #ccc;">
@@ -70,22 +89,21 @@
 
 		</div>
 
-<script>
-	var JSZip = require("jszip")
-	import ace from '@databank/ractive-ace-editor'
-	import tree from './editor-tree.ractive.html'
-
-
-	export default Ractive.extend({
-		components: {
-			ace: ace,
-			tree: tree,
-		},
-		css: $CSS,
-		template: $TEMPLATE,
+`,
 		data: function() {
 			return {
 				indexjs_content: false,
+				tabs: [
+					{
+						name: 'index1.js',
+						content: 'hello1'
+					},
+
+					{
+						name: 'index2.js',
+						content: 'hello2'
+					},
+				]
 			}
 		},
 		on: {
@@ -110,30 +128,29 @@
 
 
 
-						fetch(url, { mode: 'cors', cache: 'no-cache', })
-							.then(function(response) { return response.blob() })
-							.then(function(data) {
-								//console.log("codebuff", data )
-								var new_zip = new JSZip();
-
-								new_zip.loadAsync(data)
-								.then(function(contents) {
-									// contents.files
-									//console.log("after zip.loadAsync", contents.files )
-
-									ractive.set({ files: contents.files })
-
-									new_zip.file('index.js').async('string').then(function(response) {
-										//console.log('contents of index.js', response )
-										ractive.set({indexjs_content: response })
-									})
-								//    // you now have every files contained in the loaded zip
-								//    new_zip.file("hello.txt").async("string"); // a promise of "Hello World\n"
-								});
-							})
+				// fetch(url, { mode: 'cors', cache: 'no-cache', })
+				// 	.then(function(response) { return response.blob() })
+				// 	.then(function(data) {
+				// 		//console.log("codebuff", data )
+				// 		var new_zip = new JSZip();
+				//
+				// 		new_zip.loadAsync(data)
+				// 		.then(function(contents) {
+				// 			// contents.files
+				// 			//console.log("after zip.loadAsync", contents.files )
+				//
+				// 			ractive.set({ files: contents.files })
+				//
+				// 			new_zip.file('index.js').async('string').then(function(response) {
+				// 				//console.log('contents of index.js', response )
+				// 				ractive.set({indexjs_content: response })
+				// 			})
+				// 		//    // you now have every files contained in the loaded zip
+				// 		//    new_zip.file("hello.txt").async("string"); // a promise of "Hello World\n"
+				// 		});
+				// 	})
 
 
 			}
 		}
 	})
-</script>
