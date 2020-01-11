@@ -41,7 +41,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		library: 'ractive-lambda-ui',
+		library: '@awspilot/ractive-lambda-ui',
 
 		// var, this, window, umd
 		libraryTarget: 'umd',
@@ -54,7 +54,12 @@ module.exports = {
 			commonjs2: 'ractive',
 			amd: 'ractive',
 			root: 'Ractive'
-		}
+		},
+		"aws-sdk": {
+				commonjs: 'aws-sdk',
+				commonjs2: 'aws-sdk',
+				root: 'AWS'
+		},
 	},
 	module: {
 		rules: [
