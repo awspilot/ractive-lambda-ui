@@ -1,26 +1,21 @@
 <style>
-.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;}
-left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;}
-content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
-content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;}
-
-.ractive-lambda-ui {font-family: sans-serif;}
-.ractive-lambda-ui * {box-sizing: border-box }
-
-.function-details-head > tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 38px;overflow: hidden;font-size: 0px;}
-.function-details-head > tabhead tab {display: inline-block;line-height: 28px;padding: 0px 25px 0px 25px; margin-bottom: 10px; cursor: pointer;font-size: 14px;}
-.function-details-head > tabhead tab.active {}
-
-
-.function-details-head > tabhead { padding-bottom: 10px;border-bottom: 1px solid #cccccc;}
-.function-details-head > tabhead tab:first-child {border-left: 0px;}
-.function-details-head > tabhead tab {border-left: 1px solid #cccccc;font-weight: bold;color: #545b64;}
-.function-details-head > tabhead tab.active {color: #eb5f07;position: relative;}
-.function-details-head > tabhead tab.active:after {content: '';position: absolute;left: 0px;right: 0px;bottom: -9px;border-bottom: 2px solid #000;}
 
 
 </style>
 
+
+
+<script>
+
+	import "./css/style.less";
+
+	import Ractive from 'ractive';
+	import functionlist from './functionlist'
+	import functioncreate from './functioncreate'
+	import functiondetail from './functiondetail'
+
+	export default Ractive.extend({
+		template: `
 	<hsplit style='' class='ractive-lambda-ui'>
 		<left style="border-right: 1px solid #b9b8b6;background-color: #fff;">
 			<div style="display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;">
@@ -71,21 +66,12 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 		</content>
 	</hsplit>
 
-<script>
-
-	import Ractive from 'ractive';
-	import functionlist from './functionlist'
-	import functioncreate from './functioncreate'
-	import functiondetail from './functiondetail'
-
-	export default Ractive.extend({
-		template: $TEMPLATE,
+`,
 		components: {
 			functionlist: functionlist,
 			functioncreate: functioncreate,
 			functiondetail: functiondetail,
 		},
-		css: $CSS,
 		data: function() {
 			return {
 				tab: 'list',
