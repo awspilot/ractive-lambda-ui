@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 //const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin'); // support for ES6+ (succesor of uglify-es)
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
 	node: false,
 	node: {
@@ -32,8 +34,7 @@ module.exports = {
 			}),
 		],
 	},
-	plugins: [
-	],
+
 	entry: {
 		'ractive-lambda-ui': path.resolve(__dirname, './src/index.ractive.html'),
 		'ractive-lambda-ui.min': path.resolve(__dirname, './src/index.ractive.html')
@@ -45,8 +46,9 @@ module.exports = {
 
 		// var, this, window, umd
 		libraryTarget: 'umd',
+		umdNamedDefine: true,   // Important
 		libraryExport: 'default',
-		umdNamedDefine: true   // Important
+		globalObject: 'this',
 	},
 	externals: {
 		ractive: {
@@ -61,8 +63,28 @@ module.exports = {
 				root: 'AWS'
 		},
 	},
+	plugins: [
+		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
+	],
 	module: {
 		rules: [
+			{
+				test: /\.less$/,
+				use: [
+					MiniCssExtractPlugin.loader, // extract css into files
+					{
+						loader: 'css-loader', // translates CSS into CommonJS
+					},
+					{
+						loader: 'less-loader', // compiles Less to CSS
+						// options: {
+						//	paths: [path.resolve(__dirname, 'node_modules')],
+						// 	strictMath: true,
+						// 	noIeCompat: true,
+						// },
+					},
+				],
+			},
 			{
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
