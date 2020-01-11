@@ -3,7 +3,7 @@
 
 	var JSZip = require("jszip")
 	import ace from '@databank/ractive-ace-editor'
-	import tree from './editor-tree.ractive.html'
+	import tree from './editor-tree'
 	import tabs from './tabs'
 
 
