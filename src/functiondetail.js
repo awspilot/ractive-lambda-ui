@@ -1,5 +1,5 @@
 
-import editor from './editor.ractive.html';
+import editor from './editor';
 
 
 export default Ractive.extend({
