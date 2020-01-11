@@ -5,7 +5,6 @@
 	"main": "dist/ractive-lambda-ui.min.js",
 	"scripts": {
 		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 9992:80 nginx",
-		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 9992",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
 	"repository": {
