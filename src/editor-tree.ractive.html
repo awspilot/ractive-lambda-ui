@@ -1,17 +1,8 @@
-<style>
-	ul { list-style-type: none; padding: 5px;font-size: 12px;}
-	ul > li {user-select: none;}
-	ul > li > a { text-decoration: none; color: #333; cursor: pointer; }
-	ul > li > svg {cursor: pointer;}
-</style>
 
-<div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;overflow: auto;">
 
-	<treelevel tree={{tree}} level={{1}} />
 
-</div>
 
-<script>
+
 
 	var treelevel = Ractive.extend({
 		template: `
@@ -68,8 +59,15 @@
 		components: {
 			treelevel: treelevel,
 		},
-		template: $TEMPLATE,
-		css: $CSS,
+		template: `
+<div style="position: absolute;top: 40px;left: 0px;bottom: 0px;width: 233px;border-right: 1px solid #eaeaea;overflow: auto;">
+
+	<treelevel tree={{tree}} level={{1}} />
+
+</div>
+
+`,
+
 
 		openfile: function(path) {
 			alert('open file ' + path )
@@ -189,4 +187,3 @@
 			}
 		}
 	})
-</script>
