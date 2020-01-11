@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
-		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />-->
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" /> -->
+		<title>Lambda Management Console</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.1.0/async.js"></script>
 		<script src="js/jquery.js"></script>
@@ -18,16 +18,35 @@
 	<script>
 
 		var lambda;
+		var iam;
 
-		Ractive.components['lambda-ui'] = window['ractive-lambda-ui'];
+		Ractive.components['lambda-ui'] = window['@awspilot/ractive-lambda-ui'];
 
 		var ractive = new Ractive({
 			el: 'body',
+			data: function() {
+				return {
+					theme: 'windows',
+				}
+			},
 			components: {
 
 			},
 			template: `
-				<lambda-ui region="us-east-1" accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/lambda" />
+				<div style="position: absolute;top: 50px;left: 50px;width: 210px;bottom: 50px;">
+					<select value={{theme}}>
+						<option value="atom">Atom</option>
+						<option value="windows">Windows Classic</option>
+					</select>
+				</div>
+				<div style="position: absolute;top: 50px;left: 260px;right: 50px;bottom: 50px;">
+					<lambda-ui
+						theme={{theme}}
+						region="us-east-1"
+						accessKeyId="xxx"
+						secretAccessKey="yyy"
+					/>
+				</div>
 			`
 		})
 	</script>
