@@ -141,7 +141,7 @@ exports.handler = async (event) => {
 						if (err)
 							return alert('create failed')
 
-						ractive.parent.gotolist()
+						//ractive.parent.gotolist()
 					});
 				})
 
