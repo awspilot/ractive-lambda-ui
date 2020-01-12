@@ -18,7 +18,7 @@ export default Ractive.extend({
 		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>
 		<tables>
 			{{#functions}}
-			<div on-click='open-function'> {{.FunctionName}} </div>
+			<div on-click='open_function'> {{.FunctionName}} </div>
 			{{/functions}}
 		</tables>
 		</scrollarea>
@@ -50,8 +50,13 @@ export default Ractive.extend({
 		refresh() {
 			this.load_functions()
 		},
+		open_function(e) {
+			this.parent.fire("open_function", this.get(e.resolve()) )
+		},
+		create() {
+			this.parent.fire("create_function")
+		}
 
-	// 	ractive.parent.fire('open-table', table )
 	// 	ractive.on('create', function() {
 	// 		ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
 	// 	})
