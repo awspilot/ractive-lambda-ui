@@ -4,51 +4,54 @@ var JSZip = require("jszip");
 
 export default Ractive.extend({
 	template: `
-		<h2>Create function</h2>
 
-		<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+		<div style="padding: 30px;">
+			<h3>Create function</h3>
 
-			<div style="height: 50px;padding: 0px 10px;background-color: #fafafa;font-size: 24px;font-weight: bold;line-height: 50px;;">
-				Basic information
-			</div>
+			<hr />
 
-			<div style="padding: 10px;">
-				<div>Function name</div>
-				<div>Enter a name that describes the purpose of your function.</div>
+			<h4>Basic information</h4>
+
+
 				<div>
-					<input value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />
+					<div>Function name</div>
+					<small>Enter a name that describes the purpose of your function.</small>
+					<div>
+						<input class="input-text" value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />
+					</div>
+
+					<br><br>
+
+					<div>Runtime</div>
+					<small>Choose the language to use to write your function.</small>
+					<div>
+						<select class="input-select" value={{runtime}} style="width: 50%;" >
+							<option value="nodejs10.x">NodeJS 10.x</option>
+						</select>
+					</div>
+
+					<br><br>
+
+					<div>Permissions</div>
+					<small>Choose a role that defines the permissions of your function.</small>
+					<div>
+						<select class="input-select" value={{role}} style="width: 50%;" >
+							{{#if !roles}}
+								<option>Loading...</option>
+							{{/if}}
+							{{#roles}}
+								<option value={{.Arn}}>{{.RoleName}}</option>
+							{{/roles}}
+						</select>
+					</div>
 				</div>
 
+			<hr />
 
-				<div>Runtime</div>
-				<div>Choose the language to use to write your function.</div>
-				<div>
-					<select value={{runtime}} style="width: 50%;" >
-						<option value="nodejs10.x">NodeJS 10.x</option>
-					</select>
-				</div>
-
-
-				<div>Permissions</div>
-				<div>Choose a role that defines the permissions of your function.</div>
-				<div>
-					<select value={{role}} style="width: 50%;" >
-						{{#if !roles}}
-							<option>Loading...</option>
-						{{/if}}
-						{{#roles}}
-							<option value={{.Arn}}>{{.RoleName}}</option>
-						{{/roles}}
-					</select>
-				</div>
-			</div>
+			<a class="btn btn-sm btn-primary" on-click="createfunction"> Create function </a>
 
 		</div>
 
-		<div style="text-align: right;padding: 10px 0px;">
-				<a class="btn btn-sm" on-click="cancel"> Cancel </a>
-				<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>
-		</div>
 	`,
 	get_roles() {
 		var ractive=this;
@@ -80,7 +83,6 @@ export default Ractive.extend({
 
 
 			ractive.set('roles', roles )
-			console.log("roles=", roles )
 		});
 	},
 	data: function() {
