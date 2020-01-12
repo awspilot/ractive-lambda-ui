@@ -1,81 +1,87 @@
 
+import tabledata from './tabledata';
+
 export default Ractive.extend({
-	template: `
+	//isolated: true,
+	components: {
+		tabledata: tabledata,
+	},
+	template:
+		`
+			<div class='pull-right' style='padding: 7px;'>
 
-		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">
-
-			<div style="float: right;">
-				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
-				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" {{#if selection}}on-click='delete'{{/if}}> Delete </a>
-				<a class="btn btn-sm btn-warning" on-click="createfunction"> Create function </a>
+				<!-- good functions -->
+				<a class="btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}" on-click="refresh"> <icon-refresh /> </a>
+				<a class="btn btn-xs btn-default {{#if selection_length === 1}}{{else}}disabled{{/if}}" {{#if selection_length === 1}}on-click='delete'{{/if}}> <icon-trash /> </a>
+				<a class="btn btn-xs btn-primary" on-click='create'> Create function </a>
 			</div>
-		</div>
 
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;margin: 3px;' />
+		`,
+	data: function() {
+		return {
+			selection_length: 0,
+			refresh_tables: false,
+		}
+	},
 
-		<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">
-			<thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">
-				<tr>
-					<th style="padding: 0.5em 1em;"></th>
-					<th style="padding: 0.5em 1em;">Function name</th>
-					<th style="padding: 0.5em 1em;">Description</th>
-					<th style="padding: 0.5em 1em;">Runtime</th>
-					<th style="padding: 0.5em 1em;">Code size</th>
-					<th style="padding: 0.5em 1em;">Last modified</th>
-				</tr>
-			</thead>
-			<tbody>
-				{{#functions}}
-
-				<tr style="{{#if selection === .FunctionName }}background-color: #f1faff;{{/if}}">
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value='{{.FunctionName}}'></td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotofunction">{{.FunctionName}}</a></td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"></td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.Runtime}}</td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CodeSize}}</td>
-					<td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.LastModified}}</td>
-				</tr>
-				{{/functions}}
-
-			</tbody>
-		</table>
-
-
-	`,
 	load_functions() {
 		var ractive=this;
+		ractive.set('refresh_tables', true)
 		var params = {
 			//Marker: "",
 			// MaxItems: 50
 		};
-		ractive.set('functions', [])
+		ractive.set('rows', [])
 		lambda.listFunctions(params, function(err, data) {
+			ractive.set('refresh_tables')
 			if (err)
-				return alert('failed getting functions list')
+				return ractive.set('err', err )
 
-			ractive.set('functions', data.Functions)
-			//console.log(data.Functions)
+			ractive.set('err')
+			ractive.set('columns', [ null, 'Function name', 'Description', 'Runtime', 'Code size', 'Last modified'])
+
+			ractive.set('rows',
+				data.Functions.map(function(f) {
+					return [
+						{ KEY: true, item: f, },
+						{ S: f.FunctionName },
+						{ },
+						{ S: f.Runtime },
+						{ S: f.CodeSize },
+						{ S: f.LastModified }
+					]
+				})
+			)
+
 		});
 	},
-	data: function() {
-		return {
-			selection: '',
-		}
-	},
 	on: {
-		init() {
+		refresh: function() {
 			this.load_functions()
 		},
 
-		refresh() {
-			this.load_functions()
+		create: function() {
+			this.parent.parent.fire("create_function")
 		},
-
-		delete() {
+		delete: function() {
 			var ractive=this;
-			console.log('delete', this.get('selection'))
-			if (confirm('Are you sure you want to delete ' + this.get('selection') + ' ?' )) {
+
+			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+
+			if ( selected.length === 0 )
+				return alert('Please select a function to delete')
+
+			if ( selected.length > 1 )
+				return alert('Please select one function at a time')
+
+			var func = selected[0][0].item
+
+			console.log(func)
+
+			if (confirm('Are you sure you want to delete table ' + func.FunctionName )) {
 				var params = {
-					FunctionName: this.get('selection'),
+					FunctionName: func.FunctionName,
 				};
 				lambda.deleteFunction(params, function(err, data) {
 					if (err)
@@ -84,15 +90,21 @@ export default Ractive.extend({
 					ractive.load_functions()
 				})
 			}
-
 		},
+	},
+	oninit: function() {
+		this.load_functions()
+		var ractive = this
+		// //ractive.on('open-table', function(e, table ) {
+		// //	ractive.root.fire('open-table', table )
+		// //})
+		ractive.on('tabledata.selectrow', function(context) {
+			var keypath = context.resolve()
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 
-		createfunction() {
-			this.parent.create_function()
-		},
-
-		gotofunction(e) {
-			this.parent.gotofunction( this.get(e.resolve() + '.FunctionName'))
-		}
-	}
+			ractive.set('selection_length',
+				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
+			)
+		})
+	},
 })
