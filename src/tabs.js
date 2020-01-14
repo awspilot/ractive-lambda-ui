@@ -1,19 +1,19 @@
 
 import functionslistfull from './functionlist';
 import functioncreate from './function/create';
-// import tabletab from './tabletab';
+import functiontab from './function/tab';
 
 export default Ractive.extend({
 	//isolated: true,
 	components: {
 		functionslistfull: functionslistfull,
 		functioncreate: functioncreate,
-		// tabletab: tabletab,
+		functiontab: functiontab,
 	},
 	template:
 		`
 		<tabhead>
-			<tab class='{{#if active_id === "tables" }}active{{/if}}' on-click='@this.fire("activetab", "tables")'>
+			<tab class='{{#if active_id === "functions" }}active{{/if}}' on-click='@this.fire("activetab", "functions")'>
 				<icon-database style="width: 15px;height: 15px;" />
 			</tab>
 		{{#tabs}}
@@ -26,18 +26,18 @@ export default Ractive.extend({
 		{{/tabs}}
 		</tabhead>
 		<tabcontent>
-			{{#if active_id === "tables" }}
+			{{#if active_id === "functions" }}
 				<functionslistfull />
 			{{else}}
 				{{#tabs}}
 					{{#if .closed === true}}
 						<div class='closedtab'></div>
 					{{else}}
-						{{#if .type === 'tablecreate' }}
+						{{#if .type === 'function_create' }}
 							<functioncreate active={{ .id === active_id  }} />
 						{{/if}}
-						{{#if .type === 'tabletab' }}
-							<tabletab table={{.}} active={{ .id === active_id  }} />
+						{{#if .type === 'function_tab' }}
+							<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} />
 						{{/if}}
 					{{/if}}
 				{{/tabs}}
@@ -49,8 +49,8 @@ export default Ractive.extend({
 	activetabcontent: function() {
 		var ractive = this
 		ractive.active_cache.push(ractive.get('active_id'))
-		ractive.findAllComponents('tabletab').map(function( tableview_c ) {
-			tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id') )
+		ractive.findAllComponents('function_tab').map(function( function_tab ) {
+			function_tab.set('active', function_tab.get('table.id') === ractive.get('active_id') )
 		})
 	},
 	newtab: function(component_name, param1 ) {
