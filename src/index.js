@@ -33,11 +33,11 @@
 
 		on: {
 			open_function( f ) {
-				this.findComponent('tabs').newtab('tabletab', f.FunctionName )
+				this.findComponent('tabs').newtab('function_tab', f.FunctionName )
 			},
 
 			create_function() {
-				this.findComponent('tabs').newtab('tablecreate', 'Create Function' )
+				this.findComponent('tabs').newtab('function_create', 'Create Function' )
 			},
 
 			init: function() {
