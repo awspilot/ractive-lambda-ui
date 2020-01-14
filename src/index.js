@@ -21,7 +21,7 @@
 					<minifunctionlist />
 				</left>
 				<content  style="background-color: transparent;border: 0px;overflow-x: auto;">
-					<tabs active_id='tables' theme={{theme}} />
+					<tabs active_id='functions' theme={{theme}} />
 				</content>
 			</hsplit>
 		`,
