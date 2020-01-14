@@ -57,10 +57,6 @@ export default Ractive.extend({
 			this.parent.fire("create_function")
 		}
 
-	// 	ractive.on('create', function() {
-	// 		ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
-	// 	})
-
 	},
 
 })
