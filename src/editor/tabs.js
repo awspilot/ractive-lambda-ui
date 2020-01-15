@@ -82,7 +82,7 @@ export default Ractive.extend({
 				//console.log("update", code )
 				//ractive.parent = editor
 				//ractive.parent.parent = tab_code
-				//ractive.parent.parent.onFileChange(param1, code )
+				ractive.parent.parent.onFileChange(param1, code )
 			});
 			ractive.set('tabs.'+idx+'.flask', flask)
 		}, 50)
