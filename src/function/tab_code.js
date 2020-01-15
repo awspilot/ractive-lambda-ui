@@ -57,7 +57,12 @@ export default Ractive.extend({
 	},
 	load_zipfs: function( zipurl ) {
 		var ractive=this;
-		var url = "http://localhost:8080/?proxyfile=" + encodeURIComponent( zipurl )
+
+		var url = zipurl;
+
+		if (this.get('cors-proxy'))
+			url =  this.get('cors-proxy') + encodeURIComponent( zipurl )
+
 		//var url = "https://cors-anywhere.herokuapp.com/" + encodeURIComponent( ractive.get('zip-url') )
 
 		fetch(url, { mode: 'cors', cache: 'no-cache', })

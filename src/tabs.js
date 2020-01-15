@@ -37,7 +37,7 @@ export default Ractive.extend({
 							<functioncreate active={{ .id === active_id  }} />
 						{{/if}}
 						{{#if .type === 'function_tab' }}
-							<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} />
+							<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} cors-proxy={{~/['cors-proxy']}} />
 						{{/if}}
 					{{/if}}
 				{{/tabs}}
@@ -65,6 +65,7 @@ export default Ractive.extend({
 		this.activetabcontent()
 	},
 	oninit: function() {
+
 		var ractive = this
 
 

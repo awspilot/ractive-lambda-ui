@@ -21,7 +21,7 @@
 					<minifunctionlist />
 				</left>
 				<content  style="background-color: transparent;border: 0px;overflow-x: auto;">
-					<tabs active_id='functions' theme={{theme}} />
+					<tabs active_id='functions' theme={{theme}} cors-proxy={{.['cors-proxy']}} />
 				</content>
 			</hsplit>
 		`,
@@ -41,6 +41,7 @@
 			},
 
 			init: function() {
+
 				lambda = new AWS.Lambda({
 					endpoint: this.get('endpoint') || undefined,
 					region: this.get('region'),

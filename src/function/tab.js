@@ -28,7 +28,7 @@ export default Ractive.extend({
 						{{/if}}
 
 						{{#if tab === 'code'}}
-							<tabcode function={{function}} theme={{theme}} />
+							<tabcode function={{function}} theme={{theme}} cors-proxy={{.['cors-proxy']}} />
 						{{/if}}
 
 						{{#if tab === 'monitoring'}}
