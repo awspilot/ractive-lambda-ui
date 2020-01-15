@@ -1,0 +1,12 @@
+& {height: 100%;}
+& .editor-tree {position: absolute;top: 0px;left: 0px;bottom: 0px;width: 233px;overflow: auto;}
+
+& {background-color: @databank-webide-background}
+& {box-shadow: @databank-webide-box-shadow;}
+& {border-top: @databank-webide-border-top;border-right: @databank-webide-border-right;border-bottom: @databank-webide-border-bottom;border-left: @databank-webide-border-left;}
+
+
+
+& .editor-tree {background-color: @databank-webide-tree-background;}
+& .editor-tree {border-top: @databank-webide-tree-border-top; border-right: @databank-webide-tree-border-right; border-bottom: @databank-webide-tree-border-bottom; border-left: @databank-webide-tree-border-left;}
+& .editor-tree {box-shadow: @databank-webide-tree-box-shodow;}
