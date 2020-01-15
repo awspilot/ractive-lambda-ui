@@ -3,10 +3,10 @@ import tree from './tree';
 import tabs from './tabs';
 
 export default Ractive.extend({
-		components: {
-			tree: tree,
-			tabs: tabs,
-		},
+	components: {
+		tree: tree,
+		tabs: tabs,
+	},
 	template: `
 		<div class="databank-webide theme-{{theme}}">
 			<tree fs={{fs}} />
@@ -21,9 +21,6 @@ export default Ractive.extend({
 				</div>
 			{{/if}}
 		</div>
-
-
-
 	`,
 	openfile( path) {
 		this.findComponent('tabs').newtab('ace', path )
