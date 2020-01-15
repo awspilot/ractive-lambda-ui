@@ -1,6 +1,8 @@
 node_modules/
 src/
 demo/
+node/
 package-lock.json
 webpack.browser.js
 .nvmrc
+.babelrc
