@@ -61,7 +61,14 @@
 					},
 				});
 
-
+				cloudwatchlogs = new AWS.CloudWatchLogs({
+					endpoint: this.get('endpoint') || undefined,
+					region: this.get('region'),
+					credentials: {
+						accessKeyId: this.get('accessKeyId'),
+						secretAccessKey: this.get('secretAccessKey'),
+					},
+				});
 			}
 		},
 	});
