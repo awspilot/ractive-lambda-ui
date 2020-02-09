@@ -15,7 +15,7 @@ export default Ractive.extend({
 
 		</div>
 
-		<tabledata columns={{columns}} rows={{rows}} style='top: 38px;margin: 3px;' />
+		<tabledata columns={{columns}} rows={{rows}} on-colclick='openstream' style='top: 38px;margin: 3px;' />
 	`,
 	on: {
 
@@ -41,6 +41,10 @@ export default Ractive.extend({
 
 		refresh() {
 			this.refresh()
+		},
+
+		openstream() {
+			
 		},
 
 		init() {
@@ -99,7 +103,7 @@ export default Ractive.extend({
 					.map(function(l) {
 					return [
 						{ KEY: true, item: l, },
-						{ S: l.extra.stream || l.logStreamName },
+						{ HASH: l.extra.stream || l.logStreamName },
 						{ S: l.extra.version },
 						{ S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString()  },
 						{ N: Math.ceil(l.storedBytes/1024) }
