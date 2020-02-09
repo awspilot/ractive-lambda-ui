@@ -1,14 +1,14 @@
 
 import tab_config from './tab_config';
 import tab_code from './tab_code';
-
+import tab_logs from './tab_logs';
 
 export default Ractive.extend({
 	isolated: true,
 	components: {
 		tabconfig: tab_config,
 		tabcode: tab_code,
-
+		tablogs: tab_logs,
 	},
 	template: `
 		<div class='tableview {{#if active}}active{{/if}}'>
@@ -33,6 +33,10 @@ export default Ractive.extend({
 
 						{{#if tab === 'monitoring'}}
 							<tabmonitoring function={{function}} />
+						{{/if}}
+
+						{{#if tab === 'logs'}}
+							<tablogs function={{function}} />
 						{{/if}}
 
 				{{/if}}
