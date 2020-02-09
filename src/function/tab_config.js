@@ -55,7 +55,7 @@ export default Ractive.extend({
 					<input type="number" value={{updateFunctionConfiguration.Configuration.Timeout}} style="width: 100%;">
 				</div>
 
-				<a class="btn btn-sm btn-primary {{#if dirty_mem || dirty_desc || dirty_timeout }}{{else}}disabled{{/if}}">Save</a>
+				<a class="btn btn-sm btn-primary {{#if dirty_mem || dirty_desc || dirty_timeout }}{{else}}disabled{{/if}}" on-click='save-desc-mem-timeout'>Save</a>
 
 			</div>
 		</div>
@@ -119,87 +119,27 @@ export default Ractive.extend({
 
 	`,
 	on: {
+		'save-desc-mem-timeout': function() {
+
+			var ractive=this;
+
+			lambda.updateFunctionConfiguration({
+				FunctionName: this.get('getFunction.Configuration.FunctionArn'),
+				Description: this.get('updateFunctionConfiguration.Configuration.Description'),
+				MemorySize: this.get('updateFunctionConfiguration.Configuration.MemorySize'),
+				Timeout: this.get('updateFunctionConfiguration.Configuration.Timeout'),
+			}, function(err,data) {
+				if (err)
+					return alert('Update Failed')
+
+				ractive.get_function()
+			})
+		},
+
 		init() {
 			var ractive=this;
-			var params = {
-				FunctionName: this.get('function.name'),
-				//Qualifier: "1"
-			};
-			lambda.getFunction(params, function(err, data) {
-				if (err)
-					return;
 
-				ractive.set('getFunction', data )
-
-				ractive.set('updateFunctionConfiguration', {
-						Configuration: {
-							// FunctionName: 'STRING_VALUE', /* required */
-							// DeadLetterConfig: {
-							// TargetArn: 'STRING_VALUE'
-							// },
-							Description: data.Configuration.Description,
-							Environment: {
-								Variables: data.Configuration.Environment.Variables,
-							},
-							// Handler: 'STRING_VALUE',
-							// KMSKeyArn: 'STRING_VALUE',
-							// Layers: [
-							// 'STRING_VALUE',
-							// /* more items */
-							// ],
-							MemorySize: data.Configuration.MemorySize,
-							// RevisionId: 'STRING_VALUE',
-							// Role: 'STRING_VALUE',
-							// Runtime: nodejs | nodejs4.3 | nodejs6.10 | nodejs8.10 | nodejs10.x | nodejs12.x | java8 | java11 | python2.7 | python3.6 | python3.7 | python3.8 | dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | nodejs4.3-edge | go1.x | ruby2.5 | provided,
-							Timeout: data.Configuration.Timeout,
-							// TracingConfig: {
-							// Mode: Active | PassThrough
-							// },
-							// VpcConfig: {
-							// SecurityGroupIds: [
-							// 'STRING_VALUE',
-							// /* more items */
-							// ],
-							// SubnetIds: [
-							// 'STRING_VALUE',
-							// /* more items */
-							// ]
-							// }
-						}
-				} )
-
-
-				sizes.map(function(v,idx,arr) {
-					if (v === data.Configuration.MemorySize )
-						ractive.set('memsize', idx )
-				})
-
-
-				var dump = JSON.parse(JSON.stringify(data.Configuration))
-				delete dump.FunctionName;
-				delete dump.FunctionArn;
-				delete dump.Runtime;
-				delete dump.Role;
-				delete dump.Handler;
-				delete dump.CodeSize;
-				delete dump.Description;
-				delete dump.Timeout;
-				delete dump.MemorySize;
-				delete dump.LastModified;
-				delete dump.CodeSha256;
-				delete dump.Version;
-				delete dump.Environment;
-				delete dump.MasterArn;
-				delete dump.RevisionId;
-				delete dump.VpcConfig;
-				delete dump.KMSKeyArn;
-				delete dump.TracingConfig;
-
-				ractive.set('dump', JSON.stringify( dump, null, "\t") )
-
-
-				console.log(err,data)
-			})
+			this.get_function()
 
 			this.observe('memsize', function( n ) {
 				this.set('updateFunctionConfiguration.Configuration.MemorySize', sizes[n])
@@ -225,5 +165,89 @@ export default Ractive.extend({
 				return JSON.stringify( v, null, "\t" )
 			}
 		}
-	}
+	},
+	get_function() {
+		var ractive=this;
+
+		var params = {
+			FunctionName: this.get('function.name'),
+			//Qualifier: "1"
+		};
+		lambda.getFunction(params, function(err, data) {
+			if (err)
+				return alert('failed getting function');
+
+			ractive.set('getFunction', data )
+
+			ractive.set('updateFunctionConfiguration', {
+					Configuration: {
+						// FunctionName: 'STRING_VALUE', /* required */
+						// DeadLetterConfig: {
+						// TargetArn: 'STRING_VALUE'
+						// },
+						Description: data.Configuration.Description,
+						Environment: {
+							Variables: data.Configuration.Environment.Variables,
+						},
+						// Handler: 'STRING_VALUE',
+						// KMSKeyArn: 'STRING_VALUE',
+						// Layers: [
+						// 'STRING_VALUE',
+						// /* more items */
+						// ],
+						MemorySize: data.Configuration.MemorySize,
+						// RevisionId: 'STRING_VALUE',
+						// Role: 'STRING_VALUE',
+						// Runtime: nodejs | nodejs4.3 | nodejs6.10 | nodejs8.10 | nodejs10.x | nodejs12.x | java8 | java11 | python2.7 | python3.6 | python3.7 | python3.8 | dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | nodejs4.3-edge | go1.x | ruby2.5 | provided,
+						Timeout: data.Configuration.Timeout,
+						// TracingConfig: {
+						// Mode: Active | PassThrough
+						// },
+						// VpcConfig: {
+						// SecurityGroupIds: [
+						// 'STRING_VALUE',
+						// /* more items */
+						// ],
+						// SubnetIds: [
+						// 'STRING_VALUE',
+						// /* more items */
+						// ]
+						// }
+					}
+			} )
+
+
+			sizes.map(function(v,idx,arr) {
+				if (v === data.Configuration.MemorySize )
+					ractive.set('memsize', idx )
+			})
+
+
+			var dump = JSON.parse(JSON.stringify(data.Configuration))
+			delete dump.FunctionName;
+			delete dump.FunctionArn;
+			delete dump.Runtime;
+			delete dump.Role;
+			delete dump.Handler;
+			delete dump.CodeSize;
+			delete dump.Description;
+			delete dump.Timeout;
+			delete dump.MemorySize;
+			delete dump.LastModified;
+			delete dump.CodeSha256;
+			delete dump.Version;
+			delete dump.Environment;
+			delete dump.MasterArn;
+			delete dump.RevisionId;
+			delete dump.VpcConfig;
+			delete dump.KMSKeyArn;
+			delete dump.TracingConfig;
+
+			ractive.set('dump', JSON.stringify( dump, null, "\t") )
+
+
+			console.log(err,data)
+		})
+
+	},
 })
