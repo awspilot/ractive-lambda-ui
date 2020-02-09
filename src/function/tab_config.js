@@ -187,7 +187,7 @@ export default Ractive.extend({
 						// },
 						Description: data.Configuration.Description,
 						Environment: {
-							Variables: data.Configuration.Environment.Variables,
+							Variables: (data.Configuration.Environment || {}).Variables,
 						},
 						// Handler: 'STRING_VALUE',
 						// KMSKeyArn: 'STRING_VALUE',
