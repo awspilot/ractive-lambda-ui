@@ -11,6 +11,8 @@ var rawlog = Ractive.extend({
 				</div>
 			{{else}}
 
+{{ events_count }}
+
 				<div style="padding: 5px;text-align: center;">
 					<a class="">Newer {{rawlog.nextForwardToken}}</a>
 				</div>
@@ -171,7 +173,14 @@ var rawlog = Ractive.extend({
 			return e;
 		})
 
-		this.set({events})
+		events = events.filter(function(e) {
+			if (!e)
+				return false;
+
+			return true;
+		})
+
+		this.set({events, events_count: events.length })
 	},
 	get_log_events() {
 
