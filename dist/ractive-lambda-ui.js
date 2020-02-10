@@ -7,7 +7,7 @@
 		exports["@awspilot/ractive-lambda-ui"] = factory(require("ractive"));
 	else
 		root["@awspilot/ractive-lambda-ui"] = factory(root["Ractive"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE__59__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__60__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 57);
+/******/ 	return __webpack_require__(__webpack_require__.s = 58);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 var support = __webpack_require__(4);
-var base64 = __webpack_require__(35);
+var base64 = __webpack_require__(36);
 var nodejsUtils = __webpack_require__(16);
 var setImmediate = __webpack_require__(79);
 var external = __webpack_require__(12);
@@ -1102,7 +1102,7 @@ else {
 }
 
 try {
-    exports.nodestream = !!__webpack_require__(28).Readable;
+    exports.nodestream = !!__webpack_require__(29).Readable;
 } catch(e) {
     exports.nodestream = false;
 }
@@ -1275,7 +1275,7 @@ var util = __webpack_require__(11);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
-var Readable = __webpack_require__(30);
+var Readable = __webpack_require__(31);
 var Writable = __webpack_require__(18);
 
 util.inherits(Duplex, Readable);
@@ -1657,7 +1657,7 @@ exports.Utf8EncodeWorker = Utf8EncodeWorker;
 
 var base64 = __webpack_require__(67)
 var ieee754 = __webpack_require__(68)
-var isArray = __webpack_require__(27)
+var isArray = __webpack_require__(28)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -4312,12 +4312,12 @@ module.exports = {
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(30);
+exports = module.exports = __webpack_require__(31);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(18);
 exports.Duplex = __webpack_require__(6);
-exports.Transform = __webpack_require__(34);
+exports.Transform = __webpack_require__(35);
 exports.PassThrough = __webpack_require__(74);
 
 
@@ -4403,7 +4403,7 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(31);
+var Stream = __webpack_require__(32);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -4419,7 +4419,7 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(32);
+var destroyImpl = __webpack_require__(33);
 
 util.inherits(Writable, Stream);
 
@@ -5093,10 +5093,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 
 var external = __webpack_require__(12);
-var DataWorker = __webpack_require__(38);
-var DataLengthProbe = __webpack_require__(39);
-var Crc32Probe = __webpack_require__(40);
-var DataLengthProbe = __webpack_require__(39);
+var DataWorker = __webpack_require__(39);
+var DataLengthProbe = __webpack_require__(40);
+var Crc32Probe = __webpack_require__(41);
+var DataLengthProbe = __webpack_require__(40);
 
 /**
  * Represent a compressed object, with everything needed to decompress it.
@@ -6111,6 +6111,33 @@ exports.callbackify = callbackify;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	isolated: true,
+	template: '\n\t\t<div class=\'tabledata\' style=\'{{style}}\'>\n\t\t\t<div class=\'tabledatahead\'>\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t<div style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'>{{.}}</div>\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class=\'tabledatacontent\'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\t\t\t\t<div class=\'tabledatarow {{#if .[0].selected}}selected{{/if}}\' on-click=\'selectrow\'>\n\t\t\t\t\t{{#each .:i}}\n\t\t\t\t\t<div class=\'tabledatacell\n\t\t\t\t\t\t{{#if .KEY}}t-K{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}t-HASH{{/if}}\n\t\t\t\t\t\t{{#if .S}}t-S{{/if}}\n\t\t\t\t\t\t{{#if .N}}t-N{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}t-BOOL{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}t-NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}t-L{{/if}}\n\t\t\t\t\t\t{{#if .M}}t-M{{/if}}\n\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\' style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'\n\t\t\t\t\t\t{{#if .HASH}}on-click=\'cellclick\'{{/if}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{#if .KEY}}\n\t\t\t\t\t\t\t{{#if .selected}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\' checked>\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\n\t\t\t\t\t\t{{#if .S}}{{.S}}{{/if}}\n\t\t\t\t\t\t{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}{{.BOOL}}{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}[...]{{/if}}\n\t\t\t\t\t\t{{#if .M}}{...}{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t\t{{/each}}\n\t\t\t\t</div>\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t',
+
+	data: function data() {
+		return {};
+	},
+	oninit: function oninit() {
+		this.on('cellclick', function (e) {
+			var col = this.get(e.resolve());
+			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
+			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
+			this.fire('colclick', undefined, col.item, col.raw);
+		});
+	}
+});
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 /**
  * Representation a of zip file in js
  * @constructor
@@ -6149,7 +6176,7 @@ function JSZip() {
 JSZip.prototype = __webpack_require__(66);
 JSZip.prototype.loadAsync = __webpack_require__(98);
 JSZip.support = __webpack_require__(4);
-JSZip.defaults = __webpack_require__(37);
+JSZip.defaults = __webpack_require__(38);
 
 // TODO find a better way to handle this version,
 // a require('package.json').version doesn't work with webpack, see #327
@@ -6164,7 +6191,7 @@ module.exports = JSZip;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -6175,7 +6202,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -6186,11 +6213,11 @@ module.exports = Array.isArray || function (arr) {
  * reduce the final size of the bundle (only one stream implementation, not
  * two).
  */
-module.exports = __webpack_require__(29);
+module.exports = __webpack_require__(30);
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -6323,7 +6350,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6358,7 +6385,7 @@ var pna = __webpack_require__(14);
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(27);
+var isArray = __webpack_require__(28);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -6376,7 +6403,7 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(31);
+var Stream = __webpack_require__(32);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -6408,7 +6435,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(70);
-var destroyImpl = __webpack_require__(32);
+var destroyImpl = __webpack_require__(33);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -6498,7 +6525,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(33).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(34).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -6654,7 +6681,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(33).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(34).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -7349,14 +7376,14 @@ function indexOf(xs, x) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1), __webpack_require__(3)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(10).EventEmitter;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7436,7 +7463,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7738,7 +7765,7 @@ function simpleEnd(buf) {
 }
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7958,7 +7985,7 @@ function done(stream, er, data) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8071,7 +8098,7 @@ exports.decode = function(input) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8080,7 +8107,7 @@ exports.decode = function(input) {
 var utils = __webpack_require__(0);
 var ConvertWorker = __webpack_require__(82);
 var GenericWorker = __webpack_require__(2);
-var base64 = __webpack_require__(35);
+var base64 = __webpack_require__(36);
 var support = __webpack_require__(4);
 var external = __webpack_require__(12);
 
@@ -8291,7 +8318,7 @@ module.exports = StreamHelper;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8309,7 +8336,7 @@ exports.dosPermissions = null;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8432,7 +8459,7 @@ module.exports = DataWorker;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8468,7 +8495,7 @@ module.exports = DataLengthProbe;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8499,7 +8526,7 @@ module.exports = Crc32Probe;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8520,7 +8547,7 @@ exports.DEFLATE = __webpack_require__(86);
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8578,7 +8605,7 @@ module.exports = adler32;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8644,7 +8671,7 @@ module.exports = crc32;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8838,7 +8865,7 @@ exports.utf8border = function (buf, max) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8892,7 +8919,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8967,7 +8994,7 @@ module.exports = {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8981,7 +9008,7 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8989,10 +9016,10 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 var utils = __webpack_require__(0);
 var support = __webpack_require__(4);
-var ArrayReader = __webpack_require__(49);
+var ArrayReader = __webpack_require__(50);
 var StringReader = __webpack_require__(100);
 var NodeBufferReader = __webpack_require__(101);
-var Uint8ArrayReader = __webpack_require__(51);
+var Uint8ArrayReader = __webpack_require__(52);
 
 /**
  * Create a reader adapted to the data.
@@ -9016,12 +9043,12 @@ module.exports = function (data) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var DataReader = __webpack_require__(50);
+var DataReader = __webpack_require__(51);
 var utils = __webpack_require__(0);
 
 function ArrayReader(data) {
@@ -9080,7 +9107,7 @@ module.exports = ArrayReader;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9203,12 +9230,12 @@ module.exports = DataReader;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ArrayReader = __webpack_require__(49);
+var ArrayReader = __webpack_require__(50);
 var utils = __webpack_require__(0);
 
 function Uint8ArrayReader(data) {
@@ -9232,14 +9259,14 @@ module.exports = Uint8ArrayReader;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var constants_1 = __webpack_require__(13);
-var encoding_1 = __webpack_require__(53);
+var encoding_1 = __webpack_require__(54);
 var S_IFMT = constants_1.constants.S_IFMT, S_IFDIR = constants_1.constants.S_IFDIR, S_IFREG = constants_1.constants.S_IFREG, S_IFBLK = constants_1.constants.S_IFBLK, S_IFCHR = constants_1.constants.S_IFCHR, S_IFLNK = constants_1.constants.S_IFLNK, S_IFIFO = constants_1.constants.S_IFIFO, S_IFSOCK = constants_1.constants.S_IFSOCK;
 /**
  * A directory entry, like `fs.Dirent`.
@@ -9287,14 +9314,14 @@ exports.default = Dirent;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var buffer_1 = __webpack_require__(24);
-var errors = __webpack_require__(54);
+var errors = __webpack_require__(55);
 exports.ENCODING_UTF8 = 'utf8';
 function assertEncoding(encoding) {
     if (encoding && !buffer_1.Buffer.isEncoding(encoding))
@@ -9312,7 +9339,7 @@ exports.strToEncoding = strToEncoding;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9581,7 +9608,7 @@ function bufferOutOfBounds(name, isWriting) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1)))
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9618,7 +9645,7 @@ function createProcess() {
     if (!p.cwd)
         p.cwd = function () { return '/'; };
     if (!p.nextTick)
-        p.nextTick = __webpack_require__(56).default;
+        p.nextTick = __webpack_require__(57).default;
     if (!p.emitWarning)
         p.emitWarning = function (message, type) {
             // tslint:disable-next-line:no-console
@@ -9634,7 +9661,7 @@ exports.default = createProcess();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9650,7 +9677,7 @@ exports.default = _setImmediate;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19).setImmediate, __webpack_require__(1)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9660,17 +9687,17 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-__webpack_require__(58);
+__webpack_require__(59);
 
-var _ractive = __webpack_require__(59);
+var _ractive = __webpack_require__(60);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
-var _list_mini = __webpack_require__(60);
+var _list_mini = __webpack_require__(61);
 
 var _list_mini2 = _interopRequireDefault(_list_mini);
 
-var _tabs = __webpack_require__(62);
+var _tabs = __webpack_require__(63);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
@@ -9714,24 +9741,33 @@ exports.default = _ractive2.default.extend({
 					secretAccessKey: this.get('secretAccessKey')
 				}
 			});
+
+			cloudwatchlogs = new AWS.CloudWatchLogs({
+				endpoint: this.get('endpoint') || undefined,
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
 		}
 	}
 });
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__59__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__60__;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9741,7 +9777,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(61);
+var _svgicons = __webpack_require__(62);
 
 var _svgicons2 = _interopRequireDefault(_svgicons);
 
@@ -9788,7 +9824,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9819,7 +9855,7 @@ Ractive.components['icon-caret-down'] = Ractive.extend({
 });
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9829,7 +9865,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _functionlist = __webpack_require__(63);
+var _functionlist = __webpack_require__(64);
 
 var _functionlist2 = _interopRequireDefault(_functionlist);
 
@@ -9908,7 +9944,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9918,7 +9954,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tabledata = __webpack_require__(64);
+var _tabledata = __webpack_require__(26);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
@@ -10011,33 +10047,6 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = Ractive.extend({
-	isolated: true,
-	template: '\n\t\t<div class=\'tabledata\' style=\'{{style}}\'>\n\t\t\t<div class=\'tabledatahead\'>\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t<div style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'>{{.}}</div>\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class=\'tabledatacontent\'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\t\t\t\t<div class=\'tabledatarow {{#if .[0].selected}}selected{{/if}}\' on-click=\'selectrow\'>\n\t\t\t\t\t{{#each .:i}}\n\t\t\t\t\t<div class=\'tabledatacell\n\t\t\t\t\t\t{{#if .KEY}}t-K{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}t-HASH{{/if}}\n\t\t\t\t\t\t{{#if .S}}t-S{{/if}}\n\t\t\t\t\t\t{{#if .N}}t-N{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}t-BOOL{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}t-NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}t-L{{/if}}\n\t\t\t\t\t\t{{#if .M}}t-M{{/if}}\n\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\' style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'\n\t\t\t\t\t\t{{#if .HASH}}on-click=\'cellclick\'{{/if}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{#if .KEY}}\n\t\t\t\t\t\t\t{{#if .selected}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\' checked>\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\n\t\t\t\t\t\t{{#if .S}}{{.S}}{{/if}}\n\t\t\t\t\t\t{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}{{.BOOL}}{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}[...]{{/if}}\n\t\t\t\t\t\t{{#if .M}}{...}{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t\t{{/each}}\n\t\t\t\t</div>\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t',
-
-	data: function data() {
-		return {};
-	},
-	oninit: function oninit() {
-		this.on('cellclick', function (e) {
-			var col = this.get(e.resolve());
-			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
-			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
-			this.fire('colclick', undefined, col.item, col.raw);
-		});
-	}
-});
-
-/***/ }),
 /* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10048,7 +10057,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var JSZip = __webpack_require__(26);
+var JSZip = __webpack_require__(27);
 
 exports.default = Ractive.extend({
 	template: '\n\n\t\t<div style="padding: 30px;">\n\t\t\t<h3>Create function</h3>\n\n\t\t\t<hr />\n\n\t\t\t<h4>Basic information</h4>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<div>Function name</div>\n\t\t\t\t\t<small>Enter a name that describes the purpose of your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<input class="input-text" value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<br><br>\n\n\t\t\t\t\t<div>Runtime</div>\n\t\t\t\t\t<small>Choose the language to use to write your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<select class="input-select" value={{runtime}} style="width: 50%;" >\n\t\t\t\t\t\t\t<option value="nodejs10.x">NodeJS 10.x</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<br><br>\n\n\t\t\t\t\t<div>Permissions</div>\n\t\t\t\t\t<small>Choose a role that defines the permissions of your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<select class="input-select" value={{role}} style="width: 50%;" >\n\t\t\t\t\t\t\t{{#if !roles}}\n\t\t\t\t\t\t\t\t<option>Loading...</option>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t{{#roles}}\n\t\t\t\t\t\t\t\t<option value={{.Arn}}>{{.RoleName}}</option>\n\t\t\t\t\t\t\t{{/roles}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t<hr />\n\n\t\t\t<a class="btn btn-sm btn-primary" on-click="createfunction"> Create function </a>\n\n\t\t</div>\n\n\t',
@@ -10139,8 +10148,8 @@ exports.default = Ractive.extend({
 var utf8 = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
-var StreamHelper = __webpack_require__(36);
-var defaults = __webpack_require__(37);
+var StreamHelper = __webpack_require__(37);
+var defaults = __webpack_require__(38);
 var CompressedObject = __webpack_require__(20);
 var ZipObject = __webpack_require__(84);
 var generate = __webpack_require__(85);
@@ -11173,7 +11182,7 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(34);
+var Transform = __webpack_require__(35);
 
 /*<replacement>*/
 var util = __webpack_require__(11);
@@ -11632,7 +11641,7 @@ module.exports = ConvertWorker;
 "use strict";
 
 
-var Readable = __webpack_require__(28).Readable;
+var Readable = __webpack_require__(29).Readable;
 
 var utils = __webpack_require__(0);
 utils.inherits(NodejsStreamOutputAdapter, Readable);
@@ -11681,8 +11690,8 @@ module.exports = NodejsStreamOutputAdapter;
 "use strict";
 
 
-var StreamHelper = __webpack_require__(36);
-var DataWorker = __webpack_require__(38);
+var StreamHelper = __webpack_require__(37);
+var DataWorker = __webpack_require__(39);
 var utf8 = __webpack_require__(7);
 var CompressedObject = __webpack_require__(20);
 var GenericWorker = __webpack_require__(2);
@@ -11821,7 +11830,7 @@ module.exports = ZipObject;
 "use strict";
 
 
-var compressions = __webpack_require__(41);
+var compressions = __webpack_require__(42);
 var ZipFileWorker = __webpack_require__(96);
 
 /**
@@ -11982,7 +11991,7 @@ var assign    = __webpack_require__(5).assign;
 
 var deflate   = __webpack_require__(88);
 var inflate   = __webpack_require__(91);
-var constants = __webpack_require__(46);
+var constants = __webpack_require__(47);
 
 var pako = {};
 
@@ -12001,9 +12010,9 @@ module.exports = pako;
 
 var zlib_deflate = __webpack_require__(89);
 var utils        = __webpack_require__(5);
-var strings      = __webpack_require__(44);
+var strings      = __webpack_require__(45);
 var msg          = __webpack_require__(22);
-var ZStream      = __webpack_require__(45);
+var ZStream      = __webpack_require__(46);
 
 var toString = Object.prototype.toString;
 
@@ -12426,8 +12435,8 @@ exports.gzip = gzip;
 
 var utils   = __webpack_require__(5);
 var trees   = __webpack_require__(90);
-var adler32 = __webpack_require__(42);
-var crc32   = __webpack_require__(43);
+var adler32 = __webpack_require__(43);
+var crc32   = __webpack_require__(44);
 var msg     = __webpack_require__(22);
 
 /* Public constants ==========================================================*/
@@ -15518,10 +15527,10 @@ exports._tr_align = _tr_align;
 
 var zlib_inflate = __webpack_require__(92);
 var utils        = __webpack_require__(5);
-var strings      = __webpack_require__(44);
-var c            = __webpack_require__(46);
+var strings      = __webpack_require__(45);
+var c            = __webpack_require__(47);
 var msg          = __webpack_require__(22);
-var ZStream      = __webpack_require__(45);
+var ZStream      = __webpack_require__(46);
 var GZheader     = __webpack_require__(95);
 
 var toString = Object.prototype.toString;
@@ -15965,8 +15974,8 @@ exports.ungzip  = inflate;
 // 3. This notice may not be removed or altered from any source distribution.
 
 var utils         = __webpack_require__(5);
-var adler32       = __webpack_require__(42);
-var crc32         = __webpack_require__(43);
+var adler32       = __webpack_require__(43);
+var crc32         = __webpack_require__(44);
 var inflate_fast  = __webpack_require__(93);
 var inflate_table = __webpack_require__(94);
 
@@ -18279,7 +18288,7 @@ var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
 var utf8 = __webpack_require__(7);
 var crc32 = __webpack_require__(21);
-var signature = __webpack_require__(47);
+var signature = __webpack_require__(48);
 
 /**
  * Transform an integer into a string in hexadecimal.
@@ -18907,7 +18916,7 @@ var external = __webpack_require__(12);
 var utf8 = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var ZipEntries = __webpack_require__(99);
-var Crc32Probe = __webpack_require__(40);
+var Crc32Probe = __webpack_require__(41);
 var nodejsUtils = __webpack_require__(16);
 
 /**
@@ -18991,9 +19000,9 @@ module.exports = function(data, options) {
 
 "use strict";
 
-var readerFor = __webpack_require__(48);
+var readerFor = __webpack_require__(49);
 var utils = __webpack_require__(0);
-var sig = __webpack_require__(47);
+var sig = __webpack_require__(48);
 var ZipEntry = __webpack_require__(102);
 var utf8 = __webpack_require__(7);
 var support = __webpack_require__(4);
@@ -19260,7 +19269,7 @@ module.exports = ZipEntries;
 
 "use strict";
 
-var DataReader = __webpack_require__(50);
+var DataReader = __webpack_require__(51);
 var utils = __webpack_require__(0);
 
 function StringReader(data) {
@@ -19305,7 +19314,7 @@ module.exports = StringReader;
 
 "use strict";
 
-var Uint8ArrayReader = __webpack_require__(51);
+var Uint8ArrayReader = __webpack_require__(52);
 var utils = __webpack_require__(0);
 
 function NodeBufferReader(data) {
@@ -19331,12 +19340,12 @@ module.exports = NodeBufferReader;
 
 "use strict";
 
-var readerFor = __webpack_require__(48);
+var readerFor = __webpack_require__(49);
 var utils = __webpack_require__(0);
 var CompressedObject = __webpack_require__(20);
 var crc32fn = __webpack_require__(21);
 var utf8 = __webpack_require__(7);
-var compressions = __webpack_require__(41);
+var compressions = __webpack_require__(42);
 var support = __webpack_require__(4);
 
 var MADE_BY_DOS = 0x00;
@@ -19643,16 +19652,20 @@ var _tab_code = __webpack_require__(105);
 
 var _tab_code2 = _interopRequireDefault(_tab_code);
 
+var _tab_logs = __webpack_require__(132);
+
+var _tab_logs2 = _interopRequireDefault(_tab_logs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = Ractive.extend({
 	isolated: true,
 	components: {
 		tabconfig: _tab_config2.default,
-		tabcode: _tab_code2.default
-
+		tabcode: _tab_code2.default,
+		tablogs: _tab_logs2.default
 	},
-	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'config\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'config\')\'> Config </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'code\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'code\')\'> Code </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'monitoring\'}}active{{/if}}\'   on-click=\'@this.set(\'tab\',\'monitoring\')\'> Monitoring </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'logs\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'logs\')\'> Logs </a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'config\'}}\n\t\t\t\t\t\t\t<tabconfig function={{function}}  />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'code\'}}\n\t\t\t\t\t\t\t<tabcode function={{function}} theme={{theme}} cors-proxy={{.[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'monitoring\'}}\n\t\t\t\t\t\t\t<tabmonitoring function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'config\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'config\')\'> Config </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'code\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'code\')\'> Code </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'monitoring\'}}active{{/if}}\'   on-click=\'@this.set(\'tab\',\'monitoring\')\'> Monitoring </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'logs\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'logs\')\'> Logs </a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'config\'}}\n\t\t\t\t\t\t\t<tabconfig function={{function}}  />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'code\'}}\n\t\t\t\t\t\t\t<tabcode function={{function}} theme={{theme}} cors-proxy={{.[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'monitoring\'}}\n\t\t\t\t\t\t\t<tabmonitoring function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'logs\'}}\n\t\t\t\t\t\t\t<tablogs function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			tab: 'config'
@@ -19740,7 +19753,7 @@ exports.default = Ractive.extend({
 					// },
 					Description: data.Configuration.Description,
 					Environment: {
-						Variables: data.Configuration.Environment.Variables
+						Variables: (data.Configuration.Environment || {}).Variables
 					},
 					// Handler: 'STRING_VALUE',
 					// KMSKeyArn: 'STRING_VALUE',
@@ -19819,7 +19832,7 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var JSZip = __webpack_require__(26);
+var JSZip = __webpack_require__(27);
 var async = __webpack_require__(131);
 
 exports.default = Ractive.extend({
@@ -20002,7 +20015,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Stats_1 = __webpack_require__(23);
-var Dirent_1 = __webpack_require__(52);
+var Dirent_1 = __webpack_require__(53);
 var volume_1 = __webpack_require__(112);
 var _a = __webpack_require__(126), fsSyncMethods = _a.fsSyncMethods, fsAsyncMethods = _a.fsAsyncMethods;
 var constants_1 = __webpack_require__(13);
@@ -20729,16 +20742,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var pathModule = __webpack_require__(113);
 var node_1 = __webpack_require__(114);
 var Stats_1 = __webpack_require__(23);
-var Dirent_1 = __webpack_require__(52);
+var Dirent_1 = __webpack_require__(53);
 var buffer_1 = __webpack_require__(24);
-var setImmediate_1 = __webpack_require__(56);
-var process_1 = __webpack_require__(55);
+var setImmediate_1 = __webpack_require__(57);
+var process_1 = __webpack_require__(56);
 var setTimeoutUnref_1 = __webpack_require__(115);
-var stream_1 = __webpack_require__(29);
+var stream_1 = __webpack_require__(30);
 var constants_1 = __webpack_require__(13);
 var events_1 = __webpack_require__(10);
-var encoding_1 = __webpack_require__(53);
-var errors = __webpack_require__(54);
+var encoding_1 = __webpack_require__(54);
+var errors = __webpack_require__(55);
 var extend = __webpack_require__(116).extend;
 var util = __webpack_require__(25);
 var promises_1 = __webpack_require__(117);
@@ -23204,7 +23217,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var process_1 = __webpack_require__(55);
+var process_1 = __webpack_require__(56);
 var buffer_1 = __webpack_require__(24);
 var constants_1 = __webpack_require__(13);
 var events_1 = __webpack_require__(10);
@@ -30429,6 +30442,293 @@ var index = {
 /* harmony default export */ __webpack_exports__["default"] = (index);
 
 
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _tabledata = __webpack_require__(26);
+
+var _tabledata2 = _interopRequireDefault(_tabledata);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rawlog = Ractive.extend({
+	template: '\n\t\t<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">\n\t\t\t{{#events}}\n\t\t\t\t{{#if .type === \'invoke\' }}\n\t\t\t\t\t<div style="position: relative;border: 1px solid #000;margin: 15px;padding: 5px;margin-top: 30px;background-color: #000;color: #fff;">\n\t\t\t\t\t\t<div style="position: absolute;height: 18px;top: -18px;line-height: 18px;padding: 0px 5px;left: -1px;border: 1px solid #000;background-color: #000;color: yellow;">{{.request_id}}</div>\n\n\t\t\t\t\t\t<div style="overflow-y: auto;color: lightgray;margin-top: 10px;">\n\t\t\t\t\t\t\t{{#.logs}}\n\t\t\t\t\t\t\t<div style="white-space: nowrap;">{{.message}}</div>\n\t\t\t\t\t\t\t{{/.logs}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div style=\'margin-top: 10px;text-align: right;\'>\n\t\t\t\t\t\t\t<span style=\'color: #77b6f9;\'>{{.duration}}ms</span>\n\t\t\t\t\t\t\t<span style=\'color: lightgreen;\'>{{.max_memory}}/{{.memory}}RAM</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t{{else}}\n\t\t\t\t\t<div style="white-space: nowrap;">{{.message}}</div>\n\t\t\t\t{{/if}}\n\t\t\t{{/events}}\n\t\t</div>\n\t',
+	on: {
+		init: function init() {
+			var events = this.get('rawlog.events');
+
+			events = events.map(function (e) {
+				if (!e) return e;
+
+				var match = e.message.match(/^START\ RequestId:\ (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\ Version:\ (?<version>.+)$/m);
+				if (match) {
+					e = {
+
+						type: 'invoke',
+						request_id: match.groups.request_id.trim(),
+						version: match.groups.version,
+
+						started_at: e.timestamp
+
+						// find the matching end END RequestId: 22b8544b-04ea-4444-a8e7-94ac546f14d6
+					};events.map(function (end_e, end_k) {
+						if (!end_e) return end_e;
+
+						var endmatch = end_e.message.match(/^END\ RequestId:\ (?<request_id>[^-]+\-[^-]+\-[^-]+\-[^-]+\-[^\s]+)$/m);
+						if (endmatch) {
+							if (endmatch.groups.request_id.trim() === match.groups.request_id) {
+								e.finished_at = end_e.timestamp;
+								delete events[end_k];
+							}
+						}
+					});
+
+					// find the matching report for dry run
+					events.map(function (report_e, report_k) {
+						if (!report_e) return report_e;
+
+						// dry-run
+						var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB\sInit Duration:\s(?<init_duration>[0-9\.]+) ms$/;
+						var reportmatch = report_e.message.trim().match(regex);
+
+						if (reportmatch) {
+
+							if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
+
+								e.duration = reportmatch.groups.duration;
+								e.billed_duration = reportmatch.groups.billed_duration;
+								e.memory = reportmatch.groups.memory;
+								e.max_memory = reportmatch.groups.max_memory;
+								e.init_duration = reportmatch.groups.init_duration;
+
+								delete events[report_k];
+							}
+						}
+					});
+
+					// find the matching report
+					events.map(function (report_e, report_k) {
+						if (!report_e) return report_e;
+
+						// non dry-run
+						var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB$/;
+						var reportmatch = report_e.message.trim().match(regex);
+
+						if (reportmatch) {
+
+							if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
+
+								e.duration = reportmatch.groups.duration;
+								e.billed_duration = reportmatch.groups.billed_duration;
+								e.memory = reportmatch.groups.memory;
+								e.max_memory = reportmatch.groups.max_memory;
+
+								delete events[report_k];
+							}
+						}
+					});
+
+					// log type INFO
+					events.map(function (log_e, log_k) {
+						if (!log_e) return log_e;
+
+						var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sINFO\s(?<log>.*)$/s;
+						var logmatch = log_e.message.trim().match(regex);
+						if (logmatch) {
+
+							if (logmatch.groups.request_id.trim() === match.groups.request_id) {
+
+								if (!e.hasOwnProperty('logs')) e.logs = [];
+
+								e.logs[log_k] = { type: 'info', message: logmatch.groups.log };
+								delete events[log_k];
+							}
+						}
+					});
+
+					// log type default
+					events.map(function (log_e, log_k) {
+						if (!log_e) return log_e;
+
+						var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\s(?<log>.*)$/s;
+						var logmatch = log_e.message.trim().match(regex);
+						if (logmatch) {
+							if (logmatch.groups.request_id.trim() === match.groups.request_id.trim()) {
+								console.log(logmatch);
+
+								if (!e.hasOwnProperty('logs')) e.logs = [];
+
+								e.logs[log_k] = { message: logmatch.groups.log };
+								delete events[log_k];
+							}
+						}
+					});
+				}
+				return e;
+			});
+
+			// START RequestId: fa282495-d3c6-47db-8a1e-64648ec0c20e Version: $LATEST
+
+			console.log(events);
+			this.set({ events: events });
+		}
+	}
+});
+
+exports.default = Ractive.extend({
+	components: {
+		tabledata: _tabledata2.default,
+		rawlog: rawlog
+	},
+	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'delete-raw-log\'> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
+	on: {
+		delete: function _delete() {
+			var ractive = this;
+
+			var to_delete = this.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			}).map(function (r) {
+				return r[0].item;
+			});
+
+			async.each(to_delete, function (item, cb) {
+				var params = {
+					logGroupName: '/aws/lambda/' + ractive.get('function.name'),
+					logStreamName: item.logStreamName
+				};
+				cloudwatchlogs.deleteLogStream(params, function (err, data) {
+
+					ractive.set('rows', ractive.get('rows').filter(function (r) {
+						return r[0].item.logStreamName !== item.logStreamName;
+					}));
+					cb();
+				});
+			}, function () {});
+		},
+		refresh: function refresh() {
+			this.refresh();
+		},
+		openstream: function openstream(e, col, item, rawitem) {
+			var ractive = this;
+
+			var params = {
+				logGroupName: '/aws/lambda/' + this.get('function.name'),
+				logStreamName: item.logStreamName,
+				//endTime: 'NUMBER_VALUE',
+				//limit: 'NUMBER_VALUE',
+				//nextToken: 'STRING_VALUE',
+				startFromHead: true
+				//startTime: 'NUMBER_VALUE'
+			};
+			cloudwatchlogs.getLogEvents(params, function (err, data) {
+
+				if (err) return;
+
+				ractive.set({ raw_log_data: {
+
+						item: item,
+
+						events: data.events,
+						nextForwardToken: data.nextForwardToken,
+						nextBackwardToken: data.nextBackwardToken
+					} });
+			});
+		},
+
+		'close-raw-log': function closeRawLog() {
+			this.set('raw_log_data');
+		},
+		'delete-raw-log': function deleteRawLog() {
+			var ractive = this;
+			var item = this.get('raw_log_data.item');
+			var params = {
+				logGroupName: '/aws/lambda/' + ractive.get('function.name'),
+				logStreamName: item.logStreamName
+			};
+			cloudwatchlogs.deleteLogStream(params, function (err, data) {
+				if (err) return alert('delete failed');
+
+				// close raw log
+				ractive.set('raw_log_data');
+
+				setTimeout(function () {
+					ractive.set('rows', ractive.get('rows').filter(function (r) {
+						return r[0].item.logStreamName !== item.logStreamName;
+					}));
+				}, 1000);
+			});
+		},
+
+		init: function init() {
+			var ractive = this;
+
+			this.refresh();
+
+			ractive.on('tabledata.selectrow', function (context) {
+				var keypath = context.resolve();
+				ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
+
+				ractive.set('selection_length', ractive.get('rows').filter(function (r) {
+					return r[0].selected === true;
+				}).length);
+			});
+		}
+	},
+
+	refresh: function refresh() {
+		var ractive = this;
+
+		var params = {
+			logGroupName: '/aws/lambda/' + this.get('function.name'),
+			descending: true,
+			//limit: 'NUMBER_VALUE',
+			//logStreamNamePrefix: 'STRING_VALUE',
+			//nextToken: 'STRING_VALUE',
+			orderBy: 'LastEventTime' // LogStreamName | LastEventTime
+		};
+
+		this.set({ rows: null }); // loading...
+
+		cloudwatchlogs.describeLogStreams(params, function (err, data) {
+			if (err) return console.log(err);
+
+			//console.log( data.logStreams )
+
+
+			ractive.set('rows', data.logStreams.map(function (l) {
+
+				var parsed = l.logStreamName.match(/^(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/\[(?<version>[^\]]+)\](?<stream>.{32})$/);
+
+				if (parsed) l.extra = {
+					version: parsed.groups.version,
+					stream: parsed.groups.stream
+				};
+
+				return l;
+			}).map(function (l) {
+				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }];
+			}));
+		});
+	},
+
+
+	data: function data() {
+		return {
+			columns: [null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB'],
+			rows: [],
+			raw_log_data: false
+		};
+	}
+});
 
 /***/ })
 /******/ ])["default"];
