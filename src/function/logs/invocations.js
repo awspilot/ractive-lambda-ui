@@ -5,6 +5,10 @@ export default Ractive.extend({
 
 			<div style="position: absolute;top:0px;left:0px;right:0px;height: 30px;background-color: #d4d0c8;border-left: 1px solid #fcfcfb;border-bottom: 1px solid #404040;line-height: 30px;font-size: 13px;">
 				Invocations: {{ events_count }}
+
+				<div style="position: absolute;top: 3px;right: 3px;line-height: initial;">
+					<a class="btn btn-xs btn-default" on-click='delete-raw-log'> <icon-trash /> </a>
+				</div>
 			</div>
 			<div style="position: absolute;top:31px;left:0px;right:0px;bottom:0;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">
 				{{#if events === false}}
@@ -216,6 +220,24 @@ export default Ractive.extend({
 		});
 	},
 	on: {
+
+		'delete-raw-log': function() {
+			var ractive=this;
+			var item = this.get('rawlog.item')
+			var params = {
+				logGroupName: this.get('rawlog.logGroupName'),
+				logStreamName: item.logStreamName,
+			};
+			cloudwatchlogs.deleteLogStream(params, function(err, data) {
+				if (err)
+					return alert('delete failed')
+
+				ractive.parent.remove_logstream_from_list(item.logStreamName)
+				ractive.parent.close_rawlog()
+
+			});
+		},
+
 		init() {
 
 			this.set({events: false, })

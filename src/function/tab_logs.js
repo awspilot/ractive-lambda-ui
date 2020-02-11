@@ -13,7 +13,6 @@ export default Ractive.extend({
 		<div class='pull-right' style='padding: 7px;'>
 
 			{{#if raw_log_data}}
-				<a class="btn btn-xs btn-default" on-click='delete-raw-log'> <icon-trash /> </a>
 				<a class="btn btn-xs btn-default" on-click='close-raw-log' > <icon-x /> </a>
 			{{else}}
 				<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click='delete'{{/if}}> <icon-trash /> </a>
@@ -27,6 +26,26 @@ export default Ractive.extend({
 			<rawlog rawlog={{raw_log_data}} />
 		{{/if}}
 	`,
+	remove_logstream_from_list( logStreamName ) {
+		var ractive=this;
+
+
+		// select only this line that's about to be removed from list, it helps visually
+		ractive.set('rows', ractive.get('rows').map(function(r) {
+			delete r[0].selected;
+			if (r[0].item.logStreamName == logStreamName)
+				r[0].selected=true;
+
+			return r;
+		}))
+
+		setTimeout(function() {
+			ractive.set('rows', ractive.get('rows').filter(function(r) { return r[0].item.logStreamName !== logStreamName }) )
+		}, 1000)
+	},
+	close_rawlog() {
+		this.set('raw_log_data');
+	},
 	on: {
 
 		delete() {
