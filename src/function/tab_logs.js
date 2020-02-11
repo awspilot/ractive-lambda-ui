@@ -3,45 +3,52 @@ import tabledata from '../tabledata';
 
 var rawlog = Ractive.extend({
 	template: `
-		<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">
+		<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;">
 
-			{{#if events === false}}
-				<div style="padding: 5px;text-align: center;">
-					Parsing events ...
-				</div>
-			{{else}}
+			<div style="position: absolute;top:0px;left:0px;right:0px;height: 30px;background-color: #d4d0c8;border-left: 1px solid #fcfcfb;border-bottom: 1px solid #404040;line-height: 30px;font-size: 13px;">
+				Invocations: {{ events_count }}
+			</div>
+			<div style="position: absolute;top:31px;left:0px;right:0px;bottom:0;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">
+				{{#if events === false}}
+					<div style="padding: 5px;text-align: center;">
+						Parsing events ...
+					</div>
+				{{else}}
 
-{{ events_count }}
+					<div style="padding: 5px;text-align: center;">
+						<a class="">Newer {{rawlog.nextForwardToken}}</a>
+					</div>
 
-				<div style="padding: 5px;text-align: center;">
-					<a class="">Newer {{rawlog.nextForwardToken}}</a>
-				</div>
+					{{#events}}
+						{{#if .type === 'invoke' }}
+							<div class="log-invocation">
+								<div class="log-invocation-title">{{.request_id}}</div>
 
-				{{#events}}
-					{{#if .type === 'invoke' }}
-						<div class="log-invocation">
-							<div class="log-invocation-title">{{.request_id}}</div>
-
-							<div style="overflow-y: auto;color: lightgray;margin-top: 10px;">
-								{{#.logs}}
-								<div class="logline {{#if .expanded}}expanded{{/if}}" on-click="@this.toggle( @keypath + '.expanded' )">{{.message}}</div>
-								{{/.logs}}
+								<div style="overflow-y: auto;color: lightgray;margin-top: 10px;">
+									{{#.logs}}
+									<div class="logline {{#if .expanded}}expanded{{/if}}" on-click="@this.toggle( @keypath + '.expanded' )">{{.message}}</div>
+									{{/.logs}}
+								</div>
+								<div style='margin-top: 10px;text-align: right;'>
+									<span style='color: #77b6f9;'>{{.duration}}ms</span>
+									<span style='color: lightgreen;'>{{.max_memory}}/{{.memory}}RAM</span>
+								</div>
 							</div>
-							<div style='margin-top: 10px;text-align: right;'>
-								<span style='color: #77b6f9;'>{{.duration}}ms</span>
-								<span style='color: lightgreen;'>{{.max_memory}}/{{.memory}}RAM</span>
-							</div>
-						</div>
-					{{else}}
-						<div style="white-space: nowrap;">{{.message}}</div>
-					{{/if}}
-				{{/events}}
+						{{else}}
+							<div style="white-space: nowrap;">{{.message}}</div>
+						{{/if}}
+					{{/events}}
 
-				<div style="padding: 5px;text-align: center;">
-					<a class="">Older {{rawlog.nextBackwardToken}}</a>
-				</div>
+					<div style="padding: 5px;text-align: center;">
+						<a class="">Older {{rawlog.nextBackwardToken}}</a>
+					</div>
 
-			{{/if}}
+				{{/if}}
+			</div>
+
+
+
+
 
 		</div>
 	`,
