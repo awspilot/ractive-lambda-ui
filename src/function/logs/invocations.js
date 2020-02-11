@@ -12,6 +12,7 @@ export default Ractive.extend({
 				{{/if}}
 
 				<div style="position: absolute;top: 3px;right: 3px;line-height: initial;">
+					<a class="btn btn-xs" on-click='refresh'> <icon-refresh /> </a>
 					<a class="btn btn-xs" on-click='delete-raw-log'> <icon-trash /> </a>
 				</div>
 			</div>
@@ -241,6 +242,11 @@ export default Ractive.extend({
 				ractive.parent.close_rawlog()
 
 			});
+		},
+
+		refresh() {
+			this.set({events: false, })
+			this.get_log_events()
 		},
 
 		init() {
