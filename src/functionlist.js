@@ -1,10 +1,13 @@
 
+import {IconTrash} from './svgicons';
 import tabledata from './tabledata';
 
 export default Ractive.extend({
 	//isolated: true,
 	components: {
 		tabledata: tabledata,
+
+		'icon-trash': IconTrash,
 	},
 	template:
 		`

@@ -1,4 +1,5 @@
 
+import {IconTrash} from '../svgicons';
 import tabledata from '../tabledata';
 
 import rawlog from './logs/invocations';
@@ -7,6 +8,8 @@ export default Ractive.extend({
 	components: {
 		tabledata: tabledata,
 		rawlog: rawlog,
+
+		'icon-trash': IconTrash,
 	},
 	template: `
 
