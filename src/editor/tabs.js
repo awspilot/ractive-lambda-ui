@@ -1,12 +1,12 @@
 
 
-
+import {IconX} from '../svgicons';
 import CodeFlask from 'codeflask';
 
 
 export default Ractive.extend({
 	components: {
-
+		'icon-x': IconX,
 	},
 	template:
 		`

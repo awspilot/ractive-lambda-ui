@@ -1,4 +1,5 @@
 
+import {IconX} from './svgicons';
 import functionslistfull from './functionlist';
 import functioncreate from './function/create';
 import functiontab from './function/tab';
@@ -9,6 +10,8 @@ export default Ractive.extend({
 		functionslistfull: functionslistfull,
 		functioncreate: functioncreate,
 		functiontab: functiontab,
+
+		'icon-x': IconX,
 	},
 	template:
 		`

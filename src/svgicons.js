@@ -36,18 +36,6 @@ Ractive.components['icon-refresh'] = Ractive.extend({
 	`
 })
 
-// Ractive.components['icon-trash'] = Ractive.extend({
-// 	template: `
-// 	<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">
-// 		<g>
-// 			<g>
-// 				<path d="M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5
-// 					H51v51h357V25.5z"/>
-// 			</g>
-// 		</g>
-// 	</svg>
-// `
-// })
 
 const IconTrash = Ractive.extend({
 	template: `
@@ -73,7 +61,7 @@ Ractive.components['icon-database'] = Ractive.extend({
 `
 })
 
-Ractive.components['icon-x'] = Ractive.extend({
+const IconX = Ractive.extend({
 	template: `
 		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 viewBox="0 0 512.001 512.001" xml:space="preserve">
@@ -103,4 +91,4 @@ Ractive.components['icon-caret-down'] = Ractive.extend({
 	`
 })
 
-export {IconTrash};
+export { IconTrash, IconX };
