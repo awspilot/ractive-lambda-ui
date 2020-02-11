@@ -4,17 +4,19 @@ export default Ractive.extend({
 		<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;">
 
 			<div style="position: absolute;top:0px;left:0px;right:0px;height: 30px;background-color: #d4d0c8;border-left: 1px solid #fcfcfb;border-bottom: 1px solid #404040;line-height: 30px;font-size: 13px;">
-				Invocations: {{ events_count }}
+
+				{{#if events === false}}
+					Parsing events ...
+				{{else}}
+					Invocations: {{ events_count }}
+				{{/if}}
 
 				<div style="position: absolute;top: 3px;right: 3px;line-height: initial;">
-					<a class="btn btn-xs btn-default" on-click='delete-raw-log'> <icon-trash /> </a>
+					<a class="btn btn-xs" on-click='delete-raw-log'> <icon-trash /> </a>
 				</div>
 			</div>
 			<div style="position: absolute;top:31px;left:0px;right:0px;bottom:0;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">
 				{{#if events === false}}
-					<div style="padding: 5px;text-align: center;">
-						Parsing events ...
-					</div>
 				{{else}}
 
 					<div style="padding: 5px;text-align: center;">
@@ -26,15 +28,17 @@ export default Ractive.extend({
 							<div class="log-invocation">
 								<div class="log-invocation-title">{{.request_id}}</div>
 
-								<div style="overflow-y: auto;color: lightgray;margin-top: 10px;">
+								<div style='text-align: right;'>
+									<span style='color: #0e5b8a;font-weight: bold;font-size: 13px;'>{{.duration}}ms</span>
+									<span style='color: #208020;font-weight: bold;font-size: 13px;'>{{.max_memory}}/{{.memory}}RAM</span>
+								</div>
+
+								<div style="background-color: black;overflow-y: auto;color: lightgray;margin-top: 5px;">
 									{{#.logs}}
 									<div class="logline {{#if .expanded}}expanded{{/if}}" on-click="@this.toggle( @keypath + '.expanded' )">{{.message}}</div>
 									{{/.logs}}
 								</div>
-								<div style='margin-top: 10px;text-align: right;'>
-									<span style='color: #77b6f9;'>{{.duration}}ms</span>
-									<span style='color: lightgreen;'>{{.max_memory}}/{{.memory}}RAM</span>
-								</div>
+
 							</div>
 						{{else}}
 							<div style="white-space: nowrap;">{{.message}}</div>
@@ -189,7 +193,8 @@ export default Ractive.extend({
 			return true;
 		})
 
-		this.set({events, events_count: events.length })
+		this.set({events, events_count: events.filter(function(e) { return e.hasOwnProperty('type') }).length })
+
 	},
 	get_log_events() {
 

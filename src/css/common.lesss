@@ -48,4 +48,9 @@
 	.btn-tableview-tab:hover {cursor: pointer;}
 	.btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;}
 
+	.log-invocation {position: relative;border: 1px solid #d4d0c8;margin: 15px;padding: 5px;margin-top: 40px;background-color: #d4d0c8;color: #fff;}
+	.log-invocation .log-invocation-title {position: absolute;height: 25px;top: -25px;line-height: 25px;padding: 0px 5px;left: -1px;border: 1px solid #d4d0c8; background-color: #d4d0c8;color: #444;}
+	.log-invocation .logline {white-space: nowrap;}
+	.log-invocation .logline.expanded {white-space: pre-wrap;background-color: #333;}
+	.log-invocation .logline:hover {background-color: #343;cursor: pointer;}
 }
