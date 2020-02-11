@@ -1,4 +1,4 @@
-import svgicons from '../svgicons';
+
 
 import {IconRefresh, IconPlus } from '../svgicons';
 
