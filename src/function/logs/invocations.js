@@ -1,9 +1,10 @@
 
-import {IconTrash} from '../../svgicons';
+import {IconTrash, IconRefresh } from '../../svgicons';
 
 export default Ractive.extend({
 	components: {
 		'icon-trash': IconTrash,
+		'icon-refresh': IconRefresh,
 	},
 	template: `
 		<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;">

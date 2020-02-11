@@ -1,7 +1,12 @@
 import svgicons from '../svgicons';
 
+import {IconRefresh} from '../svgicons';
+
 export default Ractive.extend({
 	//isolated: true,
+	components: {
+		'icon-refresh': IconRefresh,
+	},
 	template:
 		`
 		<miniheader>

@@ -1,5 +1,5 @@
 
-import {IconTrash} from './svgicons';
+import {IconTrash, IconRefresh } from './svgicons';
 import tabledata from './tabledata';
 
 export default Ractive.extend({
@@ -8,6 +8,7 @@ export default Ractive.extend({
 		tabledata: tabledata,
 
 		'icon-trash': IconTrash,
+		'icon-refresh': IconRefresh,
 	},
 	template:
 		`
