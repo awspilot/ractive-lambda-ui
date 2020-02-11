@@ -4,6 +4,13 @@ client side UI to manage AWS Lambda functions
 
 Embeds a basic IDE that extracts lambda function contents into memory and uploads it on save.
 
+## Preview
+
+There is no demo atm as it would expose AWS Key/Secret, 
+
+## Screenshot
+![Screenshot](demo/screenshot1.png?raw=true "Screenshot")
+
 ## @todo
 - [ ] view function
 -  - [x] function list
