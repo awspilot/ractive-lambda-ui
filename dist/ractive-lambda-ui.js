@@ -7,7 +7,7 @@
 		exports["@awspilot/ractive-lambda-ui"] = factory(require("ractive"));
 	else
 		root["@awspilot/ractive-lambda-ui"] = factory(root["Ractive"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE__60__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__61__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 58);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,10 +102,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 var support = __webpack_require__(4);
-var base64 = __webpack_require__(36);
-var nodejsUtils = __webpack_require__(16);
+var base64 = __webpack_require__(37);
+var nodejsUtils = __webpack_require__(17);
 var setImmediate = __webpack_require__(79);
-var external = __webpack_require__(12);
+var external = __webpack_require__(13);
 
 
 /**
@@ -1102,7 +1102,7 @@ else {
 }
 
 try {
-    exports.nodestream = !!__webpack_require__(29).Readable;
+    exports.nodestream = !!__webpack_require__(30).Readable;
 } catch(e) {
     exports.nodestream = false;
 }
@@ -1256,7 +1256,7 @@ exports.setTyped(TYPED_OK);
 
 /*<replacement>*/
 
-var pna = __webpack_require__(14);
+var pna = __webpack_require__(15);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -1271,12 +1271,12 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(11);
+var util = __webpack_require__(12);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
-var Readable = __webpack_require__(31);
-var Writable = __webpack_require__(18);
+var Readable = __webpack_require__(32);
+var Writable = __webpack_require__(19);
 
 util.inherits(Duplex, Readable);
 
@@ -1367,7 +1367,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
 var utils = __webpack_require__(0);
 var support = __webpack_require__(4);
-var nodejsUtils = __webpack_require__(16);
+var nodejsUtils = __webpack_require__(17);
 var GenericWorker = __webpack_require__(2);
 
 /**
@@ -1657,7 +1657,7 @@ exports.Utf8EncodeWorker = Utf8EncodeWorker;
 
 var base64 = __webpack_require__(67)
 var ieee754 = __webpack_require__(68)
-var isArray = __webpack_require__(28)
+var isArray = __webpack_require__(29)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -3475,6 +3475,42 @@ if (typeof Object.create === 'function') {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var IconPlus = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 31.444 31.444\" xml:space=\"preserve\">\n\t\t\t<path d=\"M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127\n\t\t\t\tC14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111\n\t\t\t\tc0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z\"\n\t\t\t\t/>\n\t\t</svg>\n\n\t"
+});
+
+var IconRefresh = Ractive.extend({
+	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t viewBox=\"0 0 477.867 477.867\" xml:space=\"preserve\">\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479\n\t\t\t\tc-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933\n\t\t\t\tc0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207\n\t\t\t\tc-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4\n\t\t\t\tC426.667,7.641,419.026,0,409.6,0z\"/>\n\t\t</g>\n\t</g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696\n\t\t\t\tc-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606\n\t\t\t\tc-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4\n\t\t\t\tc0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068\n\t\t\t\tc40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z\"/>\n\t\t</g>\n\t</g>\n\t</svg>\n\t"
+});
+
+var IconTrash = Ractive.extend({
+	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"459px\" height=\"459px\" viewBox=\"0 0 459 459\" xml:space=\"preserve\">\n\t\t<g>\n\t\t\t<g>\n\t\t\t\t<path d=\"M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5\n\t\t\t\t\tH51v51h357V25.5z\"/>\n\t\t\t</g>\n\t\t</g>\n\t</svg>\n"
+});
+
+var IconLambda = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0, 0, 400,418\">\n\t\t\t<g>\n\t\t\t\t<path d=\"M106.600 58.500 L 106.600 87.800 130.760 87.800 L 154.921 87.800 164.760 118.171 C 170.172 134.875,174.600 148.651,174.600 148.783 C 174.600 148.916,141.525 200.271,101.100 262.906 C 60.675 325.541,27.600 376.835,27.600 376.894 C 27.600 376.952,43.881 377.000,63.779 377.000 L 99.958 377.000 152.429 299.596 C 192.256 240.846,204.936 222.278,205.049 222.546 C 205.131 222.741,220.595 261.780,239.413 309.300 C 258.230 356.820,273.688 395.762,273.763 395.838 C 273.866 395.943,375.186 363.931,381.233 361.884 L 382.366 361.500 373.788 334.914 C 369.069 320.291,365.185 308.263,365.155 308.183 C 365.125 308.104,353.985 311.492,340.400 315.712 C 326.815 319.932,315.565 323.387,315.400 323.390 C 315.185 323.394,298.450 281.529,256.601 176.298 L 198.102 29.200 152.351 29.200 L 106.600 29.200 106.600 58.500 \" stroke=\"none\" fill=\"#fc7c14\" fill-rule=\"evenodd\"></path>\n\n\t\t\t</g>\n\t\t</svg>\n"
+});
+
+var IconX = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t\t viewBox=\"0 0 512.001 512.001\" xml:space=\"preserve\">\n\n\t\t\t<g>\n\t\t\t\t<path d=\"M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z\"/>\n\t\t\t</g>\n\n\t\t</svg>\n"
+});
+
+exports.IconTrash = IconTrash;
+exports.IconX = IconX;
+exports.IconRefresh = IconRefresh;
+exports.IconLambda = IconLambda;
+exports.IconPlus = IconPlus;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3926,7 +3962,7 @@ function unwrapListeners(arr) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -4040,7 +4076,7 @@ function objectToString(o) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4066,7 +4102,7 @@ module.exports = {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4123,7 +4159,7 @@ exports.constants = {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4176,7 +4212,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
@@ -4244,7 +4280,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4309,20 +4345,20 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(31);
+exports = module.exports = __webpack_require__(32);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(18);
+exports.Writable = __webpack_require__(19);
 exports.Duplex = __webpack_require__(6);
-exports.Transform = __webpack_require__(35);
+exports.Transform = __webpack_require__(36);
 exports.PassThrough = __webpack_require__(74);
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4355,7 +4391,7 @@ exports.PassThrough = __webpack_require__(74);
 
 /*<replacement>*/
 
-var pna = __webpack_require__(14);
+var pna = __webpack_require__(15);
 /*</replacement>*/
 
 module.exports = Writable;
@@ -4392,7 +4428,7 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(11);
+var util = __webpack_require__(12);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
@@ -4403,12 +4439,12 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(32);
+var Stream = __webpack_require__(33);
 /*</replacement>*/
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(15).Buffer;
+var Buffer = __webpack_require__(16).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -4419,7 +4455,7 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(33);
+var destroyImpl = __webpack_require__(34);
 
 util.inherits(Writable, Stream);
 
@@ -5013,10 +5049,10 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3), __webpack_require__(19).setImmediate, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3), __webpack_require__(20).setImmediate, __webpack_require__(1)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -5086,17 +5122,17 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var external = __webpack_require__(12);
-var DataWorker = __webpack_require__(39);
-var DataLengthProbe = __webpack_require__(40);
-var Crc32Probe = __webpack_require__(41);
-var DataLengthProbe = __webpack_require__(40);
+var external = __webpack_require__(13);
+var DataWorker = __webpack_require__(40);
+var DataLengthProbe = __webpack_require__(41);
+var Crc32Probe = __webpack_require__(42);
+var DataLengthProbe = __webpack_require__(41);
 
 /**
  * Represent a compressed object, with everything needed to decompress it.
@@ -5168,7 +5204,7 @@ module.exports = CompressedObject;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5252,7 +5288,7 @@ module.exports = function crc32wrapper(input, crc) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5291,13 +5327,13 @@ module.exports = {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var constants_1 = __webpack_require__(13);
+var constants_1 = __webpack_require__(14);
 var getBigInt_1 = __webpack_require__(107);
 var S_IFMT = constants_1.constants.S_IFMT, S_IFDIR = constants_1.constants.S_IFDIR, S_IFREG = constants_1.constants.S_IFREG, S_IFBLK = constants_1.constants.S_IFBLK, S_IFCHR = constants_1.constants.S_IFCHR, S_IFLNK = constants_1.constants.S_IFLNK, S_IFIFO = constants_1.constants.S_IFIFO, S_IFSOCK = constants_1.constants.S_IFSOCK;
 /**
@@ -5366,7 +5402,7 @@ exports.default = Stats;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5395,7 +5431,7 @@ exports.bufferFrom = bufferFrom;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -6105,7 +6141,7 @@ exports.callbackify = callbackify;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6127,12 +6163,13 @@ exports.default = Ractive.extend({
 			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
 			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
 			this.fire('colclick', undefined, col.item, col.raw);
+			return false;
 		});
 	}
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6176,7 +6213,7 @@ function JSZip() {
 JSZip.prototype = __webpack_require__(66);
 JSZip.prototype.loadAsync = __webpack_require__(98);
 JSZip.support = __webpack_require__(4);
-JSZip.defaults = __webpack_require__(38);
+JSZip.defaults = __webpack_require__(39);
 
 // TODO find a better way to handle this version,
 // a require('package.json').version doesn't work with webpack, see #327
@@ -6186,12 +6223,12 @@ JSZip.loadAsync = function (content, options) {
     return new JSZip().loadAsync(content, options);
 };
 
-JSZip.external = __webpack_require__(12);
+JSZip.external = __webpack_require__(13);
 module.exports = JSZip;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -6202,7 +6239,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -6213,11 +6250,11 @@ module.exports = Array.isArray || function (arr) {
  * reduce the final size of the bundle (only one stream implementation, not
  * two).
  */
-module.exports = __webpack_require__(30);
+module.exports = __webpack_require__(31);
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -6243,11 +6280,11 @@ module.exports = __webpack_require__(30);
 
 module.exports = Stream;
 
-var EE = __webpack_require__(10).EventEmitter;
+var EE = __webpack_require__(11).EventEmitter;
 var inherits = __webpack_require__(9);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(17);
+Stream.Readable = __webpack_require__(18);
 Stream.Writable = __webpack_require__(75);
 Stream.Duplex = __webpack_require__(76);
 Stream.Transform = __webpack_require__(77);
@@ -6350,7 +6387,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6379,13 +6416,13 @@ Stream.prototype.pipe = function(dest, options) {
 
 /*<replacement>*/
 
-var pna = __webpack_require__(14);
+var pna = __webpack_require__(15);
 /*</replacement>*/
 
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(28);
+var isArray = __webpack_require__(29);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -6395,7 +6432,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(10).EventEmitter;
+var EE = __webpack_require__(11).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -6403,12 +6440,12 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(32);
+var Stream = __webpack_require__(33);
 /*</replacement>*/
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(15).Buffer;
+var Buffer = __webpack_require__(16).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -6420,7 +6457,7 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(11);
+var util = __webpack_require__(12);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
@@ -6435,7 +6472,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(70);
-var destroyImpl = __webpack_require__(33);
+var destroyImpl = __webpack_require__(34);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -6525,7 +6562,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(34).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(35).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -6681,7 +6718,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(34).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(35).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -7376,14 +7413,14 @@ function indexOf(xs, x) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1), __webpack_require__(3)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(10).EventEmitter;
+module.exports = __webpack_require__(11).EventEmitter;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7391,7 +7428,7 @@ module.exports = __webpack_require__(10).EventEmitter;
 
 /*<replacement>*/
 
-var pna = __webpack_require__(14);
+var pna = __webpack_require__(15);
 /*</replacement>*/
 
 // undocumented cb() API, needed for core, not for public API
@@ -7463,7 +7500,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7492,7 +7529,7 @@ module.exports = {
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(15).Buffer;
+var Buffer = __webpack_require__(16).Buffer;
 /*</replacement>*/
 
 var isEncoding = Buffer.isEncoding || function (encoding) {
@@ -7765,7 +7802,7 @@ function simpleEnd(buf) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7839,7 +7876,7 @@ module.exports = Transform;
 var Duplex = __webpack_require__(6);
 
 /*<replacement>*/
-var util = __webpack_require__(11);
+var util = __webpack_require__(12);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
@@ -7985,7 +8022,7 @@ function done(stream, er, data) {
 }
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8098,7 +8135,7 @@ exports.decode = function(input) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8107,9 +8144,9 @@ exports.decode = function(input) {
 var utils = __webpack_require__(0);
 var ConvertWorker = __webpack_require__(82);
 var GenericWorker = __webpack_require__(2);
-var base64 = __webpack_require__(36);
+var base64 = __webpack_require__(37);
 var support = __webpack_require__(4);
-var external = __webpack_require__(12);
+var external = __webpack_require__(13);
 
 var NodejsStreamOutputAdapter = null;
 if (support.nodestream) {
@@ -8318,7 +8355,7 @@ module.exports = StreamHelper;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8336,7 +8373,7 @@ exports.dosPermissions = null;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8459,7 +8496,7 @@ module.exports = DataWorker;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8495,14 +8532,14 @@ module.exports = DataLengthProbe;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var GenericWorker = __webpack_require__(2);
-var crc32 = __webpack_require__(21);
+var crc32 = __webpack_require__(22);
 var utils = __webpack_require__(0);
 
 /**
@@ -8526,7 +8563,7 @@ module.exports = Crc32Probe;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8547,7 +8584,7 @@ exports.DEFLATE = __webpack_require__(86);
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8605,7 +8642,7 @@ module.exports = adler32;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8671,7 +8708,7 @@ module.exports = crc32;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8865,7 +8902,7 @@ exports.utf8border = function (buf, max) {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8919,7 +8956,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8994,7 +9031,7 @@ module.exports = {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9008,7 +9045,7 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9016,10 +9053,10 @@ exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 var utils = __webpack_require__(0);
 var support = __webpack_require__(4);
-var ArrayReader = __webpack_require__(50);
+var ArrayReader = __webpack_require__(51);
 var StringReader = __webpack_require__(100);
 var NodeBufferReader = __webpack_require__(101);
-var Uint8ArrayReader = __webpack_require__(52);
+var Uint8ArrayReader = __webpack_require__(53);
 
 /**
  * Create a reader adapted to the data.
@@ -9043,12 +9080,12 @@ module.exports = function (data) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var DataReader = __webpack_require__(51);
+var DataReader = __webpack_require__(52);
 var utils = __webpack_require__(0);
 
 function ArrayReader(data) {
@@ -9107,7 +9144,7 @@ module.exports = ArrayReader;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9230,12 +9267,12 @@ module.exports = DataReader;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ArrayReader = __webpack_require__(50);
+var ArrayReader = __webpack_require__(51);
 var utils = __webpack_require__(0);
 
 function Uint8ArrayReader(data) {
@@ -9259,14 +9296,14 @@ module.exports = Uint8ArrayReader;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var constants_1 = __webpack_require__(13);
-var encoding_1 = __webpack_require__(54);
+var constants_1 = __webpack_require__(14);
+var encoding_1 = __webpack_require__(55);
 var S_IFMT = constants_1.constants.S_IFMT, S_IFDIR = constants_1.constants.S_IFDIR, S_IFREG = constants_1.constants.S_IFREG, S_IFBLK = constants_1.constants.S_IFBLK, S_IFCHR = constants_1.constants.S_IFCHR, S_IFLNK = constants_1.constants.S_IFLNK, S_IFIFO = constants_1.constants.S_IFIFO, S_IFSOCK = constants_1.constants.S_IFSOCK;
 /**
  * A directory entry, like `fs.Dirent`.
@@ -9314,14 +9351,14 @@ exports.default = Dirent;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var buffer_1 = __webpack_require__(24);
-var errors = __webpack_require__(55);
+var buffer_1 = __webpack_require__(25);
+var errors = __webpack_require__(56);
 exports.ENCODING_UTF8 = 'utf8';
 function assertEncoding(encoding) {
     if (encoding && !buffer_1.Buffer.isEncoding(encoding))
@@ -9339,7 +9376,7 @@ exports.strToEncoding = strToEncoding;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9364,7 +9401,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var assert = __webpack_require__(108);
-var util = __webpack_require__(25);
+var util = __webpack_require__(26);
 var kCode = typeof Symbol === 'undefined' ? '_kCode' : Symbol('code');
 var messages = {}; // new Map();
 function makeNodeError(Base) {
@@ -9608,7 +9645,7 @@ function bufferOutOfBounds(name, isWriting) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1)))
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9645,7 +9682,7 @@ function createProcess() {
     if (!p.cwd)
         p.cwd = function () { return '/'; };
     if (!p.nextTick)
-        p.nextTick = __webpack_require__(57).default;
+        p.nextTick = __webpack_require__(58).default;
     if (!p.emitWarning)
         p.emitWarning = function (message, type) {
             // tslint:disable-next-line:no-console
@@ -9661,7 +9698,7 @@ exports.default = createProcess();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9674,10 +9711,10 @@ else
     _setImmediate = setTimeout.bind(global);
 exports.default = _setImmediate;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19).setImmediate, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(20).setImmediate, __webpack_require__(1)))
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9687,13 +9724,13 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-__webpack_require__(59);
+__webpack_require__(60);
 
-var _ractive = __webpack_require__(60);
+var _ractive = __webpack_require__(61);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
-var _list_mini = __webpack_require__(61);
+var _list_mini = __webpack_require__(62);
 
 var _list_mini2 = _interopRequireDefault(_list_mini);
 
@@ -9755,19 +9792,19 @@ exports.default = _ractive2.default.extend({
 });
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__60__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__61__;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9777,14 +9814,14 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(62);
-
-var _svgicons2 = _interopRequireDefault(_svgicons);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _svgicons = __webpack_require__(10);
 
 exports.default = Ractive.extend({
 	//isolated: true,
+	components: {
+		'icon-refresh': _svgicons.IconRefresh,
+		'icon-plus': _svgicons.IconPlus
+	},
 	template: '\n\t\t<miniheader>\n\t\t\tFunctions\n\t\t\t<div class=\'pull-right\' style=\'margin-right: 2px;\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'create\'>\n\t\t\t\t\t<icon-plus />\n\t\t\t\t</a>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'>\n\t\t\t\t\t<icon-refresh />\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</miniheader>\n\t\t<scrollarea class=\'scrollarea miniheaderbody\' style=\'position: absolute;\'>\n\t\t<tables>\n\t\t\t{{#functions}}\n\t\t\t<div on-click=\'open_function\'> {{.FunctionName}} </div>\n\t\t\t{{/functions}}\n\t\t</tables>\n\t\t</scrollarea>\n\t\t',
 	load_functions: function load_functions() {
 		var ractive = this;
@@ -9824,37 +9861,6 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Ractive.components['icon-plus'] = Ractive.extend({
-	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.444 31.444" xml:space="preserve">\n\t\t\t<path d="M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127\n\t\t\t\tC14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111\n\t\t\t\tc0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z"\n\t\t\t\t/>\n\t\t</svg>\n\n\t'
-});
-
-Ractive.components['icon-refresh'] = Ractive.extend({
-	template: '\n\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t viewBox="0 0 477.867 477.867" xml:space="preserve">\n\t<g>\n\t\t<g>\n\t\t\t<path d="M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479\n\t\t\t\tc-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933\n\t\t\t\tc0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207\n\t\t\t\tc-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4\n\t\t\t\tC426.667,7.641,419.026,0,409.6,0z"/>\n\t\t</g>\n\t</g>\n\t<g>\n\t\t<g>\n\t\t\t<path d="M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696\n\t\t\t\tc-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606\n\t\t\t\tc-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4\n\t\t\t\tc0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068\n\t\t\t\tc40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z"/>\n\t\t</g>\n\t</g>\n\t</svg>\n\t'
-});
-
-Ractive.components['icon-trash'] = Ractive.extend({
-	template: '\n\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">\n\t\t<g>\n\t\t\t<g>\n\t\t\t\t<path d="M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5\n\t\t\t\t\tH51v51h357V25.5z"/>\n\t\t\t</g>\n\t\t</g>\n\t</svg>\n'
-});
-
-Ractive.components['icon-database'] = Ractive.extend({
-	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 400,418">\n\t\t\t<g>\n\t\t\t\t<path d="M106.600 58.500 L 106.600 87.800 130.760 87.800 L 154.921 87.800 164.760 118.171 C 170.172 134.875,174.600 148.651,174.600 148.783 C 174.600 148.916,141.525 200.271,101.100 262.906 C 60.675 325.541,27.600 376.835,27.600 376.894 C 27.600 376.952,43.881 377.000,63.779 377.000 L 99.958 377.000 152.429 299.596 C 192.256 240.846,204.936 222.278,205.049 222.546 C 205.131 222.741,220.595 261.780,239.413 309.300 C 258.230 356.820,273.688 395.762,273.763 395.838 C 273.866 395.943,375.186 363.931,381.233 361.884 L 382.366 361.500 373.788 334.914 C 369.069 320.291,365.185 308.263,365.155 308.183 C 365.125 308.104,353.985 311.492,340.400 315.712 C 326.815 319.932,315.565 323.387,315.400 323.390 C 315.185 323.394,298.450 281.529,256.601 176.298 L 198.102 29.200 152.351 29.200 L 106.600 29.200 106.600 58.500 " stroke="none" fill="#fc7c14" fill-rule="evenodd"></path>\n\n\t\t\t</g>\n\t\t</svg>\n'
-});
-
-Ractive.components['icon-x'] = Ractive.extend({
-	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 512.001 512.001" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'
-});
-
-Ractive.components['icon-caret-down'] = Ractive.extend({
-	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t width="292.362px" height="292.362px" viewBox="0 0 292.362 292.362"\n\t\t\t xml:space="preserve">\n\t\t<g>\n\t\t\t<path d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424\n\t\t\t\tC1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428\n\t\t\t\ts9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"/>\n\t\t</g>\n\t\t</svg>\n\t'
-});
-
-/***/ }),
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9864,6 +9870,8 @@ Ractive.components['icon-caret-down'] = Ractive.extend({
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _svgicons = __webpack_require__(10);
 
 var _functionlist = __webpack_require__(64);
 
@@ -9884,9 +9892,12 @@ exports.default = Ractive.extend({
 	components: {
 		functionslistfull: _functionlist2.default,
 		functioncreate: _create2.default,
-		functiontab: _tab2.default
+		functiontab: _tab2.default,
+
+		'icon-x': _svgicons.IconX,
+		'icon-lambda': _svgicons.IconLambda
 	},
-	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "functions" }}active{{/if}}\' on-click=\'@this.fire("activetab", "functions")\'>\n\t\t\t\t<icon-database style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "functions" }}\n\t\t\t\t<functionslistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'function_create\' }}\n\t\t\t\t\t\t\t<functioncreate active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'function_tab\' }}\n\t\t\t\t\t\t\t<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} cors-proxy={{~/[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
+	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "functions" }}active{{/if}}\' on-click=\'@this.fire("activetab", "functions")\'>\n\t\t\t\t<icon-lambda style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "functions" }}\n\t\t\t\t<functionslistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'function_create\' }}\n\t\t\t\t\t\t\t<functioncreate active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'function_tab\' }}\n\t\t\t\t\t\t\t<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} cors-proxy={{~/[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -9954,7 +9965,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tabledata = __webpack_require__(26);
+var _svgicons = __webpack_require__(10);
+
+var _tabledata = __webpack_require__(27);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
@@ -9963,7 +9976,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = Ractive.extend({
 	//isolated: true,
 	components: {
-		tabledata: _tabledata2.default
+		tabledata: _tabledata2.default,
+
+		'icon-trash': _svgicons.IconTrash,
+		'icon-refresh': _svgicons.IconRefresh
 	},
 	template: '\n\t\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t\t<!-- good functions -->\n\t\t\t\t<a class="btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}" on-click="refresh"> <icon-refresh /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length === 1}}{{else}}disabled{{/if}}" {{#if selection_length === 1}}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-primary" on-click=\'create\'> Create function </a>\n\t\t\t</div>\n\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 38px;margin: 3px;\' />\n\t\t',
 	data: function data() {
@@ -10057,7 +10073,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var JSZip = __webpack_require__(27);
+var JSZip = __webpack_require__(28);
 
 exports.default = Ractive.extend({
 	template: '\n\n\t\t<div style="padding: 30px;">\n\t\t\t<h3>Create function</h3>\n\n\t\t\t<hr />\n\n\t\t\t<h4>Basic information</h4>\n\n\n\t\t\t\t<div>\n\t\t\t\t\t<div>Function name</div>\n\t\t\t\t\t<small>Enter a name that describes the purpose of your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<input class="input-text" value={{function_name}} placeholder="myFunctionName" style="width: 50%;" />\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<br><br>\n\n\t\t\t\t\t<div>Runtime</div>\n\t\t\t\t\t<small>Choose the language to use to write your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<select class="input-select" value={{runtime}} style="width: 50%;" >\n\t\t\t\t\t\t\t<option value="nodejs10.x">NodeJS 10.x</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<br><br>\n\n\t\t\t\t\t<div>Permissions</div>\n\t\t\t\t\t<small>Choose a role that defines the permissions of your function.</small>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<select class="input-select" value={{role}} style="width: 50%;" >\n\t\t\t\t\t\t\t{{#if !roles}}\n\t\t\t\t\t\t\t\t<option>Loading...</option>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t{{#roles}}\n\t\t\t\t\t\t\t\t<option value={{.Arn}}>{{.RoleName}}</option>\n\t\t\t\t\t\t\t{{/roles}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t<hr />\n\n\t\t\t<a class="btn btn-sm btn-primary" on-click="createfunction"> Create function </a>\n\n\t\t</div>\n\n\t',
@@ -10148,12 +10164,12 @@ exports.default = Ractive.extend({
 var utf8 = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
-var StreamHelper = __webpack_require__(37);
-var defaults = __webpack_require__(38);
-var CompressedObject = __webpack_require__(20);
+var StreamHelper = __webpack_require__(38);
+var defaults = __webpack_require__(39);
+var CompressedObject = __webpack_require__(21);
 var ZipObject = __webpack_require__(84);
 var generate = __webpack_require__(85);
-var nodejsUtils = __webpack_require__(16);
+var nodejsUtils = __webpack_require__(17);
 var NodejsStreamInputAdapter = __webpack_require__(97);
 
 
@@ -10799,7 +10815,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Buffer = __webpack_require__(15).Buffer;
+var Buffer = __webpack_require__(16).Buffer;
 var util = __webpack_require__(71);
 
 function copyBuffer(src, target, offset) {
@@ -11182,10 +11198,10 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(35);
+var Transform = __webpack_require__(36);
 
 /*<replacement>*/
-var util = __webpack_require__(11);
+var util = __webpack_require__(12);
 util.inherits = __webpack_require__(9);
 /*</replacement>*/
 
@@ -11205,7 +11221,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
@@ -11219,14 +11235,14 @@ module.exports = __webpack_require__(6);
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(17).Transform
+module.exports = __webpack_require__(18).Transform
 
 
 /***/ }),
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(17).PassThrough
+module.exports = __webpack_require__(18).PassThrough
 
 
 /***/ }),
@@ -11242,7 +11258,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
 		setTimeout.apply(null, args);
 	};
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(20).setImmediate))
 
 /***/ }),
 /* 80 */
@@ -11641,7 +11657,7 @@ module.exports = ConvertWorker;
 "use strict";
 
 
-var Readable = __webpack_require__(29).Readable;
+var Readable = __webpack_require__(30).Readable;
 
 var utils = __webpack_require__(0);
 utils.inherits(NodejsStreamOutputAdapter, Readable);
@@ -11690,10 +11706,10 @@ module.exports = NodejsStreamOutputAdapter;
 "use strict";
 
 
-var StreamHelper = __webpack_require__(37);
-var DataWorker = __webpack_require__(39);
+var StreamHelper = __webpack_require__(38);
+var DataWorker = __webpack_require__(40);
 var utf8 = __webpack_require__(7);
-var CompressedObject = __webpack_require__(20);
+var CompressedObject = __webpack_require__(21);
 var GenericWorker = __webpack_require__(2);
 
 /**
@@ -11830,7 +11846,7 @@ module.exports = ZipObject;
 "use strict";
 
 
-var compressions = __webpack_require__(42);
+var compressions = __webpack_require__(43);
 var ZipFileWorker = __webpack_require__(96);
 
 /**
@@ -11991,7 +12007,7 @@ var assign    = __webpack_require__(5).assign;
 
 var deflate   = __webpack_require__(88);
 var inflate   = __webpack_require__(91);
-var constants = __webpack_require__(47);
+var constants = __webpack_require__(48);
 
 var pako = {};
 
@@ -12010,9 +12026,9 @@ module.exports = pako;
 
 var zlib_deflate = __webpack_require__(89);
 var utils        = __webpack_require__(5);
-var strings      = __webpack_require__(45);
-var msg          = __webpack_require__(22);
-var ZStream      = __webpack_require__(46);
+var strings      = __webpack_require__(46);
+var msg          = __webpack_require__(23);
+var ZStream      = __webpack_require__(47);
 
 var toString = Object.prototype.toString;
 
@@ -12435,9 +12451,9 @@ exports.gzip = gzip;
 
 var utils   = __webpack_require__(5);
 var trees   = __webpack_require__(90);
-var adler32 = __webpack_require__(43);
-var crc32   = __webpack_require__(44);
-var msg     = __webpack_require__(22);
+var adler32 = __webpack_require__(44);
+var crc32   = __webpack_require__(45);
+var msg     = __webpack_require__(23);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -15527,10 +15543,10 @@ exports._tr_align = _tr_align;
 
 var zlib_inflate = __webpack_require__(92);
 var utils        = __webpack_require__(5);
-var strings      = __webpack_require__(45);
-var c            = __webpack_require__(47);
-var msg          = __webpack_require__(22);
-var ZStream      = __webpack_require__(46);
+var strings      = __webpack_require__(46);
+var c            = __webpack_require__(48);
+var msg          = __webpack_require__(23);
+var ZStream      = __webpack_require__(47);
 var GZheader     = __webpack_require__(95);
 
 var toString = Object.prototype.toString;
@@ -15974,8 +15990,8 @@ exports.ungzip  = inflate;
 // 3. This notice may not be removed or altered from any source distribution.
 
 var utils         = __webpack_require__(5);
-var adler32       = __webpack_require__(43);
-var crc32         = __webpack_require__(44);
+var adler32       = __webpack_require__(44);
+var crc32         = __webpack_require__(45);
 var inflate_fast  = __webpack_require__(93);
 var inflate_table = __webpack_require__(94);
 
@@ -18287,8 +18303,8 @@ module.exports = GZheader;
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
 var utf8 = __webpack_require__(7);
-var crc32 = __webpack_require__(21);
-var signature = __webpack_require__(48);
+var crc32 = __webpack_require__(22);
+var signature = __webpack_require__(49);
 
 /**
  * Transform an integer into a string in hexadecimal.
@@ -18912,12 +18928,12 @@ module.exports = NodejsStreamInputAdapter;
 "use strict";
 
 var utils = __webpack_require__(0);
-var external = __webpack_require__(12);
+var external = __webpack_require__(13);
 var utf8 = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var ZipEntries = __webpack_require__(99);
-var Crc32Probe = __webpack_require__(41);
-var nodejsUtils = __webpack_require__(16);
+var Crc32Probe = __webpack_require__(42);
+var nodejsUtils = __webpack_require__(17);
 
 /**
  * Check the CRC32 of an entry.
@@ -19000,9 +19016,9 @@ module.exports = function(data, options) {
 
 "use strict";
 
-var readerFor = __webpack_require__(49);
+var readerFor = __webpack_require__(50);
 var utils = __webpack_require__(0);
-var sig = __webpack_require__(48);
+var sig = __webpack_require__(49);
 var ZipEntry = __webpack_require__(102);
 var utf8 = __webpack_require__(7);
 var support = __webpack_require__(4);
@@ -19269,7 +19285,7 @@ module.exports = ZipEntries;
 
 "use strict";
 
-var DataReader = __webpack_require__(51);
+var DataReader = __webpack_require__(52);
 var utils = __webpack_require__(0);
 
 function StringReader(data) {
@@ -19314,7 +19330,7 @@ module.exports = StringReader;
 
 "use strict";
 
-var Uint8ArrayReader = __webpack_require__(52);
+var Uint8ArrayReader = __webpack_require__(53);
 var utils = __webpack_require__(0);
 
 function NodeBufferReader(data) {
@@ -19340,12 +19356,12 @@ module.exports = NodeBufferReader;
 
 "use strict";
 
-var readerFor = __webpack_require__(49);
+var readerFor = __webpack_require__(50);
 var utils = __webpack_require__(0);
-var CompressedObject = __webpack_require__(20);
-var crc32fn = __webpack_require__(21);
+var CompressedObject = __webpack_require__(21);
+var crc32fn = __webpack_require__(22);
 var utf8 = __webpack_require__(7);
-var compressions = __webpack_require__(42);
+var compressions = __webpack_require__(43);
 var support = __webpack_require__(4);
 
 var MADE_BY_DOS = 0x00;
@@ -19832,7 +19848,7 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var JSZip = __webpack_require__(27);
+var JSZip = __webpack_require__(28);
 var async = __webpack_require__(131);
 
 exports.default = Ractive.extend({
@@ -20014,11 +20030,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Stats_1 = __webpack_require__(23);
-var Dirent_1 = __webpack_require__(53);
+var Stats_1 = __webpack_require__(24);
+var Dirent_1 = __webpack_require__(54);
 var volume_1 = __webpack_require__(112);
 var _a = __webpack_require__(126), fsSyncMethods = _a.fsSyncMethods, fsAsyncMethods = _a.fsAsyncMethods;
-var constants_1 = __webpack_require__(13);
+var constants_1 = __webpack_require__(14);
 var F_OK = constants_1.constants.F_OK, R_OK = constants_1.constants.R_OK, W_OK = constants_1.constants.W_OK, X_OK = constants_1.constants.X_OK;
 exports.Volume = volume_1.Volume;
 // Default volume.
@@ -20138,7 +20154,7 @@ function isBuffer(b) {
 // ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-var util = __webpack_require__(25);
+var util = __webpack_require__(26);
 var hasOwn = Object.prototype.hasOwnProperty;
 var pSlice = Array.prototype.slice;
 var functionsHaveNames = (function () {
@@ -20741,19 +20757,19 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var pathModule = __webpack_require__(113);
 var node_1 = __webpack_require__(114);
-var Stats_1 = __webpack_require__(23);
-var Dirent_1 = __webpack_require__(53);
-var buffer_1 = __webpack_require__(24);
-var setImmediate_1 = __webpack_require__(57);
-var process_1 = __webpack_require__(56);
+var Stats_1 = __webpack_require__(24);
+var Dirent_1 = __webpack_require__(54);
+var buffer_1 = __webpack_require__(25);
+var setImmediate_1 = __webpack_require__(58);
+var process_1 = __webpack_require__(57);
 var setTimeoutUnref_1 = __webpack_require__(115);
-var stream_1 = __webpack_require__(30);
-var constants_1 = __webpack_require__(13);
-var events_1 = __webpack_require__(10);
-var encoding_1 = __webpack_require__(54);
-var errors = __webpack_require__(55);
+var stream_1 = __webpack_require__(31);
+var constants_1 = __webpack_require__(14);
+var events_1 = __webpack_require__(11);
+var encoding_1 = __webpack_require__(55);
+var errors = __webpack_require__(56);
 var extend = __webpack_require__(116).extend;
-var util = __webpack_require__(25);
+var util = __webpack_require__(26);
 var promises_1 = __webpack_require__(117);
 var resolveCrossPlatform = pathModule.resolve;
 var O_RDONLY = constants_1.constants.O_RDONLY, O_WRONLY = constants_1.constants.O_WRONLY, O_RDWR = constants_1.constants.O_RDWR, O_CREAT = constants_1.constants.O_CREAT, O_EXCL = constants_1.constants.O_EXCL, O_TRUNC = constants_1.constants.O_TRUNC, O_APPEND = constants_1.constants.O_APPEND, O_SYNC = constants_1.constants.O_SYNC, F_OK = constants_1.constants.F_OK, COPYFILE_EXCL = constants_1.constants.COPYFILE_EXCL, COPYFILE_FICLONE_FORCE = constants_1.constants.COPYFILE_FICLONE_FORCE;
@@ -23217,11 +23233,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var process_1 = __webpack_require__(56);
-var buffer_1 = __webpack_require__(24);
-var constants_1 = __webpack_require__(13);
-var events_1 = __webpack_require__(10);
-var Stats_1 = __webpack_require__(23);
+var process_1 = __webpack_require__(57);
+var buffer_1 = __webpack_require__(25);
+var constants_1 = __webpack_require__(14);
+var events_1 = __webpack_require__(11);
+var Stats_1 = __webpack_require__(24);
 var S_IFMT = constants_1.constants.S_IFMT, S_IFDIR = constants_1.constants.S_IFDIR, S_IFREG = constants_1.constants.S_IFREG, S_IFBLK = constants_1.constants.S_IFBLK, S_IFCHR = constants_1.constants.S_IFCHR, S_IFLNK = constants_1.constants.S_IFLNK, S_IFIFO = constants_1.constants.S_IFIFO, S_IFSOCK = constants_1.constants.S_IFSOCK, O_APPEND = constants_1.constants.O_APPEND;
 exports.SEP = '/';
 /**
@@ -25489,6 +25505,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _svgicons = __webpack_require__(10);
+
 var _codeflask = __webpack_require__(130);
 
 var _codeflask2 = _interopRequireDefault(_codeflask);
@@ -25496,7 +25514,9 @@ var _codeflask2 = _interopRequireDefault(_codeflask);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = Ractive.extend({
-	components: {},
+	components: {
+		'icon-x': _svgicons.IconX
+	},
 	template: '\n\t\t<tabhead>\n\t\t\t{{#tabs}}\n\t\t\t\t{{#if .closed !== true}}\n\t\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t\t{{.name}}\n\t\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t\t</tab>\n\t\t\t\t{{/if}}\n\t\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#tabs}}\n\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t{{else}}\n\t\t\t\t\t<div style="position: absolute;top: 5px;left: 5px;right: 5px;bottom: 5px;{{#if .id !== active_id  }}visibility:hidden;{{/if}}">\n\t\t\t\t\t\t{{#if .type === \'ace\' }}\n\t\t\t\t\t\t\t<div id="editor{{.id}}"></div>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</div>\n\n\t\t\t\t{{/if}}\n\t\t\t{{/tabs}}\n\t\t</tabcontent>\n\t\t',
 	data: function data() {
 		return {
@@ -30454,142 +30474,49 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tabledata = __webpack_require__(26);
+var _svgicons = __webpack_require__(10);
+
+var _tabledata = __webpack_require__(27);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
+var _invocations = __webpack_require__(133);
+
+var _invocations2 = _interopRequireDefault(_invocations);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rawlog = Ractive.extend({
-	template: '\n\t\t<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">\n\t\t\t{{#events}}\n\t\t\t\t{{#if .type === \'invoke\' }}\n\t\t\t\t\t<div style="position: relative;border: 1px solid #000;margin: 15px;padding: 5px;margin-top: 30px;background-color: #000;color: #fff;">\n\t\t\t\t\t\t<div style="position: absolute;height: 18px;top: -18px;line-height: 18px;padding: 0px 5px;left: -1px;border: 1px solid #000;background-color: #000;color: yellow;">{{.request_id}}</div>\n\n\t\t\t\t\t\t<div style="overflow-y: auto;color: lightgray;margin-top: 10px;">\n\t\t\t\t\t\t\t{{#.logs}}\n\t\t\t\t\t\t\t<div style="white-space: nowrap;">{{.message}}</div>\n\t\t\t\t\t\t\t{{/.logs}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div style=\'margin-top: 10px;text-align: right;\'>\n\t\t\t\t\t\t\t<span style=\'color: #77b6f9;\'>{{.duration}}ms</span>\n\t\t\t\t\t\t\t<span style=\'color: lightgreen;\'>{{.max_memory}}/{{.memory}}RAM</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t{{else}}\n\t\t\t\t\t<div style="white-space: nowrap;">{{.message}}</div>\n\t\t\t\t{{/if}}\n\t\t\t{{/events}}\n\t\t</div>\n\t',
-	on: {
-		init: function init() {
-			var events = this.get('rawlog.events');
-
-			events = events.map(function (e) {
-				if (!e) return e;
-
-				var match = e.message.match(/^START\ RequestId:\ (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\ Version:\ (?<version>.+)$/m);
-				if (match) {
-					e = {
-
-						type: 'invoke',
-						request_id: match.groups.request_id.trim(),
-						version: match.groups.version,
-
-						started_at: e.timestamp
-
-						// find the matching end END RequestId: 22b8544b-04ea-4444-a8e7-94ac546f14d6
-					};events.map(function (end_e, end_k) {
-						if (!end_e) return end_e;
-
-						var endmatch = end_e.message.match(/^END\ RequestId:\ (?<request_id>[^-]+\-[^-]+\-[^-]+\-[^-]+\-[^\s]+)$/m);
-						if (endmatch) {
-							if (endmatch.groups.request_id.trim() === match.groups.request_id) {
-								e.finished_at = end_e.timestamp;
-								delete events[end_k];
-							}
-						}
-					});
-
-					// find the matching report for dry run
-					events.map(function (report_e, report_k) {
-						if (!report_e) return report_e;
-
-						// dry-run
-						var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB\sInit Duration:\s(?<init_duration>[0-9\.]+) ms$/;
-						var reportmatch = report_e.message.trim().match(regex);
-
-						if (reportmatch) {
-
-							if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
-
-								e.duration = reportmatch.groups.duration;
-								e.billed_duration = reportmatch.groups.billed_duration;
-								e.memory = reportmatch.groups.memory;
-								e.max_memory = reportmatch.groups.max_memory;
-								e.init_duration = reportmatch.groups.init_duration;
-
-								delete events[report_k];
-							}
-						}
-					});
-
-					// find the matching report
-					events.map(function (report_e, report_k) {
-						if (!report_e) return report_e;
-
-						// non dry-run
-						var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB$/;
-						var reportmatch = report_e.message.trim().match(regex);
-
-						if (reportmatch) {
-
-							if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
-
-								e.duration = reportmatch.groups.duration;
-								e.billed_duration = reportmatch.groups.billed_duration;
-								e.memory = reportmatch.groups.memory;
-								e.max_memory = reportmatch.groups.max_memory;
-
-								delete events[report_k];
-							}
-						}
-					});
-
-					// log type INFO
-					events.map(function (log_e, log_k) {
-						if (!log_e) return log_e;
-
-						var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sINFO\s(?<log>.*)$/s;
-						var logmatch = log_e.message.trim().match(regex);
-						if (logmatch) {
-
-							if (logmatch.groups.request_id.trim() === match.groups.request_id) {
-
-								if (!e.hasOwnProperty('logs')) e.logs = [];
-
-								e.logs[log_k] = { type: 'info', message: logmatch.groups.log };
-								delete events[log_k];
-							}
-						}
-					});
-
-					// log type default
-					events.map(function (log_e, log_k) {
-						if (!log_e) return log_e;
-
-						var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\s(?<log>.*)$/s;
-						var logmatch = log_e.message.trim().match(regex);
-						if (logmatch) {
-							if (logmatch.groups.request_id.trim() === match.groups.request_id.trim()) {
-								console.log(logmatch);
-
-								if (!e.hasOwnProperty('logs')) e.logs = [];
-
-								e.logs[log_k] = { message: logmatch.groups.log };
-								delete events[log_k];
-							}
-						}
-					});
-				}
-				return e;
-			});
-
-			// START RequestId: fa282495-d3c6-47db-8a1e-64648ec0c20e Version: $LATEST
-
-			console.log(events);
-			this.set({ events: events });
-		}
-	}
-});
 
 exports.default = Ractive.extend({
 	components: {
 		tabledata: _tabledata2.default,
-		rawlog: rawlog
+		rawlog: _invocations2.default,
+
+		'icon-trash': _svgicons.IconTrash,
+		'icon-x': _svgicons.IconX,
+		'icon-refresh': _svgicons.IconRefresh
 	},
-	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'delete-raw-log\'> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
+	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
+	remove_logstream_from_list: function remove_logstream_from_list(logStreamName) {
+		var ractive = this;
+
+		// select only this line that's about to be removed from list, it helps visually
+		ractive.set('rows', ractive.get('rows').map(function (r) {
+			delete r[0].selected;
+			if (r[0].item.logStreamName == logStreamName) r[0].selected = true;
+
+			return r;
+		}));
+
+		setTimeout(function () {
+			ractive.set('rows', ractive.get('rows').filter(function (r) {
+				return r[0].item.logStreamName !== logStreamName;
+			}));
+		}, 1000);
+	},
+	close_rawlog: function close_rawlog() {
+		this.set('raw_log_data');
+	},
+
 	on: {
 		delete: function _delete() {
 			var ractive = this;
@@ -30620,28 +30547,37 @@ exports.default = Ractive.extend({
 		openstream: function openstream(e, col, item, rawitem) {
 			var ractive = this;
 
-			var params = {
-				logGroupName: '/aws/lambda/' + this.get('function.name'),
-				logStreamName: item.logStreamName,
-				//endTime: 'NUMBER_VALUE',
-				//limit: 'NUMBER_VALUE',
-				//nextToken: 'STRING_VALUE',
-				startFromHead: true
-				//startTime: 'NUMBER_VALUE'
-			};
-			cloudwatchlogs.getLogEvents(params, function (err, data) {
+			// var params = {
+			// 	logGroupName: '/aws/lambda/' + this.get('function.name'),
+			// 	logStreamName: item.logStreamName,
+			// 	//endTime: 'NUMBER_VALUE',
+			// 	//limit: 'NUMBER_VALUE',
+			// 	//nextToken: 'STRING_VALUE',
+			// 	startFromHead: true,
+			// 	//startTime: 'NUMBER_VALUE'
+			// };
+			// cloudwatchlogs.getLogEvents(params, function(err, data) {
+			//
+			// 	if (err)
+			// 		return;
+			//
+			// 	ractive.set({raw_log_data: {
+			//
+			// 		item: item,
+			// 		logGroupName: '/aws/lambda/' + this.get('function.name'),
+			//
+			// 		events: data.events,
+			// 		nextForwardToken: data.nextForwardToken,
+			// 		nextBackwardToken: data.nextBackwardToken,
+			// 	}})
+			// });
 
-				if (err) return;
+			ractive.set({ raw_log_data: {
 
-				ractive.set({ raw_log_data: {
+					logGroupName: '/aws/lambda/' + this.get('function.name'),
+					item: item
 
-						item: item,
-
-						events: data.events,
-						nextForwardToken: data.nextForwardToken,
-						nextBackwardToken: data.nextBackwardToken
-					} });
-			});
+				} });
 		},
 
 		'close-raw-log': function closeRawLog() {
@@ -30715,7 +30651,7 @@ exports.default = Ractive.extend({
 
 				return l;
 			}).map(function (l) {
-				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }];
+				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }, { S: '-' }];
 			}));
 		});
 	},
@@ -30723,10 +30659,210 @@ exports.default = Ractive.extend({
 
 	data: function data() {
 		return {
-			columns: [null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB'],
+			columns: [null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB', 'Invocations'],
 			rows: [],
 			raw_log_data: false
 		};
+	}
+});
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _svgicons = __webpack_require__(10);
+
+exports.default = Ractive.extend({
+	components: {
+		'icon-trash': _svgicons.IconTrash,
+		'icon-refresh': _svgicons.IconRefresh
+	},
+	template: '\n\t\t<div style="position: absolute;top: 38px;margin: 3px;left: 0px;right: 0px;bottom: 0px;background-color: #fff;">\n\n\t\t\t<div style="position: absolute;top:0px;left:0px;right:0px;height: 30px;background-color: #d4d0c8;border-left: 1px solid #fcfcfb;border-bottom: 1px solid #404040;line-height: 30px;font-size: 13px;">\n\n\t\t\t\t{{#if events === false}}\n\t\t\t\t\tParsing events ...\n\t\t\t\t{{else}}\n\t\t\t\t\tInvocations: {{ events_count }}\n\t\t\t\t{{/if}}\n\n\t\t\t\t<div style="position: absolute;top: 3px;right: 3px;line-height: initial;">\n\t\t\t\t\t<a class="btn btn-xs" on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t\t<a class="btn btn-xs" on-click=\'delete-raw-log\'> <icon-trash /> </a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div style="position: absolute;top:31px;left:0px;right:0px;bottom:0;overflow: auto;font-size: 12px;letter-spacing: 1px;font-family: monospace;">\n\t\t\t\t{{#if events === false}}\n\t\t\t\t{{else}}\n\n\t\t\t\t\t<div style="padding: 5px;text-align: center;">\n\t\t\t\t\t\t<a class="">Newer {{rawlog.nextForwardToken}}</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t{{#events}}\n\t\t\t\t\t\t{{#if .type === \'invoke\' }}\n\t\t\t\t\t\t\t<div class="log-invocation">\n\t\t\t\t\t\t\t\t<div class="log-invocation-title">{{.request_id}}</div>\n\n\t\t\t\t\t\t\t\t<div style=\'text-align: right;\'>\n\t\t\t\t\t\t\t\t\t<span style=\'color: #0e5b8a;font-weight: bold;font-size: 13px;\'>{{.duration}}ms</span>\n\t\t\t\t\t\t\t\t\t<span style=\'color: #208020;font-weight: bold;font-size: 13px;\'>{{.max_memory}}/{{.memory}}RAM</span>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div style="background-color: black;overflow-y: auto;color: lightgray;margin-top: 5px;">\n\t\t\t\t\t\t\t\t\t{{#.logs}}\n\t\t\t\t\t\t\t\t\t<div class="logline {{#if .expanded}}expanded{{/if}}" on-click="@this.toggle( @keypath + \'.expanded\' )">{{.message}}</div>\n\t\t\t\t\t\t\t\t\t{{/.logs}}\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<div style="white-space: nowrap;">{{.message}}</div>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/events}}\n\n\t\t\t\t\t<div style="padding: 5px;text-align: center;">\n\t\t\t\t\t\t<a class="">Older {{rawlog.nextBackwardToken}}</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t{{/if}}\n\t\t\t</div>\n\n\n\n\n\n\t\t</div>\n\t',
+	parse_log_events: function parse_log_events() {
+		var ractive = this;
+
+		var events = this.get('rawlog.events');
+
+		events = events.map(function (e) {
+			if (!e) return e;
+
+			var match = e.message.match(/^START\ RequestId:\ (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\ Version:\ (?<version>.+)$/m);
+			if (match) {
+				e = {
+
+					type: 'invoke',
+					request_id: match.groups.request_id.trim(),
+					version: match.groups.version,
+
+					started_at: e.timestamp
+
+					// find the matching end END RequestId: 22b8544b-04ea-4444-a8e7-94ac546f14d6
+				};events.map(function (end_e, end_k) {
+					if (!end_e) return end_e;
+
+					var endmatch = end_e.message.match(/^END\ RequestId:\ (?<request_id>[^-]+\-[^-]+\-[^-]+\-[^-]+\-[^\s]+)$/m);
+					if (endmatch) {
+						if (endmatch.groups.request_id.trim() === match.groups.request_id) {
+							e.finished_at = end_e.timestamp;
+							delete events[end_k];
+						}
+					}
+				});
+
+				// find the matching report for dry run
+				events.map(function (report_e, report_k) {
+					if (!report_e) return report_e;
+
+					// dry-run
+					var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB\sInit Duration:\s(?<init_duration>[0-9\.]+) ms$/;
+					var reportmatch = report_e.message.trim().match(regex);
+
+					if (reportmatch) {
+
+						if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
+
+							e.duration = reportmatch.groups.duration;
+							e.billed_duration = reportmatch.groups.billed_duration;
+							e.memory = reportmatch.groups.memory;
+							e.max_memory = reportmatch.groups.max_memory;
+							e.init_duration = reportmatch.groups.init_duration;
+
+							delete events[report_k];
+						}
+					}
+				});
+
+				// find the matching report
+				events.map(function (report_e, report_k) {
+					if (!report_e) return report_e;
+
+					// non dry-run
+					var regex = /^REPORT RequestId: (?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sDuration:\s(?<duration>[0-9\.]+) ms\sBilled Duration:\s(?<billed_duration>[0-9]+) ms\sMemory Size:\s(?<memory>[0-9]+) MB\sMax Memory Used:\s(?<max_memory>[0-9]+) MB$/;
+					var reportmatch = report_e.message.trim().match(regex);
+
+					if (reportmatch) {
+
+						if (reportmatch.groups.request_id.trim() === match.groups.request_id) {
+
+							e.duration = reportmatch.groups.duration;
+							e.billed_duration = reportmatch.groups.billed_duration;
+							e.memory = reportmatch.groups.memory;
+							e.max_memory = reportmatch.groups.max_memory;
+
+							delete events[report_k];
+						}
+					}
+				});
+
+				// log type INFO
+				events.map(function (log_e, log_k) {
+					if (!log_e) return log_e;
+
+					var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\sINFO\s(?<log>.*)$/s;
+					var logmatch = log_e.message.trim().match(regex);
+					if (logmatch) {
+
+						if (logmatch.groups.request_id.trim() === match.groups.request_id) {
+
+							if (!e.hasOwnProperty('logs')) e.logs = [];
+
+							e.logs[log_k] = { type: 'info', message: logmatch.groups.log };
+							delete events[log_k];
+						}
+					}
+				});
+
+				// log type default
+				events.map(function (log_e, log_k) {
+					if (!log_e) return log_e;
+
+					var regex = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T(?<hh>\d{2}):(?<mm>\d{2}):(?<ss>\d{2})\.\d{0,}Z\s(?<request_id>[^\-]+\-[^\-]+\-[^\-]+\-[^\-]+\-[^\s]+)\s(?<log>.*)$/s;
+					var logmatch = log_e.message.trim().match(regex);
+					if (logmatch) {
+						if (logmatch.groups.request_id.trim() === match.groups.request_id.trim()) {
+							console.log(logmatch);
+
+							if (!e.hasOwnProperty('logs')) e.logs = [];
+
+							e.logs[log_k] = { message: logmatch.groups.log };
+							delete events[log_k];
+						}
+					}
+				});
+			}
+			return e;
+		});
+
+		events = events.filter(function (e) {
+			if (!e) return false;
+
+			return true;
+		});
+
+		this.set({ events: events, events_count: events.filter(function (e) {
+				return e.hasOwnProperty('type');
+			}).length });
+	},
+	get_log_events: function get_log_events() {
+
+		var ractive = this;
+
+		var params = {
+			logGroupName: this.get('rawlog.logGroupName'),
+			logStreamName: this.get('rawlog.item.logStreamName'),
+			//endTime: 'NUMBER_VALUE',
+			//limit: 'NUMBER_VALUE',
+			//nextToken: 'STRING_VALUE',
+			startFromHead: true
+			//startTime: 'NUMBER_VALUE'
+		};
+		cloudwatchlogs.getLogEvents(params, function (err, data) {
+
+			if (err) return alert('failed getting log events');
+
+			ractive.set('rawlog.events', data.events);
+
+			//nextForwardToken: data.nextForwardToken,
+			//nextBackwardToken: data.nextBackwardToken,
+
+			ractive.parse_log_events();
+		});
+	},
+
+	on: {
+
+		'delete-raw-log': function deleteRawLog() {
+			var ractive = this;
+			var item = this.get('rawlog.item');
+			var params = {
+				logGroupName: this.get('rawlog.logGroupName'),
+				logStreamName: item.logStreamName
+			};
+			cloudwatchlogs.deleteLogStream(params, function (err, data) {
+				if (err) return alert('delete failed');
+
+				ractive.parent.remove_logstream_from_list(item.logStreamName);
+				ractive.parent.close_rawlog();
+			});
+		},
+
+		refresh: function refresh() {
+			this.set({ events: false });
+			this.get_log_events();
+		},
+		init: function init() {
+
+			this.set({ events: false });
+
+			this.get_log_events();
+		}
 	}
 });
 
