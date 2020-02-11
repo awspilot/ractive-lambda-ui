@@ -1,5 +1,5 @@
 
-import {IconX} from './svgicons';
+import {IconX, IconLambda} from './svgicons';
 import functionslistfull from './functionlist';
 import functioncreate from './function/create';
 import functiontab from './function/tab';
@@ -12,12 +12,13 @@ export default Ractive.extend({
 		functiontab: functiontab,
 
 		'icon-x': IconX,
+		'icon-lambda': IconLambda,
 	},
 	template:
 		`
 		<tabhead>
 			<tab class='{{#if active_id === "functions" }}active{{/if}}' on-click='@this.fire("activetab", "functions")'>
-				<icon-database style="width: 15px;height: 15px;" />
+				<icon-lambda style="width: 15px;height: 15px;" />
 			</tab>
 		{{#tabs}}
 			{{#if .closed !== true}}

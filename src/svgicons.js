@@ -50,7 +50,7 @@ const IconTrash = Ractive.extend({
 `
 })
 
-Ractive.components['icon-database'] = Ractive.extend({
+const IconLambda = Ractive.extend({
 	template: `
 		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 400,418">
 			<g>
@@ -91,4 +91,4 @@ Ractive.components['icon-caret-down'] = Ractive.extend({
 	`
 })
 
-export { IconTrash, IconX, IconRefresh };
+export { IconTrash, IconX, IconRefresh, IconLambda };
