@@ -1107,7 +1107,7 @@ try {
     exports.nodestream = false;
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9).Buffer))
 
 /***/ }),
 /* 5 */
@@ -1272,7 +1272,7 @@ module.exports = Duplex;
 
 /*<replacement>*/
 var util = __webpack_require__(12);
-util.inherits = __webpack_require__(9);
+util.inherits = __webpack_require__(10);
 /*</replacement>*/
 
 var Readable = __webpack_require__(32);
@@ -1360,6 +1360,42 @@ Duplex.prototype._destroy = function (err, cb) {
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var IconPlus = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 31.444 31.444\" xml:space=\"preserve\">\n\t\t\t<path d=\"M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127\n\t\t\t\tC14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111\n\t\t\t\tc0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z\"\n\t\t\t\t/>\n\t\t</svg>\n\n\t"
+});
+
+var IconRefresh = Ractive.extend({
+	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t viewBox=\"0 0 477.867 477.867\" xml:space=\"preserve\">\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479\n\t\t\t\tc-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933\n\t\t\t\tc0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207\n\t\t\t\tc-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4\n\t\t\t\tC426.667,7.641,419.026,0,409.6,0z\"/>\n\t\t</g>\n\t</g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696\n\t\t\t\tc-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606\n\t\t\t\tc-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4\n\t\t\t\tc0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068\n\t\t\t\tc40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z\"/>\n\t\t</g>\n\t</g>\n\t</svg>\n\t"
+});
+
+var IconTrash = Ractive.extend({
+	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"459px\" height=\"459px\" viewBox=\"0 0 459 459\" xml:space=\"preserve\">\n\t\t<g>\n\t\t\t<g>\n\t\t\t\t<path d=\"M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5\n\t\t\t\t\tH51v51h357V25.5z\"/>\n\t\t\t</g>\n\t\t</g>\n\t</svg>\n"
+});
+
+var IconLambda = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0, 0, 400,418\">\n\t\t\t<g>\n\t\t\t\t<path d=\"M106.600 58.500 L 106.600 87.800 130.760 87.800 L 154.921 87.800 164.760 118.171 C 170.172 134.875,174.600 148.651,174.600 148.783 C 174.600 148.916,141.525 200.271,101.100 262.906 C 60.675 325.541,27.600 376.835,27.600 376.894 C 27.600 376.952,43.881 377.000,63.779 377.000 L 99.958 377.000 152.429 299.596 C 192.256 240.846,204.936 222.278,205.049 222.546 C 205.131 222.741,220.595 261.780,239.413 309.300 C 258.230 356.820,273.688 395.762,273.763 395.838 C 273.866 395.943,375.186 363.931,381.233 361.884 L 382.366 361.500 373.788 334.914 C 369.069 320.291,365.185 308.263,365.155 308.183 C 365.125 308.104,353.985 311.492,340.400 315.712 C 326.815 319.932,315.565 323.387,315.400 323.390 C 315.185 323.394,298.450 281.529,256.601 176.298 L 198.102 29.200 152.351 29.200 L 106.600 29.200 106.600 58.500 \" stroke=\"none\" fill=\"#fc7c14\" fill-rule=\"evenodd\"></path>\n\n\t\t\t</g>\n\t\t</svg>\n"
+});
+
+var IconX = Ractive.extend({
+	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t\t viewBox=\"0 0 512.001 512.001\" xml:space=\"preserve\">\n\n\t\t\t<g>\n\t\t\t\t<path d=\"M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z\"/>\n\t\t\t</g>\n\n\t\t</svg>\n"
+});
+
+exports.IconTrash = IconTrash;
+exports.IconX = IconX;
+exports.IconRefresh = IconRefresh;
+exports.IconLambda = IconLambda;
+exports.IconPlus = IconPlus;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1641,7 +1677,7 @@ exports.Utf8EncodeWorker = Utf8EncodeWorker;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3438,7 +3474,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(1)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -3469,42 +3505,6 @@ if (typeof Object.create === 'function') {
   }
 }
 
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var IconPlus = Ractive.extend({
-	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 31.444 31.444\" xml:space=\"preserve\">\n\t\t\t<path d=\"M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127\n\t\t\t\tC14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111\n\t\t\t\tc0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z\"\n\t\t\t\t/>\n\t\t</svg>\n\n\t"
-});
-
-var IconRefresh = Ractive.extend({
-	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t viewBox=\"0 0 477.867 477.867\" xml:space=\"preserve\">\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479\n\t\t\t\tc-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933\n\t\t\t\tc0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207\n\t\t\t\tc-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4\n\t\t\t\tC426.667,7.641,419.026,0,409.6,0z\"/>\n\t\t</g>\n\t</g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696\n\t\t\t\tc-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606\n\t\t\t\tc-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4\n\t\t\t\tc0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068\n\t\t\t\tc40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z\"/>\n\t\t</g>\n\t</g>\n\t</svg>\n\t"
-});
-
-var IconTrash = Ractive.extend({
-	template: "\n\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"459px\" height=\"459px\" viewBox=\"0 0 459 459\" xml:space=\"preserve\">\n\t\t<g>\n\t\t\t<g>\n\t\t\t\t<path d=\"M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5\n\t\t\t\t\tH51v51h357V25.5z\"/>\n\t\t\t</g>\n\t\t</g>\n\t</svg>\n"
-});
-
-var IconLambda = Ractive.extend({
-	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0, 0, 400,418\">\n\t\t\t<g>\n\t\t\t\t<path d=\"M106.600 58.500 L 106.600 87.800 130.760 87.800 L 154.921 87.800 164.760 118.171 C 170.172 134.875,174.600 148.651,174.600 148.783 C 174.600 148.916,141.525 200.271,101.100 262.906 C 60.675 325.541,27.600 376.835,27.600 376.894 C 27.600 376.952,43.881 377.000,63.779 377.000 L 99.958 377.000 152.429 299.596 C 192.256 240.846,204.936 222.278,205.049 222.546 C 205.131 222.741,220.595 261.780,239.413 309.300 C 258.230 356.820,273.688 395.762,273.763 395.838 C 273.866 395.943,375.186 363.931,381.233 361.884 L 382.366 361.500 373.788 334.914 C 369.069 320.291,365.185 308.263,365.155 308.183 C 365.125 308.104,353.985 311.492,340.400 315.712 C 326.815 319.932,315.565 323.387,315.400 323.390 C 315.185 323.394,298.450 281.529,256.601 176.298 L 198.102 29.200 152.351 29.200 L 106.600 29.200 106.600 58.500 \" stroke=\"none\" fill=\"#fc7c14\" fill-rule=\"evenodd\"></path>\n\n\t\t\t</g>\n\t\t</svg>\n"
-});
-
-var IconX = Ractive.extend({
-	template: "\n\t\t<svg class=\"icon\" style={{style}} version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t\t\t viewBox=\"0 0 512.001 512.001\" xml:space=\"preserve\">\n\n\t\t\t<g>\n\t\t\t\t<path d=\"M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z\"/>\n\t\t\t</g>\n\n\t\t</svg>\n"
-});
-
-exports.IconTrash = IconTrash;
-exports.IconX = IconX;
-exports.IconRefresh = IconRefresh;
-exports.IconLambda = IconLambda;
-exports.IconPlus = IconPlus;
 
 /***/ }),
 /* 11 */
@@ -4073,7 +4073,7 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9).Buffer))
 
 /***/ }),
 /* 13 */
@@ -4216,7 +4216,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(8)
+var buffer = __webpack_require__(9)
 var Buffer = buffer.Buffer
 
 // alternative to using Object.keys for old browsers
@@ -4342,7 +4342,7 @@ module.exports = {
     }
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9).Buffer))
 
 /***/ }),
 /* 18 */
@@ -4429,7 +4429,7 @@ Writable.WritableState = WritableState;
 
 /*<replacement>*/
 var util = __webpack_require__(12);
-util.inherits = __webpack_require__(9);
+util.inherits = __webpack_require__(10);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -5415,7 +5415,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var buffer_1 = __webpack_require__(8);
+var buffer_1 = __webpack_require__(9);
 exports.Buffer = buffer_1.Buffer;
 function bufferV0P12Ponyfill(arg0) {
     var args = [];
@@ -6281,7 +6281,7 @@ module.exports = __webpack_require__(31);
 module.exports = Stream;
 
 var EE = __webpack_require__(11).EventEmitter;
-var inherits = __webpack_require__(9);
+var inherits = __webpack_require__(10);
 
 inherits(Stream, EE);
 Stream.Readable = __webpack_require__(18);
@@ -6458,7 +6458,7 @@ function _isUint8Array(obj) {
 
 /*<replacement>*/
 var util = __webpack_require__(12);
-util.inherits = __webpack_require__(9);
+util.inherits = __webpack_require__(10);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -7877,7 +7877,7 @@ var Duplex = __webpack_require__(6);
 
 /*<replacement>*/
 var util = __webpack_require__(12);
-util.inherits = __webpack_require__(9);
+util.inherits = __webpack_require__(10);
 /*</replacement>*/
 
 util.inherits(Transform, Duplex);
@@ -8352,7 +8352,7 @@ StreamHelper.prototype = {
 
 module.exports = StreamHelper;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9).Buffer))
 
 /***/ }),
 /* 39 */
@@ -9814,7 +9814,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 exports.default = Ractive.extend({
 	//isolated: true,
@@ -9871,7 +9871,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 var _functionlist = __webpack_require__(64);
 
@@ -9965,7 +9965,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 var _tabledata = __webpack_require__(27);
 
@@ -10161,7 +10161,7 @@ exports.default = Ractive.extend({
 
 "use strict";
 
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
 var StreamHelper = __webpack_require__(38);
@@ -11202,7 +11202,7 @@ var Transform = __webpack_require__(36);
 
 /*<replacement>*/
 var util = __webpack_require__(12);
-util.inherits = __webpack_require__(9);
+util.inherits = __webpack_require__(10);
 /*</replacement>*/
 
 util.inherits(PassThrough, Transform);
@@ -11708,7 +11708,7 @@ module.exports = NodejsStreamOutputAdapter;
 
 var StreamHelper = __webpack_require__(38);
 var DataWorker = __webpack_require__(40);
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var CompressedObject = __webpack_require__(21);
 var GenericWorker = __webpack_require__(2);
 
@@ -18302,7 +18302,7 @@ module.exports = GZheader;
 
 var utils = __webpack_require__(0);
 var GenericWorker = __webpack_require__(2);
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var crc32 = __webpack_require__(22);
 var signature = __webpack_require__(49);
 
@@ -18929,7 +18929,7 @@ module.exports = NodejsStreamInputAdapter;
 
 var utils = __webpack_require__(0);
 var external = __webpack_require__(13);
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var utils = __webpack_require__(0);
 var ZipEntries = __webpack_require__(99);
 var Crc32Probe = __webpack_require__(42);
@@ -19020,7 +19020,7 @@ var readerFor = __webpack_require__(50);
 var utils = __webpack_require__(0);
 var sig = __webpack_require__(49);
 var ZipEntry = __webpack_require__(102);
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var support = __webpack_require__(4);
 //  class ZipEntries {{{
 /**
@@ -19360,7 +19360,7 @@ var readerFor = __webpack_require__(50);
 var utils = __webpack_require__(0);
 var CompressedObject = __webpack_require__(21);
 var crc32fn = __webpack_require__(22);
-var utf8 = __webpack_require__(7);
+var utf8 = __webpack_require__(8);
 var compressions = __webpack_require__(43);
 var support = __webpack_require__(4);
 
@@ -25505,7 +25505,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 var _codeflask = __webpack_require__(130);
 
@@ -30474,7 +30474,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 var _tabledata = __webpack_require__(27);
 
@@ -30495,7 +30495,7 @@ exports.default = Ractive.extend({
 		'icon-x': _svgicons.IconX,
 		'icon-refresh': _svgicons.IconRefresh
 	},
-	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
+	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\n\t\t\t\t{{#if emptying}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'cancel-empty\' > Cancel </a>\n\t\t\t\t{{else}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'empty\' > Empty </a>\n\t\t\t\t{{/if}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
 	remove_logstream_from_list: function remove_logstream_from_list(logStreamName) {
 		var ractive = this;
 
@@ -30516,34 +30516,76 @@ exports.default = Ractive.extend({
 	close_rawlog: function close_rawlog() {
 		this.set('raw_log_data');
 	},
+	select_all: function select_all() {
+		this.set('rows', this.get('rows').map(function (r, idx) {
+			r[0].selected = true;return r;
+		}));
+	},
+	delete_selected: function delete_selected(cb) {
+		var ractive = this;
+
+		var to_delete = this.get('rows').filter(function (r) {
+			return r[0].selected === true;
+		}).map(function (r) {
+			return r[0].item;
+		});
+
+		async.each(to_delete, function (item, cb) {
+			var params = {
+				logGroupName: '/aws/lambda/' + ractive.get('function.name'),
+				logStreamName: item.logStreamName
+			};
+			cloudwatchlogs.deleteLogStream(params, function (err, data) {
+
+				ractive.set('rows', ractive.get('rows').filter(function (r) {
+					return r[0].item.logStreamName !== item.logStreamName;
+				}));
+				cb();
+			});
+		}, function () {
+			if (cb) cb();
+		});
+	},
+	empty: function empty() {
+		var ractive = this;
+
+		this.set({ emptying: true });
+
+		if ((this.get('rows') || []).length === 0) {
+			this.set({ emptying: undefined });
+			return;
+		}
+
+		this.select_all();
+		this.delete_selected(function () {
+			// reload the list
+			ractive.refresh(true, function () {
+				setTimeout(function () {
+					var should_continue = ractive.get('emptying') === true;
+					if (should_continue) {
+						ractive.empty();
+					}
+				}, 1000);
+			});
+		});
+	},
+
 
 	on: {
 		delete: function _delete() {
-			var ractive = this;
-
-			var to_delete = this.get('rows').filter(function (r) {
-				return r[0].selected === true;
-			}).map(function (r) {
-				return r[0].item;
-			});
-
-			async.each(to_delete, function (item, cb) {
-				var params = {
-					logGroupName: '/aws/lambda/' + ractive.get('function.name'),
-					logStreamName: item.logStreamName
-				};
-				cloudwatchlogs.deleteLogStream(params, function (err, data) {
-
-					ractive.set('rows', ractive.get('rows').filter(function (r) {
-						return r[0].item.logStreamName !== item.logStreamName;
-					}));
-					cb();
-				});
-			}, function () {});
+			this.delete_selected();
 		},
 		refresh: function refresh() {
 			this.refresh();
 		},
+		empty: function empty() {
+			this.empty();
+		},
+
+		'cancel-empty': function cancelEmpty() {
+			this.set({ emptying: undefined });
+		},
+
 		openstream: function openstream(e, col, item, rawitem) {
 			var ractive = this;
 
@@ -30620,7 +30662,7 @@ exports.default = Ractive.extend({
 		}
 	},
 
-	refresh: function refresh() {
+	refresh: function refresh(silent, cb) {
 		var ractive = this;
 
 		var params = {
@@ -30632,7 +30674,7 @@ exports.default = Ractive.extend({
 			orderBy: 'LastEventTime' // LogStreamName | LastEventTime
 		};
 
-		this.set({ rows: null }); // loading...
+		if (!silent) this.set({ rows: null }); // loading...
 
 		cloudwatchlogs.describeLogStreams(params, function (err, data) {
 			if (err) return console.log(err);
@@ -30653,6 +30695,8 @@ exports.default = Ractive.extend({
 			}).map(function (l) {
 				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }, { S: '-' }];
 			}));
+
+			if (cb) cb();
 		});
 	},
 
@@ -30677,7 +30721,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(10);
+var _svgicons = __webpack_require__(7);
 
 exports.default = Ractive.extend({
 	components: {
