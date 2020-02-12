@@ -20,8 +20,15 @@ export default Ractive.extend({
 			{{#if raw_log_data}}
 				<a class="btn btn-xs btn-default" on-click='close-raw-log' > <icon-x /> </a>
 			{{else}}
+
+				{{#if emptying}}
+					<a class="btn btn-xs btn-default" on-click='cancel-empty' > Cancel </a>
+				{{else}}
+					<a class="btn btn-xs btn-default" on-click='empty' > Empty </a>
+				{{/if}}
 				<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click='delete'{{/if}}> <icon-trash /> </a>
 				<a class="btn btn-xs btn-default" on-click='refresh' > <icon-refresh /> </a>
+
 			{{/if}}
 		</div>
 
@@ -51,30 +58,68 @@ export default Ractive.extend({
 	close_rawlog() {
 		this.set('raw_log_data');
 	},
+	select_all() {
+		this.set('rows', this.get('rows').map(function(r,idx) { r[0].selected = true ;return r; }) )
+	},
+	delete_selected( cb ) {
+		var ractive=this;
+
+		var to_delete = this.get('rows').filter(function(r) { return r[0].selected === true } ).map(function(r) { return r[0].item })
+
+		async.each(to_delete, function(item, cb ) {
+			var params = {
+				logGroupName: '/aws/lambda/' + ractive.get('function.name'),
+				logStreamName: item.logStreamName,
+			};
+			cloudwatchlogs.deleteLogStream(params, function(err, data) {
+
+				ractive.set('rows', ractive.get('rows').filter(function(r) { return r[0].item.logStreamName !== item.logStreamName }) )
+				cb()
+			});
+		}, function() {
+			if (cb) cb()
+		})
+
+	},
+
+	empty() {
+		var ractive=this;
+
+		this.set({emptying: true})
+
+		if ((this.get('rows') || []).length === 0) {
+			this.set({emptying: undefined})
+			return;
+		}
+
+		this.select_all()
+		this.delete_selected(function() {
+			// reload the list
+			ractive.refresh( true, function() {
+				setTimeout(function() {
+					var should_continue = ractive.get('emptying') === true;
+					if (should_continue) {
+						ractive.empty()
+					}
+				},1000)
+
+			} )
+		})
+	},
+
 	on: {
 
 		delete() {
-			var ractive=this;
-
-			var to_delete = this.get('rows').filter(function(r) { return r[0].selected === true } ).map(function(r) { return r[0].item })
-
-			async.each(to_delete, function(item, cb ) {
-				var params = {
-					logGroupName: '/aws/lambda/' + ractive.get('function.name'),
-					logStreamName: item.logStreamName,
-				};
-				cloudwatchlogs.deleteLogStream(params, function(err, data) {
-
-					ractive.set('rows', ractive.get('rows').filter(function(r) { return r[0].item.logStreamName !== item.logStreamName }) )
-					cb()
-				});
-			}, function() {
-
-			})
+			this.delete_selected()
 		},
-
 		refresh() {
 			this.refresh()
+		},
+		empty() {
+			this.empty()
+		},
+		'cancel-empty': function() {
+			this.set({emptying: undefined})
 		},
 
 		openstream( e, col, item, rawitem ) {
@@ -155,7 +200,7 @@ export default Ractive.extend({
 		},
 	},
 
-	refresh() {
+	refresh( silent, cb ) {
 		var ractive=this;
 
 		var params = {
@@ -167,7 +212,7 @@ export default Ractive.extend({
 			orderBy: 'LastEventTime', // LogStreamName | LastEventTime
 		};
 
-		this.set({rows: null}) // loading...
+		if ( !silent ) this.set({rows: null}) // loading...
 
 		cloudwatchlogs.describeLogStreams(params, function(err, data) {
 			if (err)
@@ -202,6 +247,8 @@ export default Ractive.extend({
 					]
 				})
 			)
+
+			if ( cb ) cb()
 		});
 	},
 
