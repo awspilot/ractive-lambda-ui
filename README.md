@@ -6,7 +6,7 @@ Embeds a basic IDE that extracts lambda function contents into memory and upload
 
 ## Preview
 
-There is no demo atm as it would expose AWS Key/Secret, 
+There is no demo atm as it would expose AWS Key/Secret,
 
 ## Screenshot
 ![Screenshot](demo/screenshot1.png?raw=true "Screenshot")
@@ -35,6 +35,7 @@ There is no demo atm as it would expose AWS Key/Secret,
 
 - [ ] logs
 -  - [x] list log streams
+-  - [x] empty logs ( delete page by page )
 -  - [ ] auto-refresh log streams
 -  - [ ] show number of executions inside each log stream
 -  - [ ] date filter for log streams
