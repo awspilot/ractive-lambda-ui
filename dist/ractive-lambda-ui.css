@@ -547,6 +547,7 @@ ul > li > svg {
   /* mini table body */
   /* split */
   /* main tab content */
+  /* important because atom will force its background color on .panel */
   background-color: hsl(220, 24%, 20%);
   color: hsl(220, 18%, 66%);
   /* scrollarea */
@@ -660,6 +661,9 @@ ul > li > svg {
 }
 .ractive-lambda-ui.theme-atom .panel {
   box-shadow: none;
+}
+.ractive-lambda-ui.theme-atom .panel {
+  background-color: transparent;
 }
 .ractive-lambda-ui.theme-atom .panel > .title {
   margin: 0px;
@@ -919,6 +923,7 @@ ul > li > svg {
   /* mini table body */
   /* split */
   /* main tab content */
+  /* important because atom will force its background color on .panel */
   background-color: #54a9a9;
   color: #000;
   /* scrollarea */
@@ -1032,6 +1037,9 @@ ul > li > svg {
 }
 .ractive-lambda-ui.theme-windows .panel {
   box-shadow: none;
+}
+.ractive-lambda-ui.theme-windows .panel {
+  background-color: transparent;
 }
 .ractive-lambda-ui.theme-windows .panel > .title {
   margin: 0px;
@@ -1302,6 +1310,7 @@ ul > li > svg {
   /* mini table body */
   /* split */
   /* main tab content */
+  /* important because atom will force its background color on .panel */
   background-color: #fff;
   color: #000;
   /* scrollarea */
@@ -1415,6 +1424,9 @@ ul > li > svg {
 }
 .ractive-lambda-ui.theme-aws .panel {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.ractive-lambda-ui.theme-aws .panel {
+  background-color: transparent;
 }
 .ractive-lambda-ui.theme-aws .panel > .title {
   margin: 0px;
