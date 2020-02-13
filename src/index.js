@@ -20,6 +20,7 @@
 				<left>
 					<minifunctionlist />
 				</left>
+				<split />
 				<content  style="background-color: transparent;border: 0px;overflow-x: auto;">
 					<tabs
 						active_id='functions'
