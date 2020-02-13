@@ -51,9 +51,10 @@
 
 & {background-color: @awspilot-background-color; color: @awspilot-color;}
 
-& left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
-& left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
-& left {box-shadow: @awspilot-window-box-shodow; }
+& left {top: @awspilot-minitablelist-top;left: @awspilot-minitablelist-left;width: @awspilot-minitablelist-width;bottom: @awspilot-minitablelist-bottom;}
+& left {background-color: @awspilot-minitablelist-background;padding: @awspilot-minitablelist-spacing;}
+& left {border-top: @awspilot-minitablelist-border-top;border-right: @awspilot-minitablelist-border-right;border-bottom: @awspilot-minitablelist-border-bottom;border-left: @awspilot-minitablelist-border-left;}
+& left {box-shadow: @awspilot-minitablelist-box-shadow; }
 
 & left > miniheader { height: @awspilot-miniheader-title-height;line-height: @awspilot-miniheader-title-height; }
 & left > miniheader {border-top: @awspilot-miniheader-title-border-top;border-bottom: @awspilot-miniheader-title-border-bottom;}
