@@ -9745,7 +9745,7 @@ exports.default = _ractive2.default.extend({
 		minifunctionlist: _list_mini2.default,
 		tabs: _tabs2.default
 	},
-	template: '\n\t\t\t<hsplit class=\'ractive-lambda-ui theme-{{theme}}\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minifunctionlist />\n\t\t\t\t</left>\n\t\t\t\t<content  style="background-color: transparent;border: 0px;overflow-x: auto;">\n\t\t\t\t\t<tabs active_id=\'functions\' theme={{theme}} cors-proxy={{.[\'cors-proxy\']}} />\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
+	template: '\n\t\t\t<hsplit class=\'ractive-lambda-ui theme-{{theme}}\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minifunctionlist />\n\t\t\t\t</left>\n\t\t\t\t<split />\n\t\t\t\t<content  style="background-color: transparent;border: 0px;overflow-x: auto;">\n\t\t\t\t\t<tabs\n\t\t\t\t\t\tactive_id=\'functions\'\n\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t\tcors-proxy={{.[\'cors-proxy\']}}\n\t\t\t\t\t\tlogs-streams-refresh-interval={{~/[\'logs-streams-refresh-interval\']}}\n\t\t\t\t\t/>\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -9897,7 +9897,7 @@ exports.default = Ractive.extend({
 		'icon-x': _svgicons.IconX,
 		'icon-lambda': _svgicons.IconLambda
 	},
-	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "functions" }}active{{/if}}\' on-click=\'@this.fire("activetab", "functions")\'>\n\t\t\t\t<icon-lambda style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "functions" }}\n\t\t\t\t<functionslistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'function_create\' }}\n\t\t\t\t\t\t\t<functioncreate active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'function_tab\' }}\n\t\t\t\t\t\t\t<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} cors-proxy={{~/[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
+	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "functions" }}active{{/if}}\' on-click=\'@this.fire("activetab", "functions")\'>\n\t\t\t\t<icon-lambda style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "functions" }}\n\t\t\t\t<functionslistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'function_create\' }}\n\t\t\t\t\t\t\t<functioncreate active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'function_tab\' }}\n\t\t\t\t\t\t\t<functiontab\n\t\t\t\t\t\t\t\tfunction={{.}}\n\t\t\t\t\t\t\t\tactive={{ .id === active_id  }}\n\t\t\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t\t\t\tcors-proxy={{~/[\'cors-proxy\']}}\n\t\t\t\t\t\t\t\tlogs-streams-refresh-interval={{~/[\'logs-streams-refresh-interval\']}}\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -19681,14 +19681,16 @@ exports.default = Ractive.extend({
 		tabcode: _tab_code2.default,
 		tablogs: _tab_logs2.default
 	},
-	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'config\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'config\')\'> Config </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'code\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'code\')\'> Code </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'monitoring\'}}active{{/if}}\'   on-click=\'@this.set(\'tab\',\'monitoring\')\'> Monitoring </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'logs\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'logs\')\'> Logs </a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'config\'}}\n\t\t\t\t\t\t\t<tabconfig function={{function}}  />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'code\'}}\n\t\t\t\t\t\t\t<tabcode function={{function}} theme={{theme}} cors-proxy={{.[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'monitoring\'}}\n\t\t\t\t\t\t\t<tabmonitoring function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'logs\'}}\n\t\t\t\t\t\t\t<tablogs function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'config\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'config\')\'> Config </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'code\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'code\')\'> Code </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'monitoring\'}}active{{/if}}\'   on-click=\'@this.set(\'tab\',\'monitoring\')\'> Monitoring </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'logs\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'logs\')\'> Logs </a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'config\'}}\n\t\t\t\t\t\t\t<tabconfig function={{function}}  />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'code\'}}\n\t\t\t\t\t\t\t<tabcode function={{function}} theme={{theme}} cors-proxy={{.[\'cors-proxy\']}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'monitoring\'}}\n\t\t\t\t\t\t\t<tabmonitoring function={{function}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'logs\'}}\n\t\t\t\t\t\t\t<tablogs function={{function}} logs-streams-refresh-interval={{~/[\'logs-streams-refresh-interval\']}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			tab: 'config'
 		};
-	},
+	}
 
-	oninit: function oninit() {}
+	// oninit: function() {
+	//
+	// },
 });
 
 /***/ }),
@@ -19704,7 +19706,7 @@ Object.defineProperty(exports, "__esModule", {
 var sizes = [128, 192, 256, 320, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1216, 1280, 1344, 1408, 1472, 1536, 1600, 1664, 1728, 1792, 1856, 1920, 1984, 2048, 2112, 2176, 2240, 2304, 2368, 2432, 2496, 2560, 2624, 2688, 2752, 2816, 2880, 2944, 3008];
 
 exports.default = Ractive.extend({
-	template: '\n\n\t\t<!-- env -->\n\t\t<div style="width: min-height: 300px;padding: 10px;">\n\t\t\t<div style="background-color: #fff;height: 100%;padding: 10px;">\n\t\t\t\t<h3>Environment variables</h3>\n\n\t\t\t\t<table>\n\t\t\t\t{{#each updateFunctionConfiguration.Configuration.Environment.Variables:key }}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td> <input value={{key}} /></td>\n\t\t\t\t\t\t<td> <input value={{.}}   /></td>\n\t\t\t\t\t\t<td></td>\n\t\t\t\t\t</tr>\n\t\t\t\t{{/each}}\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div style="width: 50%;float: left;height: 300px;padding: 10px;">\n\t\t\t<div style="background-color: #fff;height: 100%;padding: 10px;">\n\t\t\t\t<h3>Execution role</h3>\n\n\t\t\t\t{{getFunction.Configuration.Role}}\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div style="width: 50%;float: left;height: 300px;padding: 10px;">\n\t\t\t<div style="background-color: #fff;height: 100%;padding: 10px;">\n\t\t\t\t<h3>Basic Settings</h3>\n\n\t\t\t\t<label>Description</label>\n\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t<input type="text" class="input-text" style="width: 100%;" value={{updateFunctionConfiguration.Configuration.Description}} />\n\t\t\t\t</div>\n\n\t\t\t\t<label>Memory (MB) - {{updateFunctionConfiguration.Configuration.MemorySize}}</label>\n\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t<input type="range" value={{memsize}} style="width: 100%;" min="0" max={{sizes.length-1}}>\n\t\t\t\t</div>\n\n\t\t\t\t<label>Timeout (sec) - {{updateFunctionConfiguration.Configuration.Timeout}}</label>\n\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t<input type="number" value={{updateFunctionConfiguration.Configuration.Timeout}} style="width: 100%;">\n\t\t\t\t</div>\n\n\t\t\t\t<a class="btn btn-sm btn-primary {{#if dirty_mem || dirty_desc || dirty_timeout }}{{else}}disabled{{/if}}" on-click=\'save-desc-mem-timeout\'>Save</a>\n\n\t\t\t</div>\n\t\t</div>\n\t\t<div style="clear: both"></div>\n\n\t\t<table>\n\t\t\t<tr>\n\t\t\t\t<td>FunctionName</td>\n\t\t\t\t<td>{{getFunction.Configuration.FunctionName}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>FunctionArn</td>\n\t\t\t\t<td>{{getFunction.Configuration.FunctionArn}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>Runtime</td>\n\t\t\t\t<td>{{getFunction.Configuration.Runtime}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>Handler</td>\n\t\t\t\t<td>{{getFunction.Configuration.Handler}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>CodeSize</td>\n\t\t\t\t<td>{{getFunction.Configuration.CodeSize}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>LastModified</td>\n\t\t\t\t<td>{{getFunction.Configuration.LastModified}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>CodeSha256</td>\n\t\t\t\t<td>{{getFunction.Configuration.CodeSha256}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>Version</td>\n\t\t\t\t<td>{{getFunction.Configuration.Version}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>RevisionId</td>\n\t\t\t\t<td>{{getFunction.Configuration.RevisionId}}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>VpcConfig</td>\n\t\t\t\t<td>{{ stringify(getFunction.Configuration.VpcConfig) }}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>KMSKeyArn</td>\n\t\t\t\t<td>{{ stringify(getFunction.Configuration.KMSKeyArn) }}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>TracingConfig</td>\n\t\t\t\t<td>{{ stringify(getFunction.Configuration.TracingConfig) }}</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>MasterArn</td>\n\t\t\t\t<td>{{ stringify(getFunction.Configuration.MasterArn) }}</td>\n\t\t\t</tr>\n\t\t</table>\n\n\n\t',
+	template: '\n\n\t\t<!-- env -->\n\t\t<div style="width: min-height: 300px;padding: 10px;">\n\t\t\t<div class="panel" style="height: 100%;">\n\t\t\t\t<h3 class="title">Environment variables</h3>\n\t\t\t\t<div class="body">\n\t\t\t\t\t<table>\n\t\t\t\t\t{{#each updateFunctionConfiguration.Configuration.Environment.Variables:key }}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td> <input class="input-text" value={{key}} style="min-width: 300px;" /></td>\n\t\t\t\t\t\t\t<td> <input class="input-text" value={{.}}   style="min-width: 300px;" /></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class="btn btn-sm btn-default disabled btn-disabled"> Remove </a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t{{/each}}\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- role -->\n\t\t<div style="width: 50%;float: left;height: 300px;padding: 10px;">\n\t\t\t<div class="panel" style="height: 100%;">\n\t\t\t\t<h3 class="title">Execution role</h3>\n\t\t\t\t<div class="body">\n\t\t\t\t\t<select class="input-select" disabled>\n\t\t\t\t\t\t<option>{{getFunction.Configuration.Role}}</option>\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- desc, mem, timeout -->\n\t\t<div style="width: 50%;float: left;height: 300px;padding: 10px;">\n\t\t\t<div class="panel" style="height: 100%;">\n\t\t\t\t<h3 class="title">Basic Settings</h3>\n\t\t\t\t<div class="body">\n\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t\t<input type="text" class="input-text" style="width: 100%;" value={{updateFunctionConfiguration.Configuration.Description}} />\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<label>Memory (MB) - {{updateFunctionConfiguration.Configuration.MemorySize}}</label>\n\t\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t\t<input type="range" value={{memsize}} style="width: 100%;" min="0" max={{sizes.length-1}}>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<label>Timeout (sec) - {{updateFunctionConfiguration.Configuration.Timeout}}</label>\n\t\t\t\t\t<div style="margin-bottom: 15px;">\n\t\t\t\t\t\t<input type="number" class="input-text" value={{updateFunctionConfiguration.Configuration.Timeout}} style="width: 100%;">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<a class="btn btn-sm btn-primary {{#if dirty_mem || dirty_desc || dirty_timeout }}{{else}}disabled{{/if}}" on-click=\'save-desc-mem-timeout\'>Save</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div style="clear: both"></div>\n\n\n\t\t<!-- env -->\n\t\t<div style="width: min-height: 300px;padding: 10px;">\n\t\t\t<div class="panel" style="height: 100%;">\n\t\t\t\t<h3 class="title">Other</h3>\n\t\t\t\t<div class="body">\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>FunctionArn</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.FunctionArn}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Runtime</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.Runtime}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Handler</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.Handler}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>CodeSize</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.CodeSize}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>LastModified</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.LastModified}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>CodeSha256</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.CodeSha256}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Version</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.Version}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>RevisionId</td>\n\t\t\t\t\t\t\t<td>{{getFunction.Configuration.RevisionId}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>VpcConfig</td>\n\t\t\t\t\t\t\t<td>{{ stringify(getFunction.Configuration.VpcConfig) }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>KMSKeyArn</td>\n\t\t\t\t\t\t\t<td>{{ stringify(getFunction.Configuration.KMSKeyArn) }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>TracingConfig</td>\n\t\t\t\t\t\t\t<td>{{ stringify(getFunction.Configuration.TracingConfig) }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>MasterArn</td>\n\t\t\t\t\t\t\t<td>{{ stringify(getFunction.Configuration.MasterArn) }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\t',
 	on: {
 		'save-desc-mem-timeout': function saveDescMemTimeout() {
 
@@ -30495,7 +30497,7 @@ exports.default = Ractive.extend({
 		'icon-x': _svgicons.IconX,
 		'icon-refresh': _svgicons.IconRefresh
 	},
-	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\n\t\t\t\t{{#if emptying}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'cancel-empty\' > Cancel </a>\n\t\t\t\t{{else}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'empty\' > Empty </a>\n\t\t\t\t{{/if}}\n\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
+	template: '\n\n\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\n\t\t\t{{#if raw_log_data}}\n\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'close-raw-log\' > <icon-x /> </a>\n\t\t\t{{else}}\n\n\t\t\t\t{{#if emptying}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'cancel-empty\' > Cancel </a>\n\t\t\t\t{{else}}\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'empty\' > Empty </a>\n\t\t\t\t\t<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click=\'delete\'{{/if}}> <icon-trash /> </a>\n\t\t\t\t\t<a class="btn btn-xs btn-default" on-click=\'refresh\' > <icon-refresh /> </a>\n\t\t\t\t{{/if}}\n\n\t\t\t{{/if}}\n\t\t</div>\n\n\t\t<tabledata columns={{columns}} rows={{rows}} on-colclick=\'openstream\' style=\'top: 38px;margin: 3px;\' />\n\n\t\t{{#if raw_log_data}}\n\t\t\t<rawlog rawlog={{raw_log_data}} />\n\t\t{{/if}}\n\t',
 	remove_logstream_from_list: function remove_logstream_from_list(logStreamName) {
 		var ractive = this;
 
@@ -30647,11 +30649,12 @@ exports.default = Ractive.extend({
 		},
 
 		init: function init() {
+
 			var ractive = this;
 
 			this.refresh();
 
-			ractive.on('tabledata.selectrow', function (context) {
+			this.on('tabledata.selectrow', function (context) {
 				var keypath = context.resolve();
 				ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
 
@@ -30659,9 +30662,36 @@ exports.default = Ractive.extend({
 					return r[0].selected === true;
 				}).length);
 			});
+			this.observe('logs-streams-refresh-interval', function (n, o, kp) {
+				this.handle_watch_interval();
+			}, { init: false });
+
+			ractive.handle_watch_interval();
+		},
+		teardown: function teardown() {
+			clearInterval(this.get('log_watch_interval'));
 		}
 	},
 
+	handle_watch_interval: function handle_watch_interval() {
+		var ractive = this;
+
+		var repeat_interval = parseInt(this.get('logs-streams-refresh-interval') || 0);
+
+		console.log("handle_watch_interval", repeat_interval);
+
+		clearInterval(this.get('log_watch_interval'));
+
+		if (!Number.isInteger(repeat_interval)) return;
+
+		if (repeat_interval < 1) return;
+
+		this.set({
+			log_watch_interval: setInterval(function () {
+				ractive.background_refresh();
+			}, repeat_interval * 1000)
+		});
+	},
 	refresh: function refresh(silent, cb) {
 		var ractive = this;
 
@@ -30693,19 +30723,73 @@ exports.default = Ractive.extend({
 
 				return l;
 			}).map(function (l) {
-				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }, { S: '-' }];
+				return [{ KEY: true, item: l }, { HASH: l.extra.stream || l.logStreamName, item: l }, { S: l.extra.version }, { S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString() }, { S: new Date(l.lastIngestionTime).toLocaleDateString() + ' ' + new Date(l.lastIngestionTime).toLocaleTimeString() }, { N: Math.ceil(l.storedBytes / 1024) }, { S: '-' }];
 			}));
 
 			if (cb) cb();
+		});
+	},
+	background_refresh: function background_refresh() {
+		var ractive = this;
+
+		if (ractive.get('emptying')) return;
+
+		var params = {
+			logGroupName: '/aws/lambda/' + this.get('function.name'),
+			descending: true,
+			//limit: 'NUMBER_VALUE',
+			//logStreamNamePrefix: 'STRING_VALUE',
+			//nextToken: 'STRING_VALUE',
+			orderBy: 'LastEventTime' // LogStreamName | LastEventTime
+		};
+
+		cloudwatchlogs.describeLogStreams(params, function (err, data) {
+			if (err) return console.log(err);
+
+			//console.log("refreshed")
+			//console.log(data.logStreams)
+
+			var rows = ractive.get('rows');
+
+			if (!rows) return;
+
+			if (ractive.get('emptying')) return;
+
+			//console.log('display rows', rows )
+
+			rows = rows.map(function (r) {
+				data.logStreams.map(function (dbr) {
+
+					// found match
+					if (dbr.logStreamName === r[0].item.logStreamName) {
+
+						if (dbr.lastEventTimestamp !== r[0].item.lastEventTimestamp) {
+							console.log("found diff in lastEventTimestamp", r[0].item.lastEventTimestamp, dbr.lastEventTimestamp);
+							r[3] = { S: new Date(dbr.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(dbr.lastEventTimestamp).toLocaleTimeString() };
+						}
+						if (dbr.lastIngestionTime !== r[0].item.lastIngestionTime) {
+							console.log("found diff in lastIngestionTime", r[0].item.lastIngestionTime, dbr.lastIngestionTime);
+							r[4] = { S: new Date(dbr.lastIngestionTime).toLocaleDateString() + ' ' + new Date(dbr.lastIngestionTime).toLocaleTimeString() };
+						}
+
+						r[0].item = dbr;
+					}
+				});
+				return r;
+			});
+
+			ractive.set({ rows: rows });
 		});
 	},
 
 
 	data: function data() {
 		return {
-			columns: [null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB', 'Invocations'],
+			columns: [null, 'Log Streams', 'Version', 'Last Event Time', 'Last Ingestion Time', 'Size KB', 'Invocations'],
 			rows: [],
-			raw_log_data: false
+			raw_log_data: false,
+
+			log_watch_interval: null
 		};
 	}
 });
