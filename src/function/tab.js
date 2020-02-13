@@ -36,7 +36,7 @@ export default Ractive.extend({
 						{{/if}}
 
 						{{#if tab === 'logs'}}
-							<tablogs function={{function}} />
+							<tablogs function={{function}} logs-streams-refresh-interval={{~/['logs-streams-refresh-interval']}} />
 						{{/if}}
 
 				{{/if}}
@@ -50,8 +50,7 @@ export default Ractive.extend({
 		}
 	},
 
-	oninit: function() {
-
-
-	},
+	// oninit: function() {
+	//
+	// },
 })
