@@ -55,16 +55,13 @@ module.exports = {
 			amd: 'ractive',
 			root: 'Ractive'
 		},
-		// '@awspilot/dynamodb': {
-		// 	commonjs: '@awspilot/dynamodb',
-		// 	commonjs2: '@awspilot/dynamodb',
-		// 	root: '@awspilot/dynamodb',
-		// },
 		"aws-sdk": {
 				commonjs: 'aws-sdk',
 				commonjs2: 'aws-sdk',
 				root: 'AWS'
 		},
+		//"codeflask": "codeflask", 25K minified
+		// "jszip": "jszip", 91K minified
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
