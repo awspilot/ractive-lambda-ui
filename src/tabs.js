@@ -41,7 +41,13 @@ export default Ractive.extend({
 							<functioncreate active={{ .id === active_id  }} />
 						{{/if}}
 						{{#if .type === 'function_tab' }}
-							<functiontab function={{.}} active={{ .id === active_id  }} theme={{theme}} cors-proxy={{~/['cors-proxy']}} />
+							<functiontab
+								function={{.}}
+								active={{ .id === active_id  }}
+								theme={{theme}}
+								cors-proxy={{~/['cors-proxy']}}
+								logs-streams-refresh-interval={{~/['logs-streams-refresh-interval']}}
+							/>
 						{{/if}}
 					{{/if}}
 				{{/tabs}}
