@@ -13,7 +13,7 @@ export default Ractive.extend({
 
 		<!-- env -->
 		<div style="width: min-height: 300px;padding: 10px;">
-			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
+			<div class="panel" style="height: 100%;padding: 10px;">
 				<h3>Environment variables</h3>
 
 				<table>
@@ -32,7 +32,7 @@ export default Ractive.extend({
 
 		<!-- role -->
 		<div style="width: 50%;float: left;height: 300px;padding: 10px;">
-			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
+			<div class="panel" style="height: 100%;padding: 10px;">
 				<h3>Execution role</h3>
 
 				<select class="input-select" disabled>
@@ -43,7 +43,7 @@ export default Ractive.extend({
 
 		<!-- desc, mem, timeout -->
 		<div style="width: 50%;float: left;height: 300px;padding: 10px;">
-			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
+			<div class="panel" style="height: 100%;padding: 10px;">
 				<h3>Basic Settings</h3>
 
 				<label>Description</label>
@@ -70,7 +70,7 @@ export default Ractive.extend({
 
 		<!-- env -->
 		<div style="width: min-height: 300px;padding: 10px;">
-			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
+			<div class="panel" style="height: 100%;padding: 10px;">
 				<h3>Other</h3>
 
 				<table>

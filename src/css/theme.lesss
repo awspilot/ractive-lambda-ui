@@ -31,6 +31,7 @@
 & .input-select {border-top: @awspilot-selectbox-border-top;border-right: @awspilot-selectbox-border-right;border-bottom: @awspilot-selectbox-border-bottom;border-left: @awspilot-selectbox-border-left;}
 & .input-select {box-shadow: @awspilot-selectbox-box-shodow}
 
+& .panel {border-top: @awspilot-panel-border-top;border-right: @awspilot-panel-border-right;border-bottom: @awspilot-panel-border-bottom;border-left: @awspilot-panel-border-left;}
 
 & .tabledata {background-color: @awspilot-tabledata-background;}
 & .tabledata {border-top: @awspilot-tabledata-border-top;border-right: @awspilot-tabledata-border-right;border-bottom: @awspilot-tabledata-border-bottom;border-left: @awspilot-tabledata-border-left;}
@@ -77,9 +78,6 @@
 & content tabhead tab {background-color: @awspilot-tabs-tab-background; color: @awspilot-tabs-tab-color; }
 & content tabhead tab {border-top: @awspilot-tabs-tab-border-top;border-right: @awspilot-tabs-tab-border-right;border-bottom: @awspilot-tabs-tab-border-bottom;border-left: @awspilot-tabs-tab-border-left;}
 & content tabhead tab.active {background-color: @awspilot-window-background;color: @awspilot-tabs-tab-active-color;}
-
-& content tabcontent .tablequery {background-color: @awspilot-tablequery-background; box-shadow: @awspilot-tablequery-box-shodow;}
-& content tabcontent .tablequery {border-top: @awspilot-tablequery-border-top;border-right: @awspilot-tablequery-border-right;border-bottom: @awspilot-tablequery-border-bottom;border-left: @awspilot-tablequery-border-left;}
 
 & content tabcontent .tabledatacontrols { background-color: @awspilot-tabledatacontrols-background;}
 & content tabcontent .tabledatacontrols { border-top: @awspilot-tabledatacontrols-border-top;border-right: @awspilot-tabledatacontrols-border-right;border-bottom: @awspilot-tabledatacontrols-border-bottom;border-left: @awspilot-tabledatacontrols-border-left;}

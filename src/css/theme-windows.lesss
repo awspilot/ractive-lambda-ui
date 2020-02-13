@@ -47,12 +47,10 @@
 		@awspilot-selectbox-border-radius: 0px;
 		@awspilot-selectbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
 
-		@awspilot-tablequery-background: transparent;
-		@awspilot-tablequery-border-top: 0px;
-		@awspilot-tablequery-border-right: 0px;
-		@awspilot-tablequery-border-bottom: 1px solid #808080;
-		@awspilot-tablequery-border-left: 0px;
-		@awspilot-tablequery-box-shodow: 0px 1px 0px #fff;
+		@awspilot-panel-border-top: 1px solid #808080;
+		@awspilot-panel-border-right: 1px solid #ffffff;
+		@awspilot-panel-border-bottom: 1px solid #ffffff;
+		@awspilot-panel-border-left: 1px solid #808080;
 
 		@awspilot-tabledatacontrols-background: transparent;
 		@awspilot-tabledatacontrols-border-top: 0px;
