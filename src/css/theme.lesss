@@ -81,7 +81,10 @@
 
 & content tabhead tab {background-color: @awspilot-tabs-tab-background; color: @awspilot-tabs-tab-color; }
 & content tabhead tab {border-top: @awspilot-tabs-tab-border-top;border-right: @awspilot-tabs-tab-border-right;border-bottom: @awspilot-tabs-tab-border-bottom;border-left: @awspilot-tabs-tab-border-left;}
-& content tabhead tab.active {background-color: @awspilot-window-background;color: @awspilot-tabs-tab-active-color;}
+& content tabhead tab {border-radius: @awspilot-tabs-tab-border-radius;}
+
+& content tabhead tab {margin-right: @awspilot-tabs-spacing;}
+& content tabhead tab.active {background-color: @awspilot-tabs-tab-active-background;color: @awspilot-tabs-tab-active-color;}
 
 & content tabcontent .tabledatacontrols { background-color: @awspilot-tabledatacontrols-background;}
 & content tabcontent .tabledatacontrols { border-top: @awspilot-tabledatacontrols-border-top;border-right: @awspilot-tabledatacontrols-border-right;border-bottom: @awspilot-tabledatacontrols-border-bottom;border-left: @awspilot-tabledatacontrols-border-left;}
