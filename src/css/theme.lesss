@@ -6,7 +6,7 @@
 & .btn-default > .icon {color: @awspilot-button-color; }
 
 & .btn-primary {color: @awspilot-button-primary-color;background-color: @awspilot-button-primary-background-color;background-image: @awspilot-button-primary-background-image}
-& .btn-primary { border-top: @awspilot-button-border-top;border-right: @awspilot-button-border-right;border-bottom: @awspilot-button-border-bottom;border-left: @awspilot-button-border-left; }
+& .btn-primary { border-top: @awspilot-button-primary-border-top;border-right: @awspilot-button-primary-border-right;border-bottom: @awspilot-button-primary-border-bottom;border-left: @awspilot-button-primary-border-left; }
 & .btn-primary {box-shadow: @awspilot-button-box-shodow}
 & .btn-primary > .icon {fill: @awspilot-button-primary-color;}
 
