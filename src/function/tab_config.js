@@ -13,31 +13,37 @@ export default Ractive.extend({
 
 		<!-- env -->
 		<div style="width: min-height: 300px;padding: 10px;">
-			<div style="background-color: #fff;height: 100%;padding: 10px;">
+			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
 				<h3>Environment variables</h3>
 
 				<table>
 				{{#each updateFunctionConfiguration.Configuration.Environment.Variables:key }}
 					<tr>
-						<td> <input value={{key}} /></td>
-						<td> <input value={{.}}   /></td>
-						<td></td>
+						<td> <input class="input-text" value={{key}} style="min-width: 300px;" /></td>
+						<td> <input class="input-text" value={{.}}   style="min-width: 300px;" /></td>
+						<td>
+							<a class="btn btn-sm btn-default disabled btn-disabled"> Remove </a>
+						</td>
 					</tr>
 				{{/each}}
 				</table>
 			</div>
 		</div>
 
+		<!-- role -->
 		<div style="width: 50%;float: left;height: 300px;padding: 10px;">
-			<div style="background-color: #fff;height: 100%;padding: 10px;">
+			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
 				<h3>Execution role</h3>
 
-				{{getFunction.Configuration.Role}}
+				<select class="input-select" disabled>
+					<option>{{getFunction.Configuration.Role}}</option>
+				</select>
 			</div>
 		</div>
 
+		<!-- desc, mem, timeout -->
 		<div style="width: 50%;float: left;height: 300px;padding: 10px;">
-			<div style="background-color: #fff;height: 100%;padding: 10px;">
+			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
 				<h3>Basic Settings</h3>
 
 				<label>Description</label>
@@ -52,7 +58,7 @@ export default Ractive.extend({
 
 				<label>Timeout (sec) - {{updateFunctionConfiguration.Configuration.Timeout}}</label>
 				<div style="margin-bottom: 15px;">
-					<input type="number" value={{updateFunctionConfiguration.Configuration.Timeout}} style="width: 100%;">
+					<input type="number" class="input-text" value={{updateFunctionConfiguration.Configuration.Timeout}} style="width: 100%;">
 				</div>
 
 				<a class="btn btn-sm btn-primary {{#if dirty_mem || dirty_desc || dirty_timeout }}{{else}}disabled{{/if}}" on-click='save-desc-mem-timeout'>Save</a>
@@ -61,60 +67,67 @@ export default Ractive.extend({
 		</div>
 		<div style="clear: both"></div>
 
-		<table>
-			<tr>
-				<td>FunctionName</td>
-				<td>{{getFunction.Configuration.FunctionName}}</td>
-			</tr>
-			<tr>
-				<td>FunctionArn</td>
-				<td>{{getFunction.Configuration.FunctionArn}}</td>
-			</tr>
-			<tr>
-				<td>Runtime</td>
-				<td>{{getFunction.Configuration.Runtime}}</td>
-			</tr>
-			<tr>
-				<td>Handler</td>
-				<td>{{getFunction.Configuration.Handler}}</td>
-			</tr>
-			<tr>
-				<td>CodeSize</td>
-				<td>{{getFunction.Configuration.CodeSize}}</td>
-			</tr>
-			<tr>
-				<td>LastModified</td>
-				<td>{{getFunction.Configuration.LastModified}}</td>
-			</tr>
-			<tr>
-				<td>CodeSha256</td>
-				<td>{{getFunction.Configuration.CodeSha256}}</td>
-			</tr>
-			<tr>
-				<td>Version</td>
-				<td>{{getFunction.Configuration.Version}}</td>
-			</tr>
-			<tr>
-				<td>RevisionId</td>
-				<td>{{getFunction.Configuration.RevisionId}}</td>
-			</tr>
-			<tr>
-				<td>VpcConfig</td>
-				<td>{{ stringify(getFunction.Configuration.VpcConfig) }}</td>
-			</tr>
-			<tr>
-				<td>KMSKeyArn</td>
-				<td>{{ stringify(getFunction.Configuration.KMSKeyArn) }}</td>
-			</tr>
-			<tr>
-				<td>TracingConfig</td>
-				<td>{{ stringify(getFunction.Configuration.TracingConfig) }}</td>
-			</tr>
-			<tr>
-				<td>MasterArn</td>
-				<td>{{ stringify(getFunction.Configuration.MasterArn) }}</td>
-			</tr>
-		</table>
+
+		<!-- env -->
+		<div style="width: min-height: 300px;padding: 10px;">
+			<div style="height: 100%;padding: 10px;border: 1px solid #fff;">
+				<h3>Other</h3>
+
+				<table>
+					<tr>
+						<td>FunctionArn</td>
+						<td>{{getFunction.Configuration.FunctionArn}}</td>
+					</tr>
+					<tr>
+						<td>Runtime</td>
+						<td>{{getFunction.Configuration.Runtime}}</td>
+					</tr>
+					<tr>
+						<td>Handler</td>
+						<td>{{getFunction.Configuration.Handler}}</td>
+					</tr>
+					<tr>
+						<td>CodeSize</td>
+						<td>{{getFunction.Configuration.CodeSize}}</td>
+					</tr>
+					<tr>
+						<td>LastModified</td>
+						<td>{{getFunction.Configuration.LastModified}}</td>
+					</tr>
+					<tr>
+						<td>CodeSha256</td>
+						<td>{{getFunction.Configuration.CodeSha256}}</td>
+					</tr>
+					<tr>
+						<td>Version</td>
+						<td>{{getFunction.Configuration.Version}}</td>
+					</tr>
+					<tr>
+						<td>RevisionId</td>
+						<td>{{getFunction.Configuration.RevisionId}}</td>
+					</tr>
+					<tr>
+						<td>VpcConfig</td>
+						<td>{{ stringify(getFunction.Configuration.VpcConfig) }}</td>
+					</tr>
+					<tr>
+						<td>KMSKeyArn</td>
+						<td>{{ stringify(getFunction.Configuration.KMSKeyArn) }}</td>
+					</tr>
+					<tr>
+						<td>TracingConfig</td>
+						<td>{{ stringify(getFunction.Configuration.TracingConfig) }}</td>
+					</tr>
+					<tr>
+						<td>MasterArn</td>
+						<td>{{ stringify(getFunction.Configuration.MasterArn) }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
+
 
 
 	`,
