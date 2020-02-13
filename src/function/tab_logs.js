@@ -183,12 +183,14 @@ export default Ractive.extend({
 		},
 
 
+
 		init() {
+
 			var ractive=this;
 
 			this.refresh()
 
-			ractive.on('tabledata.selectrow', function(context) {
+			this.on('tabledata.selectrow', function(context) {
 				var keypath = context.resolve()
 				ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 
@@ -196,8 +198,37 @@ export default Ractive.extend({
 					ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
 				)
 			})
+			this.observe('logs-streams-refresh-interval', function( n, o, kp ) {
+				this.handle_watch_interval()
+			}, { init: false, })
+
+			ractive.handle_watch_interval()
 
 		},
+		teardown() {
+			clearInterval(this.get('log_watch_interval'))
+		}
+	},
+
+	handle_watch_interval() {
+		var repeat_interval = parseInt(this.get('logs-streams-refresh-interval') || 0);
+
+		console.log("handle_watch_interval", repeat_interval )
+
+		clearInterval(this.get('log_watch_interval'))
+
+		if (!Number.isInteger( repeat_interval ))
+			return;
+
+		if (repeat_interval < 1)
+			return;
+
+		this.set({
+			log_watch_interval:setInterval(function() {
+				console.log('refresh logs')
+			}, repeat_interval * 1000 )
+		})
+
 	},
 
 	refresh( silent, cb ) {
@@ -257,6 +288,8 @@ export default Ractive.extend({
 			columns: [ null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB', 'Invocations'],
 			rows: [],
 			raw_log_data: false,
+
+			log_watch_interval: null,
 		}
 	}
 })
