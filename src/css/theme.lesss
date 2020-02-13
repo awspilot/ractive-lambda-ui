@@ -51,13 +51,14 @@
 
 & {background-color: @awspilot-background-color; color: @awspilot-color;}
 
+& left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
+& left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
+& left {box-shadow: @awspilot-window-box-shodow; }
+
 & left > miniheader { height: @awspilot-miniheader-title-height;line-height: @awspilot-miniheader-title-height; }
 & left > miniheader {border-top: @awspilot-miniheader-title-border-top;border-bottom: @awspilot-miniheader-title-border-bottom;}
 & left > miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
 
-& left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
-& left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
-& left {box-shadow: @awspilot-window-box-shodow; }
 
 
 
