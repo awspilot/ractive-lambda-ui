@@ -1,6 +1,6 @@
 {
 	"name": "@awspilot/ractive-lambda-ui",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "ractivejs component to manage lambda functions",
 	"main": "dist/ractive-lambda-ui.min.js",
 	"scripts": {
