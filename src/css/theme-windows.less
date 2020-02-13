@@ -55,6 +55,10 @@
 		@awspilot-panel-border-right: 1px solid #ffffff;
 		@awspilot-panel-border-bottom: 1px solid #ffffff;
 		@awspilot-panel-border-left: 1px solid #808080;
+		@awspilot-panel-box-shadow: none;
+		@awspilot-panel-title-background: transparent;
+		@awspilot-panel-title-border-bottom: 1px solid transparent;
+		@awspilot-panel-body-spacing: 10px;
 
 		@awspilot-tabledatacontrols-background: transparent;
 		@awspilot-tabledatacontrols-border-top: 0px;
@@ -118,7 +122,7 @@
 
 		@awspilot-tabs-background: transparent;
 		@awspilot-tabs-spacing: 0px;
-		/* @awspilot-tabs-height: 29px; */
+		@awspilot-tabs-height: 29px;
 
 		@awspilot-tabs-tab-background: @awspilot-window-background;
 		@awspilot-tabs-tab-color: #55002d;
@@ -126,7 +130,7 @@
 		@awspilot-tabs-tab-border-right: 1px solid #404040;
 		@awspilot-tabs-tab-border-bottom: 0px;
 		@awspilot-tabs-tab-border-left: 1px solid #ffffff;
-		@awspilot-tabs-tab-border-radius: 5px 5px 0px 0px;
+		@awspilot-tabs-tab-border-radius: 0px;
 		@awspilot-tabs-tab-active-background: @awspilot-window-background;
 		@awspilot-tabs-tab-active-color: #55002d;
 
@@ -158,6 +162,25 @@
 		@awspilot-minitablelist-border-left: @awspilot-window-border-left;
 		@awspilot-minitablelist-box-shadow: @awspilot-window-box-shodow;
 
+		/* mini table body */
+		@awspilot-minitablelist-body-background: @awspilot-list-background;
+		@awspilot-minitablelist-body-border-top: @awspilot-list-border-top;
+		@awspilot-minitablelist-body-border-right: @awspilot-list-border-right;
+		@awspilot-minitablelist-body-border-bottom: @awspilot-list-border-bottom;
+		@awspilot-minitablelist-body-border-left: @awspilot-list-border-left;
+		@awspilot-minitablelist-body-box-shadow: @awspilot-list-box-shodow;
+
+		/* main tab content */
+		@awspilot-tabcontent-background: @awspilot-window-background;
+		@awspilot-tabcontent-border-top: 1px solid #fff;
+		@awspilot-tabcontent-border-right: 1px solid #404040;
+		@awspilot-tabcontent-border-bottom: 1px solid #404040;
+		@awspilot-tabcontent-border-left: 1px solid #fff;
+		@awspilot-tabcontent-box-shodow: inset -1px -1px 1px #808080;
+		@awspilot-tabcontent-spacing-top: 0px;
+		@awspilot-tabcontent-spacing-right: 0px;
+		@awspilot-tabcontent-spacing-bottom: 0px;
+		@awspilot-tabcontent-spacing-left: 0px;
 
 		@import (multiple,reference) "theme.less";
 	}
