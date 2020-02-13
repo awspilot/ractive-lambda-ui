@@ -21,7 +21,12 @@
 					<minifunctionlist />
 				</left>
 				<content  style="background-color: transparent;border: 0px;overflow-x: auto;">
-					<tabs active_id='functions' theme={{theme}} cors-proxy={{.['cors-proxy']}} />
+					<tabs
+						active_id='functions'
+						theme={{theme}}
+						cors-proxy={{.['cors-proxy']}}
+						logs-streams-refresh-interval={{~/['logs-streams-refresh-interval']}}
+					/>
 				</content>
 			</hsplit>
 		`,
