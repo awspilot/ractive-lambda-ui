@@ -25,9 +25,9 @@ export default Ractive.extend({
 					<a class="btn btn-xs btn-default" on-click='cancel-empty' > Cancel </a>
 				{{else}}
 					<a class="btn btn-xs btn-default" on-click='empty' > Empty </a>
+					<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click='delete'{{/if}}> <icon-trash /> </a>
+					<a class="btn btn-xs btn-default" on-click='refresh' > <icon-refresh /> </a>
 				{{/if}}
-				<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" {{#if selection_length > 0 }}on-click='delete'{{/if}}> <icon-trash /> </a>
-				<a class="btn btn-xs btn-default" on-click='refresh' > <icon-refresh /> </a>
 
 			{{/if}}
 		</div>
@@ -211,6 +211,8 @@ export default Ractive.extend({
 	},
 
 	handle_watch_interval() {
+		var ractive=this;
+
 		var repeat_interval = parseInt(this.get('logs-streams-refresh-interval') || 0);
 
 		console.log("handle_watch_interval", repeat_interval )
@@ -225,7 +227,7 @@ export default Ractive.extend({
 
 		this.set({
 			log_watch_interval:setInterval(function() {
-				console.log('refresh logs')
+				ractive.background_refresh()
 			}, repeat_interval * 1000 )
 		})
 
@@ -273,6 +275,7 @@ export default Ractive.extend({
 						{ HASH: l.extra.stream || l.logStreamName, item: l, },
 						{ S: l.extra.version },
 						{ S: new Date(l.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(l.lastEventTimestamp).toLocaleTimeString()  },
+						{ S: new Date(l.lastIngestionTime).toLocaleDateString() + ' ' + new Date(l.lastIngestionTime).toLocaleTimeString()  },
 						{ N: Math.ceil(l.storedBytes/1024) },
 						{ S: '-' },
 					]
@@ -283,9 +286,72 @@ export default Ractive.extend({
 		});
 	},
 
+
+	background_refresh(  ) {
+		var ractive=this;
+
+		if (ractive.get('emptying'))
+			return;
+
+		var params = {
+			logGroupName: '/aws/lambda/' + this.get('function.name'),
+			descending: true,
+			//limit: 'NUMBER_VALUE',
+			//logStreamNamePrefix: 'STRING_VALUE',
+			//nextToken: 'STRING_VALUE',
+			orderBy: 'LastEventTime', // LogStreamName | LastEventTime
+		};
+
+
+
+		cloudwatchlogs.describeLogStreams(params, function(err, data) {
+			if (err)
+				return console.log(err);
+
+			//console.log("refreshed")
+			//console.log(data.logStreams)
+
+			var rows = ractive.get('rows')
+
+			if (!rows)
+				return;
+
+			if (ractive.get('emptying'))
+				return;
+
+			//console.log('display rows', rows )
+
+			rows = rows.map(function(r) {
+				data.logStreams.map(function( dbr ) {
+
+					// found match
+					if (dbr.logStreamName === r[0].item.logStreamName) {
+
+						if (dbr.lastEventTimestamp !== r[0].item.lastEventTimestamp ) {
+							console.log("found diff in lastEventTimestamp", r[0].item.lastEventTimestamp, dbr.lastEventTimestamp )
+							r[3] = { S: new Date(dbr.lastEventTimestamp).toLocaleDateString() + ' ' + new Date(dbr.lastEventTimestamp).toLocaleTimeString()  };
+						}
+						if (dbr.lastIngestionTime !== r[0].item.lastIngestionTime ) {
+							console.log("found diff in lastIngestionTime", r[0].item.lastIngestionTime, dbr.lastIngestionTime )
+							r[4] = { S: new Date(dbr.lastIngestionTime).toLocaleDateString() + ' ' + new Date(dbr.lastIngestionTime).toLocaleTimeString()  };
+						}
+
+						r[0].item = dbr;
+
+					}
+				})
+				return r;
+			})
+
+			ractive.set({rows})
+
+		});
+	},
+
+
 	data: function() {
 		return {
-			columns: [ null, 'Log Streams', 'Version', 'Last Event Time', 'Size KB', 'Invocations'],
+			columns: [ null, 'Log Streams', 'Version', 'Last Event Time', 'Last Ingestion Time', 'Size KB', 'Invocations'],
 			rows: [],
 			raw_log_data: false,
 
